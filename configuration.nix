@@ -1,10 +1,16 @@
-{ config, pkgs, inputs, lib, ... }:
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.home-manager
-    ];
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
+{
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.home-manager
+  ];
 
   # Bootloader.
   boot.loader.grub = {
@@ -13,16 +19,23 @@
     efiSupport = true;
     useOSProber = true;
     extraEntries = ''
-    menuentry "UEFI Firmware Settings" {
-        fwsetup
-    }
+      menuentry "UEFI Firmware Settings" {
+          fwsetup
+      }
     '';
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
   # da kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.initrd.kernelModules = [ "i915" "btrfs" "nvme" "sd-mod" "xhci_pci" "thunderbolt" ];
+  boot.initrd.kernelModules = [
+    "i915"
+    "btrfs"
+    "nvme"
+    "sd-mod"
+    "xhci_pci"
+    "thunderbolt"
+  ];
   boot.kernelParams = [
     "i915.enable_dc=2"
     "i915.enable_psr=1"
@@ -94,17 +107,17 @@
     extraConfig.pipewire = {
       "context.modules" = [
         {
-	        name = "libpipewire-module-bluez5";
-	        args = {
-	          "bluez5.codecs" = [
-	            "sbc"
-	            "aac"
-	            "aptx"
-	            "aptx_hd"
-	            "ldac"
-	          ];
-	        };
-	      }
+          name = "libpipewire-module-bluez5";
+          args = {
+            "bluez5.codecs" = [
+              "sbc"
+              "aac"
+              "aptx"
+              "aptx_hd"
+              "ldac"
+            ];
+          };
+        }
       ];
     };
   };
@@ -114,7 +127,11 @@
     shell = pkgs.fish;
     isNormalUser = true;
     description = "Bwop";
-    extraGroups = [ "networkmanager" "wheel" "video" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+    ];
     packages = with pkgs; [
     ];
   };
@@ -123,8 +140,8 @@
     useGlobalPkgs = true;
     useUserPackages = false;
     extraSpecialArgs = { inherit inputs; };
-      users = {
-        "bwop" = import ./home.nix;
+    users = {
+      "bwop" = import ./home.nix;
     };
   };
 
@@ -220,13 +237,16 @@
       pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gtk
     ];
-    config.niri.default = lib.mkForce [ "hyprland" "gtk" ];
+    config.niri.default = lib.mkForce [
+      "hyprland"
+      "gtk"
+    ];
   };
 
   programs.xwayland.enable = true;
-  
+
   # Polkit
-  security.polkit.enable = true;  
+  security.polkit.enable = true;
   systemd.user.services.polkit-gnome-authentication-agent-1 = {
     description = "polkit-gnome-authentication-agent-1";
     wantedBy = [ "graphical-session.target" ];
@@ -298,7 +318,10 @@
   };
 
   # Good stuff
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Firewall
   networking.nftables.enable = true;
