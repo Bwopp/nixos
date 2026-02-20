@@ -576,7 +576,7 @@
       };
 
       mouse = {
-        accel-speed = 0.0;
+        accel-speed = -0.5;
         accel-profile = "flat";
       };
     };
@@ -786,7 +786,9 @@
       }
       {
         matches = [
-          { app-id = "^steam_app_.*$"; }
+          { app-id = "^firefox$"; }
+          { app-id = "^floorp$"; }
+          { app-id = "^chromium-browser$"; }
         ];
         open-maximized = true;
       }
