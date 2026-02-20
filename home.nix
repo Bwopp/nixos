@@ -784,6 +784,7 @@
         };
       }
     ];
+    
    # Remove the thing at startup
    hotkey-overlay.skip-at-startup = true;
   };
