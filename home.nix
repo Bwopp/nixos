@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 {
   home.username = "bwop";
   home.homeDirectory = "/home/bwop";
@@ -486,7 +491,11 @@
         autoHideMs = 2000;
         overlayLayer = true;
         backgroundOpacity = 1;
-        enabledTypes = [ 0 1 2 ];
+        enabledTypes = [
+          0
+          1
+          2
+        ];
         monitors = [ ];
       };
 
@@ -584,7 +593,7 @@
     };
 
     environment = {
-      NIRI_BACKGROUND_COLOR = "000000";  # Black (hex color without #)
+      NIRI_BACKGROUND_COLOR = "000000"; # Black (hex color without #)
     };
 
     cursor = {
@@ -618,7 +627,9 @@
         { proportion = 0.5; }
         { proportion = 0.66667; }
       ];
-      default-column-width = { proportion = 0.5; };
+      default-column-width = {
+        proportion = 0.5;
+      };
     };
 
     # Decorations
@@ -633,7 +644,13 @@
 
     # Laptop Lid
     switch-events = {
-      lid-close.action.spawn = [ "noctalia-shell" "ipc" "call" "sessionMenu" "lockAndSuspend" ];
+      lid-close.action.spawn = [
+        "noctalia-shell"
+        "ipc"
+        "call"
+        "sessionMenu"
+        "lockAndSuspend"
+      ];
     };
 
     # Keybinds
@@ -642,71 +659,77 @@
 
       # Launch applications
       "Mod+Return".action.spawn = [ "alacritty" ];
-      "Mod+D".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "toggle" ];
+      "Mod+D".action.spawn = [
+        "noctalia-shell"
+        "ipc"
+        "call"
+        "launcher"
+        "toggle"
+      ];
       "Mod+E".action.spawn = [ "dolphin" ];
       "Mod+W".action.spawn = [ "floorp" ];
 
       # Window management
-      "Mod+Q".action.close-window = [];
-      "Mod+O".action.toggle-overview = [];
+      "Mod+Q".action.close-window = [ ];
+      "Mod+O".action.toggle-overview = [ ];
 
       # Focus movement
-      "Mod+H".action.focus-column-left = [];
-      "Mod+Left".action.focus-column-left = [];
-      "Mod+J".action.focus-window-down = [];
-      "Mod+Down".action.focus-window-down = [];
-      "Mod+K".action.focus-window-up = [];
-      "Mod+Up".action.focus-window-up = [];
-      "Mod+L".action.focus-column-right = [];
-      "Mod+Right".action.focus-column-right = [];
+      "Mod+H".action.focus-column-left = [ ];
+      "Mod+Left".action.focus-column-left = [ ];
+      "Mod+J".action.focus-window-down = [ ];
+      "Mod+Down".action.focus-window-down = [ ];
+      "Mod+K".action.focus-window-up = [ ];
+      "Mod+Up".action.focus-window-up = [ ];
+      "Mod+L".action.focus-column-right = [ ];
+      "Mod+Right".action.focus-column-right = [ ];
 
       # Move windows
-      "Mod+Shift+H".action.move-column-left = [];
-      "Mod+Shift+Left".action.move-column-left = [];
-      "Mod+Shift+J".action.move-window-down = [];
-      "Mod+Shift+Down".action.move-window-down = [];
-      "Mod+Shift+K".action.move-window-up = [];
-      "Mod+Shift+Up".action.move-window-up = [];
-      "Mod+Shift+L".action.move-column-right = [];
-      "Mod+Shift+Right".action.move-column-right = [];
+      "Mod+Shift+H".action.move-column-left = [ ];
+      "Mod+Shift+Left".action.move-column-left = [ ];
+      "Mod+Shift+J".action.move-window-down = [ ];
+      "Mod+Shift+Down".action.move-window-down = [ ];
+      "Mod+Shift+K".action.move-window-up = [ ];
+      "Mod+Shift+Up".action.move-window-up = [ ];
+      "Mod+Shift+L".action.move-column-right = [ ];
+      "Mod+Shift+Right".action.move-column-right = [ ];
 
       # Focus monitor
-      "Mod+Ctrl+H".action.focus-monitor-left = [];
-      "Mod+Ctrl+Left".action.focus-monitor-left = [];
-      "Mod+Ctrl+J".action.focus-monitor-down = [];
-      "Mod+Ctrl+Down".action.focus-monitor-down = [];
-      "Mod+Ctrl+K".action.focus-monitor-up = [];
-      "Mod+Ctrl+Up".action.focus-monitor-up = [];
-      "Mod+Ctrl+L".action.focus-monitor-right = [];
-      "Mod+Ctrl+Right".action.focus-monitor-right = [];
+      "Mod+Ctrl+H".action.focus-monitor-left = [ ];
+      "Mod+Ctrl+Left".action.focus-monitor-left = [ ];
+      "Mod+Ctrl+J".action.focus-monitor-down = [ ];
+      "Mod+Ctrl+Down".action.focus-monitor-down = [ ];
+      "Mod+Ctrl+K".action.focus-monitor-up = [ ];
+      "Mod+Ctrl+Up".action.focus-monitor-up = [ ];
+      "Mod+Ctrl+L".action.focus-monitor-right = [ ];
+      "Mod+Ctrl+Right".action.focus-monitor-right = [ ];
 
       # Move window to monitor
-      "Mod+Shift+Ctrl+H".action.move-column-to-monitor-left = [];
-      "Mod+Shift+Ctrl+Left".action.move-column-to-monitor-left = [];
-      "Mod+Shift+Ctrl+J".action.move-column-to-monitor-down = [];
-      "Mod+Shift+Ctrl+Down".action.move-column-to-monitor-down = [];
-      "Mod+Shift+Ctrl+K".action.move-column-to-monitor-up = [];
-      "Mod+Shift+Ctrl+Up".action.move-column-to-monitor-up = [];
-      "Mod+Shift+Ctrl+L".action.move-column-to-monitor-right = [];
-      "Mod+Shift+Ctrl+Right".action.move-column-to-monitor-right = [];
+      "Mod+Shift+Ctrl+H".action.move-column-to-monitor-left = [ ];
+      "Mod+Shift+Ctrl+Left".action.move-column-to-monitor-left = [ ];
+      "Mod+Shift+Ctrl+J".action.move-column-to-monitor-down = [ ];
+      "Mod+Shift+Ctrl+Down".action.move-column-to-monitor-down = [ ];
+      "Mod+Shift+Ctrl+K".action.move-column-to-monitor-up = [ ];
+      "Mod+Shift+Ctrl+Up".action.move-column-to-monitor-up = [ ];
+      "Mod+Shift+Ctrl+L".action.move-column-to-monitor-right = [ ];
+      "Mod+Shift+Ctrl+Right".action.move-column-to-monitor-right = [ ];
 
       # Workspaces
-      "Mod+Page_Down".action.focus-workspace-down = [];
-      "Mod+Page_Up".action.focus-workspace-up = [];
-      "Mod+U".action.focus-workspace-down = [];
-      "Mod+I".action.focus-workspace-up = [];
+      "Mod+Page_Down".action.focus-workspace-down = [ ];
+      "Mod+Page_Up".action.focus-workspace-up = [ ];
+      "Mod+U".action.focus-workspace-down = [ ];
+      "Mod+I".action.focus-workspace-up = [ ];
 
       # Move to workspace
-      "Mod+Ctrl+Page_Down".action.move-column-to-workspace-down = [];
-      "Mod+Ctrl+Page_Up".action.move-column-to-workspace-up = [];
-      "Mod+Ctrl+U".action.move-column-to-workspace-down = [];
-      "Mod+Ctrl+I".action.move-column-to-workspace-up = [];
+      "Mod+Ctrl+Page_Down".action.move-column-to-workspace-down = [ ];
+      "Mod+Ctrl+Page_Up".action.move-column-to-workspace-up = [ ];
+      "Mod+Ctrl+U".action.move-column-to-workspace-down = [ ];
+      "Mod+Ctrl+I".action.move-column-to-workspace-up = [ ];
 
       # Move window to workspace and switch
-      "Mod+Shift+Page_Down".action.move-window-to-workspace-down = [];
-      "Mod+Shift+Page_Up".action.move-window-to-workspace-up = [];
-      "Mod+Shift+U".action.move-window-to-workspace-down = [];
-      "Mod+Shift+I".action.move-window-to-workspace-up = [];
+      "Mod+Shift+Page_Down".action.move-window-to-workspace-down = [ ];
+      "Mod+Shift+Page_Up".action.move-window-to-workspace-up = [ ];
+      "Mod+Shift+U".action.move-window-to-workspace-down = [ ];
+      "Mod+Shift+I".action.move-window-to-workspace-up = [ ];
 
       # Focus workspace by index
       "Mod+1".action.focus-workspace = 1;
@@ -731,11 +754,11 @@
       "Mod+Shift+9".action.move-column-to-workspace = 9;
 
       # Column width adjustments
-      "Mod+R".action.switch-preset-column-width = [];
-      "Mod+Shift+R".action.reset-window-height = [];
-      "Mod+F".action.maximize-column = [];
-      "Mod+Shift+F".action.fullscreen-window = [];
-      "Mod+C".action.center-column = [];
+      "Mod+R".action.switch-preset-column-width = [ ];
+      "Mod+Shift+R".action.reset-window-height = [ ];
+      "Mod+F".action.maximize-column = [ ];
+      "Mod+Shift+F".action.fullscreen-window = [ ];
+      "Mod+C".action.center-column = [ ];
 
       # Sizing with +/- and brackets
       "Mod+Minus".action.set-column-width = "-10%";
@@ -744,42 +767,99 @@
       "Mod+Shift+Equal".action.set-window-height = "+10%";
 
       # Comma and Period for workspace switching
-      "Mod+Comma".action.consume-window-into-column = [];
-      "Mod+Period".action.expel-window-from-column = [];
+      "Mod+Comma".action.consume-window-into-column = [ ];
+      "Mod+Period".action.expel-window-from-column = [ ];
 
       # Screenshots
-      "XF86SelectiveScreenshot".action.screenshot = [];
-      "Ctrl+XF86SelectiveScreenshot".action.screenshot-screen = [];
-      "Alt+XF86SelectiveScreenshot".action.screenshot-window = [];
+      "XF86SelectiveScreenshot".action.screenshot = [ ];
+      "Ctrl+XF86SelectiveScreenshot".action.screenshot-screen = [ ];
+      "Alt+XF86SelectiveScreenshot".action.screenshot-window = [ ];
 
       # System/Session
-      "Mod+Shift+E".action.quit = [];
-      "Mod+Shift+P".action.power-off-monitors = [];
+      "Mod+Shift+E".action.quit = [ ];
+      "Mod+Shift+P".action.power-off-monitors = [ ];
 
       # Focus workspace previous/next
-      "Mod+Tab".action.focus-workspace-previous = [];
+      "Mod+Tab".action.focus-workspace-previous = [ ];
 
       # Miscellaneous
-      "Mod+Shift+Slash".action.show-hotkey-overlay = [];
+      "Mod+Shift+Slash".action.show-hotkey-overlay = [ ];
 
       # Brightness controls
-      "XF86MonBrightnessUp".action.spawn = [ "noctalia-shell" "ipc" "call" "brightness" "increase" ];
-      "XF86MonBrightnessDown".action.spawn = [ "noctalia-shell" "ipc" "call" "brightness" "decrease" ];
+      "XF86MonBrightnessUp".action.spawn = [
+        "noctalia-shell"
+        "ipc"
+        "call"
+        "brightness"
+        "increase"
+      ];
+      "XF86MonBrightnessDown".action.spawn = [
+        "noctalia-shell"
+        "ipc"
+        "call"
+        "brightness"
+        "decrease"
+      ];
 
       # Volume controls
-      "XF86AudioRaiseVolume".action.spawn = [ "noctalia-shell" "ipc" "call" "volume" "increase" ];
-      "XF86AudioLowerVolume".action.spawn = [ "noctalia-shell" "ipc" "call" "volume" "decrease" ];
-      "XF86AudioMute".action.spawn = [ "noctalia-shell" "ipc" "call" "volume" "muteOutput" ];
-      "XF86AudioMicMute".action.spawn = [ "noctalia-shell" "ipc" "call" "volume" "muteInput"  ];
+      "XF86AudioRaiseVolume".action.spawn = [
+        "noctalia-shell"
+        "ipc"
+        "call"
+        "volume"
+        "increase"
+      ];
+      "XF86AudioLowerVolume".action.spawn = [
+        "noctalia-shell"
+        "ipc"
+        "call"
+        "volume"
+        "decrease"
+      ];
+      "XF86AudioMute".action.spawn = [
+        "noctalia-shell"
+        "ipc"
+        "call"
+        "volume"
+        "muteOutput"
+      ];
+      "XF86AudioMicMute".action.spawn = [
+        "noctalia-shell"
+        "ipc"
+        "call"
+        "volume"
+        "muteInput"
+      ];
 
       # Useless laptop buttons given a use
-      "Super+Shift+XF86TouchpadOff".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "toggle" ];
+      "Super+Shift+XF86TouchpadOff".action.spawn = [
+        "noctalia-shell"
+        "ipc"
+        "call"
+        "launcher"
+        "toggle"
+      ];
       "XF86Calculator".action.spawn = [ "kcalc" ];
 
       # Nice to have binds
-      "Mod+V".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "clipboard" ];
-      "Mod+Alt+L".action.spawn = [ "noctalia-shell" "ipc" "call" "lockScreen" "lock" ];
-      "XF86Favorites".action.spawn = [ "code" "/etc/nixos" ];
+      "Mod+V".action.spawn = [
+        "noctalia-shell"
+        "ipc"
+        "call"
+        "launcher"
+        "clipboard"
+      ];
+      "Mod+Alt+L".action.spawn = [
+        "noctalia-shell"
+        "ipc"
+        "call"
+        "lockScreen"
+        "lock"
+      ];
+      "XF86Favorites".action.spawn = [
+        "code"
+        "/etc/nixos"
+      ];
     };
 
     # Window rules
@@ -787,12 +867,16 @@
       {
         # Rounded corners to make it not look dumb on display that for some reason has rounded corners
         clip-to-geometry = true;
-        geometry-corner-radius = let radius = 12.0; in {
-          top-left = radius;
-          top-right = radius;
-          bottom-left = radius;
-          bottom-right = radius;
-        };
+        geometry-corner-radius =
+          let
+            radius = 12.0;
+          in
+          {
+            top-left = radius;
+            top-right = radius;
+            bottom-left = radius;
+            bottom-right = radius;
+          };
       }
       {
         matches = [
@@ -804,7 +888,7 @@
       }
     ];
 
-   # Remove the thing at startup
-   hotkey-overlay.skip-at-startup = true;
+    # Remove the thing at startup
+    hotkey-overlay.skip-at-startup = true;
   };
 }
