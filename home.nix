@@ -584,6 +584,11 @@
     cursor.size = 64;
 
     # Laptop Display
+
+
+
+
+    
     outputs = {
       "eDP-1" = {
         mode = {
