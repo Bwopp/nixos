@@ -583,6 +583,7 @@
 
     cursor.size = 64;
 
+    # Laptop Display
     outputs = {
       "eDP-1" = {
         mode = {
@@ -784,7 +785,7 @@
         };
       }
     ];
-    
+
    # Remove the thing at startup
    hotkey-overlay.skip-at-startup = true;
   };
