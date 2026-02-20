@@ -55,7 +55,7 @@
       bar = {
         barType = "simple";
         density = "compact";
-        position = "bottom";
+        position = "top";
         monitors = [ ];
         showOutline = false;
         showCapsule = false;
@@ -92,6 +92,7 @@
               id = "MediaMini";
               showVisualizer = true;
               showArtistFirst = false;
+              maximumWidth = 300;
             }
           ];
           center = [
@@ -112,15 +113,16 @@
               showPowerProfiles = true;
             }
             {
+              id = "NotificationHistory";
+            }
+            {
               formatHorizontal = "HH:mm";
               formatVertical = "HH mm";
               id = "Clock";
               useMonospacedFont = true;
               usePrimaryColor = true;
             }
-            {
-              id = "NotificationHistory";
-            }
+
           ];
         };
         screenOverrides = [ ];
@@ -143,7 +145,7 @@
         lockOnSuspend = true;
         showSessionButtonsOnLockScreen = true;
         showHibernateOnLockScreen = false;
-        enableShadows = true;
+        enableShadows = false;
         shadowDirection = "bottom_right";
         shadowOffsetX = 2;
         shadowOffsetY = 3;
@@ -581,6 +583,10 @@
       };
     };
 
+    environment = {
+      NIRI_BACKGROUND_COLOR = "000000";  # Black (hex color without #)
+    };
+
     cursor = {
       size = 20;
       theme = "breeze_cursors";
@@ -594,6 +600,8 @@
           refresh = 120.001;
         };
         scale = 1.74;
+        backdrop-color = "#000000";
+        background-color = "#000000";
       };
     };
 
