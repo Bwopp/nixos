@@ -570,7 +570,7 @@
         tap = true;
         natural-scroll = true;
         dwt = true;
-        accel-speed = 0.2;
+        accel-speed = 0.5;
         accel-profile = "flat";
         click-method = "clickfinger";
       };
@@ -591,7 +591,7 @@
           height = 1876;
           refresh = 120.001;
         };
-        scale = 1.75;
+        scale = 1.74;
       };
     };
 
@@ -783,6 +783,12 @@
           bottom-left = radius;
           bottom-right = radius;
         };
+      }
+      {
+        matches = [
+          { app-id = "^steam_app_.*$"; }
+        ];
+        open-maximized = true;
       }
     ];
 
