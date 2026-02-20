@@ -191,6 +191,7 @@
     gamescope
     kdePackages.dolphin
     kdePackages.gwenview
+    kdePackages.breeze
   ];
 
   programs.firefox = {

@@ -581,8 +581,10 @@
       };
     };
 
-    cursor.size = 64;
-
+    cursor = {
+      size = 20;
+      theme = "breeze_cursors";
+    };
     # Laptop Display
     outputs = {
       "eDP-1" = {
