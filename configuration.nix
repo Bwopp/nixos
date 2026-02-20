@@ -208,6 +208,9 @@
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
     gamescopeSession.enable = true;
+    package = pkgs.steam.override {
+      extraArgs = "-system-composer";
+    };
   };
 
   # Stuff for screensharing
