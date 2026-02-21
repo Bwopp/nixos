@@ -52,6 +52,7 @@
         };
       };
       version = 2;
+      autoUpdate = true;
     };
 
     pluginSettings = {
@@ -88,9 +89,17 @@
             {
               id = "ControlCenter";
               useDistroLogo = true;
+              colorizeDistroLogo = false;
+              colorizeSystemIcon = "none";
+              customIconPath = "";
+              enableColorization = false;
+              icon = "noctalia";
             }
             {
+              displayMode = "onhover";
+              iconColor = "none";
               id = "Network";
+              textColor = "none";
             }
             {
               defaultSettings = {
@@ -106,37 +115,85 @@
               id = "plugin:tailscale";
             }
             {
+              displayMode = "onhover";
+              iconColor = "none";
               id = "Bluetooth";
+              textColor = "none";
             }
             {
+              displayMode = "onhover";
+              iconColor = "none";
               id = "Volume";
+              middleClickCommand = "pwvucontrol || pavucontrol";
+              textColor = "none";
             }
             {
+              compactMode = false;
+              compactShowAlbumArt = true;
+              compactShowVisualizer = false;
+              hideMode = "hidden";
+              hideWhenIdle = false;
               id = "MediaMini";
-              showVisualizer = true;
+              maxWidth = 145;
+              panelShowAlbumArt = true;
+              panelShowVisualizer = true;
+              scrollingMode = "hover";
+              showAlbumArt = true;
               showArtistFirst = false;
-              maximumWidth = 300;
+              showProgressRing = true;
+              showVisualizer = true;
+              textColor = "none";
+              useFixedWidth = false;
+              visualizerType = "linear";
             }
           ];
           center = [
             {
+              characterCount = 2;
+              colorizeIcons = false;
+              emptyColor = "secondary";
+              enableScrollWheel = true;
+              focusedColor = "primary";
+              followFocusedScreen = false;
+              groupedBorderOpacity = 1;
               hideUnoccupied = false;
+              iconScale = 0.8;
               id = "Workspace";
               labelMode = "none";
+              occupiedColor = "secondary";
+              pillSize = 0.6;
+              showApplications = false;
+              showBadge = true;
+              showLabelsOnlyWhenOccupied = true;
+              unfocusedIconsOpacity = 1;
             }
           ];
           right = [
             {
+              blacklist = [];
+              chevronColor = "none";
+              colorizeIcons = false;
+              drawerEnabled = true;
+              hidePassive = false;
               id = "Tray";
+              pinned = [];
             }
             {
-              alwaysShowPercentage = true;
+              deviceNativePath = "__default__";
+              displayMode = "graphic-clean";
+              hideIfIdle = false;
+              hideIfNotDetected = true;
               id = "Battery";
-              warningThreshold = 30;
+              showNoctaliaPerformance = false;
               showPowerProfiles = true;
             }
             {
+              hideWhenZero = false;
+              hideWhenZeroUnread = false;
+              iconColor = "none";
               id = "NotificationHistory";
+              showUnreadBadge = true;
+              unreadBadgeColor = "primary";
             }
             {
               defaultSettings = {
@@ -148,13 +205,14 @@
               id = "plugin:timer";
             }
             {
+              clockColor = "none";
+              customFont = "";
               formatHorizontal = "HH:mm";
               formatVertical = "HH mm";
               id = "Clock";
-              useMonospacedFont = true;
-              usePrimaryColor = true;
+              tooltipFormat = "HH:mm ddd, MMM dd";
+              useCustomFont = false;
             }
-
           ];
         };
         screenOverrides = [ ];
@@ -408,7 +466,7 @@
 
       dock = {
         enabled = true;
-        position = "right";
+        position = "left";
         displayMode = "auto_hide";
         dockType = "floating";
         backgroundOpacity = 1;
@@ -809,80 +867,23 @@
       "Mod+Shift+Slash".action.show-hotkey-overlay = [ ];
 
       # Brightness controls
-      "XF86MonBrightnessUp".action.spawn = [
-        "noctalia-shell"
-        "ipc"
-        "call"
-        "brightness"
-        "increase"
-      ];
-      "XF86MonBrightnessDown".action.spawn = [
-        "noctalia-shell"
-        "ipc"
-        "call"
-        "brightness"
-        "decrease"
-      ];
+      "XF86MonBrightnessUp".action.spawn = [ "brightnessctl" "set" "+5%" ];
+      "XF86MonBrightnessDown".action.spawn = [ "brightnessctl" "set" "5%-" ];
 
       # Volume controls
-      "XF86AudioRaiseVolume".action.spawn = [
-        "noctalia-shell"
-        "ipc"
-        "call"
-        "volume"
-        "increase"
-      ];
-      "XF86AudioLowerVolume".action.spawn = [
-        "noctalia-shell"
-        "ipc"
-        "call"
-        "volume"
-        "decrease"
-      ];
-      "XF86AudioMute".action.spawn = [
-        "noctalia-shell"
-        "ipc"
-        "call"
-        "volume"
-        "muteOutput"
-      ];
-      "XF86AudioMicMute".action.spawn = [
-        "noctalia-shell"
-        "ipc"
-        "call"
-        "volume"
-        "muteInput"
-      ];
+      "XF86AudioRaiseVolume".action.spawn = [ "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+" ];
+      "XF86AudioLowerVolume".action.spawn = [ "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-" ];
+      "XF86AudioMute".action.spawn = [ "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle" ];
+      "XF86AudioMicMute".action.spawn = [ "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle" ];
 
       # Useless laptop buttons given a use
-      "Super+Shift+XF86TouchpadOff".action.spawn = [
-        "noctalia-shell"
-        "ipc"
-        "call"
-        "launcher"
-        "toggle"
-      ];
+      "Super+Shift+XF86TouchpadOff".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "toggle" ];
       "XF86Calculator".action.spawn = [ "kcalc" ];
 
       # Nice to have binds
-      "Mod+V".action.spawn = [
-        "noctalia-shell"
-        "ipc"
-        "call"
-        "launcher"
-        "clipboard"
-      ];
-      "Mod+Alt+L".action.spawn = [
-        "noctalia-shell"
-        "ipc"
-        "call"
-        "lockScreen"
-        "lock"
-      ];
-      "XF86Favorites".action.spawn = [
-        "code"
-        "/etc/nixos"
-      ];
+      "Mod+V".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "clipboard" ];
+      "Mod+Alt+L".action.spawn = [ "noctalia-shell" "ipc" "call" "lockScreen" "lock" ];
+      "XF86Favorites".action.spawn = [ "code" "/etc/nixos" ];
     };
 
     # Window rules
