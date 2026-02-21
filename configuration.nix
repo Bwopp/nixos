@@ -209,6 +209,8 @@
     kdePackages.dolphin
     kdePackages.gwenview
     kdePackages.breeze
+    kdePackages.ark
+    balatro-mod-manager
   ];
 
   programs.firefox = {
@@ -234,15 +236,14 @@
   xdg.portal = {
     enable = true;
     extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gnome
     ];
     config.niri.default = lib.mkForce [
-      "hyprland"
-      "gtk"
+      "gnome"
     ];
   };
-
+  environment.pathsToLink = [ "/share/application" "/share/xdg-desktop-portal" ];
+  
   programs.xwayland.enable = true;
 
   # Polkit

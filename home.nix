@@ -31,6 +31,7 @@
 
   programs.noctalia-shell = {
     enable = true;
+    systemd.enable = true;
 
     plugins = {
       sources = [
@@ -41,8 +42,12 @@
         }
       ];
       states = {
-        polkit-agent = {
-          enabled = false;
+        timer = {
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
+        tailscale = {
+          enabled = true;
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
       };
@@ -88,6 +93,19 @@
               id = "Network";
             }
             {
+              defaultSettings = {
+                compactMode = false;
+                defaultPeerAction = "copy-ip";
+                hideDisconnected = false;
+                pingCount = 5;
+                refreshInterval = 5000;
+                showIpAddress = true;
+                showPeerCount = true;
+                terminalCommand = "";
+              };
+              id = "plugin:tailscale";
+            }
+            {
               id = "Bluetooth";
             }
             {
@@ -119,6 +137,15 @@
             }
             {
               id = "NotificationHistory";
+            }
+            {
+              defaultSettings = {
+                compactMode = false;
+                defaultDuration = 0;
+                iconColor = "none";
+                textColor = "none";
+              };
+              id = "plugin:timer";
             }
             {
               formatHorizontal = "HH:mm";
@@ -230,7 +257,7 @@
 
       wallpaper = {
         enabled = true;
-        overviewEnabled = false;
+        overviewEnabled = true;
         directory = "/home/bwop/Pictures/walls";
         monitorDirectories = [ ];
         enableMultiMonitorDirectories = false;
@@ -553,10 +580,6 @@
         session = "";
       };
 
-      plugins = {
-        autoUpdate = true;
-      };
-
       desktopWidgets = {
         enabled = false;
         gridSnap = false;
@@ -639,7 +662,7 @@
 
     # Start Stuff
     spawn-at-startup = [
-      { command = [ "noctalia-shell" ]; }
+      # { command = [ "noctalia-shell" ]; }
     ];
 
     # Laptop Lid
@@ -885,6 +908,13 @@
           { app-id = "^chromium-browser$"; }
         ];
         open-maximized = true;
+      }
+    ];
+
+    layer-rules = [
+      {
+        matches = [ { namespace = "^noctalia-overview*"; } ];
+        place-within-backdrop = true;
       }
     ];
 
