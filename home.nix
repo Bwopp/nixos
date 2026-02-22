@@ -205,7 +205,7 @@
               id = "plugin:timer";
             }
             {
-              clockColor = "none";
+              clockColor = "none";  
               customFont = "";
               formatHorizontal = "HH:mm";
               formatVertical = "HH mm";
@@ -674,7 +674,7 @@
     };
 
     environment = {
-      NIRI_BACKGROUND_COLOR = "000000"; # Black (hex color without #)
+      NIRI_BACKGROUND_COLOR = "000000";
     };
 
     cursor = {
@@ -747,7 +747,7 @@
         "launcher"
         "toggle"
       ];
-      "Mod+E".action.spawn = [ "dolphin" ];
+      "Mod+E".action.spawn = [ "nautilus" ];
       "Mod+W".action.spawn = [ "floorp" ];
 
       # Window management
@@ -878,7 +878,7 @@
 
       # Useless laptop buttons given a use
       "Super+Shift+XF86TouchpadOff".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "toggle" ];
-      "XF86Calculator".action.spawn = [ "kcalc" ];
+      "XF86Calculator".action.spawn = [ "gnome-calculator" ];
 
       # Nice to have binds
       "Mod+V".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "clipboard" ];

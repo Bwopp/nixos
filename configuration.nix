@@ -184,7 +184,6 @@
     mangohud
     vulkan-tools
     mesa
-    kdePackages.kcalc
     syncthing
     syncthingtray
     protonplus
@@ -207,11 +206,16 @@
     polkit_gnome
     cliphist
     gamescope
-    kdePackages.dolphin
-    kdePackages.gwenview
     kdePackages.breeze
-    kdePackages.ark
     balatro-mod-manager
+    nautilus
+    loupe
+    file-roller
+    gnome.gvfs
+    adwaita-icon-theme
+    gnome-calculator
+    gnome-text-editor
+    papers
   ];
 
   programs.firefox = {
@@ -220,6 +224,9 @@
   };
 
   programs.localsend.enable = true;
+  services.gvfs.enable = true;
+  services.samba-wsdd.enable = true;
+  services.udisks2.enable = true;
 
   # Steam
   programs.steam = {
