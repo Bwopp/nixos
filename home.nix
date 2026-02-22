@@ -884,6 +884,7 @@
       "Mod+V".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "clipboard" ];
       "Mod+Alt+L".action.spawn = [ "noctalia-shell" "ipc" "call" "lockScreen" "lock" ];
       "XF86Favorites".action.spawn = [ "code" "/etc/nixos" ];
+      "Mod+Shift+Space".action.toggle-window-floating = [ ];
     };
 
     # Window rules
@@ -909,6 +910,19 @@
           { app-id = "^chromium-browser$"; }
         ];
         open-maximized = true;
+      }
+      {
+        matches = [
+          {
+            app-id = "^steam$";
+            title = "^notificationtoasts_\\d+_desktop$";
+          }
+        ];
+        default-floating-position = {
+          x = 10;
+          y = 10;
+          relative-to = "bottom-right";
+        };
       }
     ];
 
