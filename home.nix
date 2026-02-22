@@ -755,43 +755,43 @@
       "Mod+O".action.toggle-overview = [ ];
 
       # Focus movement
-      "Mod+H".action.focus-column-left = [ ];
+      #"Mod+H".action.focus-column-left = [ ];
       "Mod+Left".action.focus-column-left = [ ];
-      "Mod+J".action.focus-window-down = [ ];
+      #"Mod+J".action.focus-window-down = [ ];
       "Mod+Down".action.focus-window-down = [ ];
-      "Mod+K".action.focus-window-up = [ ];
+      #"Mod+K".action.focus-window-up = [ ];
       "Mod+Up".action.focus-window-up = [ ];
-      "Mod+L".action.focus-column-right = [ ];
+      #"Mod+L".action.focus-column-right = [ ];
       "Mod+Right".action.focus-column-right = [ ];
 
       # Move windows
-      "Mod+Shift+H".action.move-column-left = [ ];
+      #"Mod+Shift+H".action.move-column-left = [ ];
       "Mod+Shift+Left".action.move-column-left = [ ];
-      "Mod+Shift+J".action.move-window-down = [ ];
+      #"Mod+Shift+J".action.move-window-down = [ ];
       "Mod+Shift+Down".action.move-window-down = [ ];
-      "Mod+Shift+K".action.move-window-up = [ ];
+      #"Mod+Shift+K".action.move-window-up = [ ];
       "Mod+Shift+Up".action.move-window-up = [ ];
-      "Mod+Shift+L".action.move-column-right = [ ];
+      #"Mod+Shift+L".action.move-column-right = [ ];
       "Mod+Shift+Right".action.move-column-right = [ ];
 
       # Focus monitor
-      "Mod+Ctrl+H".action.focus-monitor-left = [ ];
+      #"Mod+Ctrl+H".action.focus-monitor-left = [ ];
       "Mod+Ctrl+Left".action.focus-monitor-left = [ ];
-      "Mod+Ctrl+J".action.focus-monitor-down = [ ];
+      #"Mod+Ctrl+J".action.focus-monitor-down = [ ];
       "Mod+Ctrl+Down".action.focus-monitor-down = [ ];
-      "Mod+Ctrl+K".action.focus-monitor-up = [ ];
+      #"Mod+Ctrl+K".action.focus-monitor-up = [ ];
       "Mod+Ctrl+Up".action.focus-monitor-up = [ ];
-      "Mod+Ctrl+L".action.focus-monitor-right = [ ];
+      #"Mod+Ctrl+L".action.focus-monitor-right = [ ];
       "Mod+Ctrl+Right".action.focus-monitor-right = [ ];
 
       # Move window to monitor
-      "Mod+Shift+Ctrl+H".action.move-column-to-monitor-left = [ ];
+      #"Mod+Shift+Ctrl+H".action.move-column-to-monitor-left = [ ];
       "Mod+Shift+Ctrl+Left".action.move-column-to-monitor-left = [ ];
-      "Mod+Shift+Ctrl+J".action.move-column-to-monitor-down = [ ];
+      #"Mod+Shift+Ctrl+J".action.move-column-to-monitor-down = [ ];
       "Mod+Shift+Ctrl+Down".action.move-column-to-monitor-down = [ ];
-      "Mod+Shift+Ctrl+K".action.move-column-to-monitor-up = [ ];
+      #"Mod+Shift+Ctrl+K".action.move-column-to-monitor-up = [ ];
       "Mod+Shift+Ctrl+Up".action.move-column-to-monitor-up = [ ];
-      "Mod+Shift+Ctrl+L".action.move-column-to-monitor-right = [ ];
+      #"Mod+Shift+Ctrl+L".action.move-column-to-monitor-right = [ ];
       "Mod+Shift+Ctrl+Right".action.move-column-to-monitor-right = [ ];
 
       # Workspaces
@@ -882,7 +882,7 @@
 
       # Nice to have binds
       "Mod+V".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "clipboard" ];
-      "Mod+Alt+L".action.spawn = [ "noctalia-shell" "ipc" "call" "lockScreen" "lock" ];
+      "Mod+L".action.spawn = [ "noctalia-shell" "ipc" "call" "lockScreen" "lock" ];
       "XF86Favorites".action.spawn = [ "code" "/etc/nixos" ];
       "Mod+Shift+Space".action.toggle-window-floating = [ ];
     };
