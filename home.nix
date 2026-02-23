@@ -47,7 +47,7 @@
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
         tailscale = {
-          enabled = true;
+          enabled = false;
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
       };
@@ -101,19 +101,19 @@
               id = "Network";
               textColor = "none";
             }
-            {
-              defaultSettings = {
-                compactMode = false;
-                defaultPeerAction = "copy-ip";
-                hideDisconnected = false;
-                pingCount = 5;
-                refreshInterval = 5000;
-                showIpAddress = true;
-                showPeerCount = true;
-                terminalCommand = "";
-              };
-              id = "plugin:tailscale";
-            }
+            #{
+            #  defaultSettings = {
+            #    compactMode = false;
+            #    defaultPeerAction = "copy-ip";
+            #    hideDisconnected = false;
+            #    pingCount = 5;
+            #    refreshInterval = 5000;
+            #    showIpAddress = true;
+            #    showPeerCount = true;
+            #    terminalCommand = "";
+            #  };
+            #  id = "plugin:tailscale";
+            #}
             {
               displayMode = "onhover";
               iconColor = "none";

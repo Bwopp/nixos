@@ -51,7 +51,7 @@
   hardware.enableAllFirmware = true;
   hardware.enableRedistributableFirmware = true;
   networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
-  #networking.networkmanager.dns = "none";
+  networking.networkmanager.dns = "none";
 
   networking.networkmanager.plugins = with pkgs; [
     networkmanager-openvpn
