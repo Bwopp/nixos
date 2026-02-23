@@ -50,6 +50,8 @@
   networking.networkmanager.enable = true;
   hardware.enableAllFirmware = true;
   hardware.enableRedistributableFirmware = true;
+  networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
+  #networking.networkmanager.dns = "none";
 
   networking.networkmanager.plugins = with pkgs; [
     networkmanager-openvpn
@@ -224,6 +226,8 @@
   };
 
   programs.localsend.enable = true;
+  
+  # File manager stuff
   services.gvfs.enable = true;
   services.samba-wsdd.enable = true;
   services.udisks2.enable = true;
