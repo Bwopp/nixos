@@ -28,6 +28,18 @@
 
   boot.loader.limine = {
     enable = true;
+
+    style = {
+      wallpapers = [
+        ./nix.png
+      ];
+    };
+    
+    extraEntries = ''
+      /Windows
+        protocol: efi
+        path: boot():///EFI/Microsoft/Boot/bootmgfw.efi
+    '';
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
