@@ -13,23 +13,12 @@
     ./zen.nix
   ];
 
-  # Bootloader.
-  #boot.loader.grub = {
-  #  enable = true;
-  #  devices = [ "nodev" ];
-  #  efiSupport = true;
-  #  useOSProber = true;
-  #  extraEntries = ''
-  #    menuentry "UEFI Firmware Settings" {
-  #        fwsetup
-  #    }
-  #  '';
-  #};
-
   boot.loader.limine = {
     enable = true;
-
+    maxGenerations = 30;
+    resolution = "3000x1876";
     style = {
+      interface.resolution = "3000x1876";
       wallpapers = [
         ./nix.png
       ];
@@ -95,7 +84,10 @@
 
   # Niri and ly
   programs.niri.enable = true;
-  services.displayManager.ly.enable = true;
+  services.displayManager.ly = {
+    enable = true;
+    x11Support = false;
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
