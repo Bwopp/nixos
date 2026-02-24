@@ -10,7 +10,6 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
-    ./zen.nix
   ];
 
   boot.loader = {
@@ -174,7 +173,7 @@
       tup = "tailscale up";
       tdown = "tailscale down";
       rebuild = "sudo nixos-rebuild switch";
-      update = "cd /etc/nixos && sudo nix flake update && cd ~";
+      update = "sudo nix flake update --flake /etc/nixos/";
       gc = "sudo nix-collect-garbage";
       nixgitpush = "sudo git -C /etc/nixos add . && sudo git -C /etc/nixos commit -m (date '+%Y-%m-%d %H:%M:%S') && sudo git -C /etc/nixos push";
       wup = "warp-cli connect";
@@ -221,13 +220,11 @@
     cloudflare-warp
     libreoffice-qt
     arduino-ide
-    freecad
     pciutils
     xwayland-satellite
     wl-clipboard
     wlr-randr
     brightnessctl
-    quickshell
     polkit_gnome
     cliphist
     gamescope
