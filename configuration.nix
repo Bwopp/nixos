@@ -10,20 +10,24 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
-    #./zen.nix
+    ./zen.nix
   ];
 
   # Bootloader.
-  boot.loader.grub = {
+  #boot.loader.grub = {
+  #  enable = true;
+  #  devices = [ "nodev" ];
+  #  efiSupport = true;
+  #  useOSProber = true;
+  #  extraEntries = ''
+  #    menuentry "UEFI Firmware Settings" {
+  #        fwsetup
+  #    }
+  #  '';
+  #};
+
+  boot.loader.limine = {
     enable = true;
-    devices = [ "nodev" ];
-    efiSupport = true;
-    useOSProber = true;
-    extraEntries = ''
-      menuentry "UEFI Firmware Settings" {
-          fwsetup
-      }
-    '';
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
