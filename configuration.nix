@@ -10,7 +10,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
-    ./zen.nix
+    #./zen.nix
   ];
 
   # Bootloader.
@@ -218,6 +218,7 @@
     gnome-calculator
     gnome-text-editor
     papers
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   programs.firefox = {
