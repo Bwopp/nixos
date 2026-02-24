@@ -13,73 +13,93 @@
     ./zen.nix
   ];
 
-  boot.loader.limine = {
-    enable = true;
-    maxGenerations = 30;
-    resolution = "3000x1876";
-    style = {
-      interface.resolution = "3000x1876";
-      wallpapers = [
-        ./nix.png
-      ];
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    limine = {
+      enable = true;
+      maxGenerations = 30;
+      resolution = "3000x1876";
+      style = {
+        interface.resolution = "3000x1876";
+        wallpapers = [
+          ./nix.png
+        ];
+      };
+      
+      extraEntries = ''
+        /Windows
+          protocol: efi
+          path: boot():///EFI/Microsoft/Boot/bootmgfw.efi
+      '';
     };
-    
-    extraEntries = ''
-      /Windows
-        protocol: efi
-        path: boot():///EFI/Microsoft/Boot/bootmgfw.efi
-    '';
   };
-  boot.loader.efi.canTouchEfiVariables = true;
 
   # da kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.initrd.kernelModules = [
-    "i915"
-    "btrfs"
-    "nvme"
-    "sd-mod"
-    "xhci_pci"
-    "thunderbolt"
-  ];
-  boot.kernelParams = [
-    "i915.enable_dc=2"
-    "i915.enable_psr=1"
-    "pcie_aspm=force"
-  ];
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    initrd.kernelModules = [
+      "i915"
+      "btrfs"
+      "nvme"
+      "sd-mod"
+      "xhci_pci"
+      "thunderbolt"
+    ];
+    kernelParams = [
+      "i915.enable_dc=2"
+      "i915.enable_psr=1"
+      "pcie_aspm=force"
+    ];
+  };
 
-  # Hostname
-  networking.hostName = "nixos"; # Define your hostname.
+  # Networking & Hostname
+  networking = {
+    hostName = "nixos"; # Define your hostname.
+    nameservers = [ "1.1.1.1" "1.0.0.1" ];
+    networkmanager = { 
+      dns = "none";
+      enable = true;
+      plugins = with pkgs; [
+        networkmanager-openvpn
+        networkmanager-l2tp
+        networkmanager-ssh
+      ];
+    };
+  };
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-  hardware.enableAllFirmware = true;
-  hardware.enableRedistributableFirmware = true;
-  networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
-  networking.networkmanager.dns = "none";
-
-  networking.networkmanager.plugins = with pkgs; [
-    networkmanager-openvpn
-    networkmanager-l2tp
-    networkmanager-ssh
-  ];
+  # BlueTooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings.General = {
+      Experimental = true;
+      Enable = "Souce,Sink,Media,Socket";
+    };
+  };
 
   # Time stuff
   time.timeZone = "Pacific/Auckland";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_NZ.UTF-8";
+  i18n = {
+    defaultLocale = "en_NZ.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_NZ.UTF-8";
+      LC_IDENTIFICATION = "en_NZ.UTF-8";
+      LC_MEASUREMENT = "en_NZ.UTF-8";
+      LC_MONETARY = "en_NZ.UTF-8";
+      LC_NAME = "en_NZ.UTF-8";
+      LC_NUMERIC = "en_NZ.UTF-8";
+      LC_PAPER = "en_NZ.UTF-8";
+      LC_TELEPHONE = "en_NZ.UTF-8";
+      LC_TIME = "en_NZ.UTF-8";
+    };
+  };
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_NZ.UTF-8";
-    LC_IDENTIFICATION = "en_NZ.UTF-8";
-    LC_MEASUREMENT = "en_NZ.UTF-8";
-    LC_MONETARY = "en_NZ.UTF-8";
-    LC_NAME = "en_NZ.UTF-8";
-    LC_NUMERIC = "en_NZ.UTF-8";
-    LC_PAPER = "en_NZ.UTF-8";
-    LC_TELEPHONE = "en_NZ.UTF-8";
-    LC_TIME = "en_NZ.UTF-8";
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "nz";
+    variant = "";
   };
 
   # Niri and ly
@@ -89,29 +109,17 @@
     x11Support = false;
   };
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "nz";
-    variant = "";
-  };
-
   # Printers Suck
   services.printing.enable = true;
 
-  # BlueTooth
-  hardware.bluetooth = {
-    enable = true;
-    settings.General.Experimental = true;
-    powerOnBoot = true;
-    settings.General.Enable = "Souce,Sink,Media,Socket";
-  };
-
-  # Pipewire and stuff
+  # Pipewire, audio and bluetooth codecs 
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
     pulse.enable = true;
     jack.enable = true;
     wireplumber.enable = true;
@@ -144,9 +152,11 @@
       "video"
     ];
     packages = with pkgs; [
+      # Stuff
     ];
   };
 
+  # Home manager
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = false;
@@ -156,6 +166,7 @@
     };
   };
 
+  # Shell
   programs.fish = {
     enable = true;
     shellAliases = {
@@ -171,8 +182,12 @@
     };
   };
 
-  # Allow unfree packages
+  # Allow unfree packages and firmware
   nixpkgs.config.allowUnfree = true;
+  hardware = {
+    enableAllFirmware = true;
+    enableRedistributableFirmware = true;
+  };
 
   # Packages
   environment.systemPackages = with pkgs; [
@@ -229,11 +244,13 @@
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
+  # Browser
   programs.firefox = {
     enable = true;
     package = pkgs.floorp-bin;
   };
 
+  # File Sharing
   programs.localsend.enable = true;
   
   # File manager stuff
@@ -253,7 +270,7 @@
     };
   };
 
-  # Stuff for screensharing
+  # Stuff for screensharing (desktop portals)
   xdg.portal = {
     enable = true;
     extraPortals = [
@@ -265,6 +282,7 @@
   };
   environment.pathsToLink = [ "/share/application" "/share/xdg-desktop-portal" ];
   
+  # Xwayland
   programs.xwayland.enable = true;
 
   # Polkit
@@ -283,11 +301,14 @@
     };
   };
 
+  # Keyring
+  services.gnome.gnome-keyring.enable = true;
+
   # Power management
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
 
-  # GPU stuff for drivers and hadware 2
+  # GPU stuff for drivers and hadware
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
@@ -311,15 +332,12 @@
     };
   };
 
-  # boot fast
+  # Disable waiting for netowork on boot
   systemd.services.NetworkManager-wait-until-online.enable = false;
   boot.initrd.systemd.network.wait-online.enable = false;
 
   # ssh
   services.openssh.enable = false;
-
-  # Keyring
-  services.gnome.gnome-keyring.enable = true;
 
   # Tailscale
   services.tailscale.enable = true;
