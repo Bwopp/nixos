@@ -239,6 +239,7 @@
     gnome-text-editor
     papers
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+    fd
   ];
 
   # Browser
