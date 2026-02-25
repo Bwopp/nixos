@@ -155,16 +155,6 @@
     ];
   };
 
-  # Home manager
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = false;
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "bwop" = import ../home-manager/home.nix;
-    };
-  };
-
   # Shell
   programs.fish = {
     enable = true;

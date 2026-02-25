@@ -33,6 +33,7 @@
         modules = [
           ./config/configuration.nix
           inputs.home-manager.nixosModules.default
+          ./home-manager/home.nix
         ];
       };
     };
