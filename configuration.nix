@@ -9,6 +9,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./zen.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -238,7 +239,6 @@
     gnome-calculator
     gnome-text-editor
     papers
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     fd
   ];
 
