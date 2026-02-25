@@ -242,12 +242,6 @@
     fd
   ];
 
-  # Browser
-  programs.firefox = {
-    enable = true;
-    package = pkgs.floorp-bin;
-  };
-
   # File Sharing
   programs.localsend.enable = true;
   

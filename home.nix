@@ -14,20 +14,10 @@
   imports = [
     inputs.niri.homeModules.niri
     inputs.noctalia.homeModules.default
+    ./alacritty.nix
   ];
 
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      general.import = [
-        "~/.config/alacritty/themes/noctalia.toml"
-      ];
-      window.padding = {
-        x = 8;
-        y = 8;
-      };
-    };
-  };
+
 
   programs.noctalia-shell = {
     enable = true;
@@ -752,7 +742,7 @@
         "toggle"
       ];
       "Mod+E".action.spawn = [ "nautilus" ];
-      "Mod+W".action.spawn = [ "floorp" ];
+      "Mod+W".action.spawn = [ "zen" ];
 
       # Window management
       "Mod+Q".action.close-window = [ ];
@@ -911,6 +901,7 @@
         matches = [
           { app-id = "^firefox$"; }
           { app-id = "^floorp$"; }
+          { app-id = "^zen$"; }
           { app-id = "^chromium-browser$"; }
         ];
         open-maximized = true;

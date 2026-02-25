@@ -22,6 +22,14 @@ let
     "widget.use-xdg-desktop-portal.native-messaging" = 1;
     "widget.use-xdg-desktop-portal.open-uri" = 1;
     "widget.use-xdg-desktop-portal.settings" = 1;
+    "signon.rememberSignons" = false;
+    "signon.autofillForms" = false;
+    "signon.generation.enabled" = false;
+    "browser.ping-centre.telemetry" = false;
+    "browser.newtabpage.activity-stream.showSponsored" = false;
+    "extensions.formautofill.creditCards.enabled" = false;
+    "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+    "zen.urlbar.behavior" = "normal";
   };
 
   extensions = [
@@ -35,7 +43,7 @@ let
     (extension "istilldontcareaboutcookies" "idcac-pub@guus.ninja")
     (extension "return-youtube-dislikes" "{762f9885-5a13-4abd-9c77-433dcd38b8fd}")
     (extension "sponsorblock" "sponsorBlocker@ajay.app")
-    # ...
+    (extension "don-t-fuck-with-paste" "DontFuckWithPaste@raim.ist")
   ];
 
 in
