@@ -202,7 +202,6 @@
     fastfetch
     ffmpeg-full
     mangohud
-    vscode
     legcord
     tailscale
     vlc
