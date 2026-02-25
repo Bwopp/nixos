@@ -56,9 +56,15 @@
 
     # Layout settings
     layout = {
+      struts = {
+        left = 0;
+        right = 0;
+        top = 0;
+        bottom = 0;
+      };
       gaps = 5;
       focus-ring = {
-        width = 3;
+        width = 1;
         active.color = "#7aa2f7";
       };
       center-focused-column = "never";
@@ -197,6 +203,7 @@
       "Mod+R".action.switch-preset-column-width = [ ];
       "Mod+Shift+R".action.reset-window-height = [ ];
       "Mod+F".action.maximize-column = [ ];
+      "Mod+Alt+F".action.maximize-window-to-edges = [ ];
       "Mod+Shift+F".action.fullscreen-window = [ ];
       "Mod+C".action.center-column = [ ];
 
