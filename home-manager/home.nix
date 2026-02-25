@@ -18,5 +18,6 @@
     ./noctalia-shell.nix
     ./niri.nix
     ./vscode.nix
+    ./zen.nix
   ];
 }

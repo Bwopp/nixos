@@ -12,30 +12,7 @@ let
       installation_mode = "normal_installed";
     };
   };
-
-  prefs = {
-    # Check these out at about:config
-    "extensions.autoDisableScopes" = 0;
-    "extensions.pocket.enabled" = false;
-    "widget.use-xdg-desktop-portal.file-picker" = 1;
-    "widget.use-xdg-desktop-portal.location" = 1;
-    "widget.use-xdg-desktop-portal.native-messaging" = 1;
-    "widget.use-xdg-desktop-portal.open-uri" = 1;
-    "widget.use-xdg-desktop-portal.settings" = 1;
-    "signon.rememberSignons" = false;
-    "signon.autofillForms" = false;
-    "signon.generation.enabled" = false;
-    "browser.ping-centre.telemetry" = false;
-    "browser.newtabpage.activity-stream.showSponsored" = false;
-    "extensions.formautofill.creditCards.enabled" = false;
-    "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-    "zen.urlbar.behavior" = "normal";
-  };
-
   extensions = [
-    # To add additional extensions, find it on addons.mozilla.org, find
-    # the short ID in the url (like https://addons.mozilla.org/en-US/firefox/addon/!SHORT_ID!/)
-    # Then go to https://addons.mozilla.org/api/v5/addons/addon/!SHORT_ID!/ to get the guid
     (extension "ublock-origin" "uBlock0@raymondhill.net")
     (extension "proton-pass" "78272b6fa58f4a1abaac99321d503a20@proton.me")
     (extension "privacy-badger17" "jid1-MnnxcxisBPnSXQ@jetpack")
@@ -45,23 +22,36 @@ let
     (extension "sponsorblock" "sponsorBlocker@ajay.app")
     (extension "don-t-fuck-with-paste" "DontFuckWithPaste@raim.ist")
   ];
-
 in
 {
-  environment.systemPackages = [
+  home.packages = [
     (pkgs.wrapFirefox
       inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.zen-browser-unwrapped
       {
         extraPrefs = lib.concatLines (
           lib.mapAttrsToList (
             name: value: ''lockPref(${lib.strings.toJSON name}, ${lib.strings.toJSON value});''
-          ) prefs
+          ) {
+            "extensions.autoDisableScopes" = 0;
+            "extensions.pocket.enabled" = false;
+            "widget.use-xdg-desktop-portal.file-picker" = 1;
+            "widget.use-xdg-desktop-portal.location" = 1;
+            "widget.use-xdg-desktop-portal.native-messaging" = 1;
+            "widget.use-xdg-desktop-portal.open-uri" = 1;
+            "widget.use-xdg-desktop-portal.settings" = 1;
+            "signon.rememberSignons" = false;
+            "signon.autofillForms" = false;
+            "signon.generation.enabled" = false;
+            "browser.ping-centre.telemetry" = false;
+            "browser.newtabpage.activity-stream.showSponsored" = false;
+            "extensions.formautofill.creditCards.enabled" = false;
+            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+            "zen.urlbar.behavior" = "normal";
+          }
         );
-
         extraPolicies = {
           DisableTelemetry = true;
           ExtensionSettings = builtins.listToAttrs extensions;
-
           SearchEngines = {
             Default = "ddg";
             Add = [
