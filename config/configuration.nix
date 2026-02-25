@@ -21,7 +21,7 @@
       style = {
         interface.resolution = "3000x1876";
         wallpapers = [
-          ./bootloader/nix.png
+          ../bootloader/nix.png
         ];
       };
       
@@ -161,7 +161,7 @@
     useUserPackages = false;
     extraSpecialArgs = { inherit inputs; };
     users = {
-      "bwop" = import ./home-manager/home.nix;
+      "bwop" = import ../home-manager/home.nix;
     };
   };
 
