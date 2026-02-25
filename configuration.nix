@@ -9,7 +9,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./zen.nix
+    ./home-manager/zen.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -22,7 +22,7 @@
       style = {
         interface.resolution = "3000x1876";
         wallpapers = [
-          ./nix.png
+          ./bootloader/nix.png
         ];
       };
       
@@ -181,6 +181,8 @@
       wdown = "warp-cli disconnect";
     };
   };
+
+  users.defaultUserShell = pkgs.fish;
 
   # Allow unfree packages and firmware
   nixpkgs.config.allowUnfree = true;
