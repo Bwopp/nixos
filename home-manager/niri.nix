@@ -48,7 +48,7 @@
           height = 1876;
           refresh = 120.001;
         };
-        scale = 1.74;
+        scale = 1.7166666666666666;
         backdrop-color = "#000000";
         background-color = "#000000";
       };

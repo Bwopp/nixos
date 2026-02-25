@@ -446,7 +446,7 @@
 
       dock = {
         enabled = true;
-        position = "left";
+        position = "bottom";
         displayMode = "auto_hide";
         dockType = "floating";
         backgroundOpacity = 1;
