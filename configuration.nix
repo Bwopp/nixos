@@ -162,7 +162,7 @@
     useUserPackages = false;
     extraSpecialArgs = { inherit inputs; };
     users = {
-      "bwop" = import "${self}/home-manager/home.nix";
+      "bwop" = import ../home-manager/home.nix;
     };
   };
 
