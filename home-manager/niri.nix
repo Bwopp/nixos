@@ -90,13 +90,7 @@
 
     # Laptop Lid
     switch-events = {
-      lid-close.action.spawn = [
-        "noctalia-shell"
-        "ipc"
-        "call"
-        "sessionMenu"
-        "lockAndSuspend"
-      ];
+      lid-close.action.spawn = [ "noctalia-shell" "ipc" "call" "sessionMenu" "lockAndSuspend" ];
     };
 
     # Keybinds
@@ -105,13 +99,7 @@
 
       # Launch applications
       "Mod+Return".action.spawn = [ "alacritty" ];
-      "Mod+D".action.spawn = [
-        "noctalia-shell"
-        "ipc"
-        "call"
-        "launcher"
-        "toggle"
-      ];
+      "Mod+D".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "toggle" ];
       "Mod+E".action.spawn = [ "nautilus" ];
       "Mod+W".action.spawn = [ "zen" ];
 
