@@ -85,7 +85,7 @@
 
     # Start Stuff
     spawn-at-startup = [
-      # { command = [ "noctalia-shell" ]; }
+      { command = [ "noctalia-shell" ]; }
     ];
 
     # Laptop Lid

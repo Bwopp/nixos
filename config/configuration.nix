@@ -208,7 +208,6 @@
     qbittorrent
     powertop
     cloudflare-warp
-    libreoffice-qt
     arduino-ide
     pciutils
     xwayland-satellite
@@ -282,28 +281,6 @@
     };
   };
 
-  services.howdy.enable = true;
-  security.pam.howdy.enable = true;
-  services.howdy.control = "sufficient";
-  security.pam.howdy.control = "sufficient";
-
-  systemd.services."polkit-agent-helper@".serviceConfig = {
-    PrivateDevices = "no";
-    DeviceAllow = [ "char-video4linux rw" "char-mem" "char-hidraw"];
-  };
-
-  security.pam.services.sudo.text = lib.mkForce ''
-    auth    required    pam_unix.so
-    account required    pam_unix.so
-    session required    pam_unix.so
-  '';
-
-  security.pam.services.polkit-1.text = lib.mkForce ''
-    auth    required    pam_unix.so
-    account required    pam_unix.so
-    session required    pam_unix.so
-  '';
-  
   # Keyring
   services.gnome.gnome-keyring.enable = true;
 
