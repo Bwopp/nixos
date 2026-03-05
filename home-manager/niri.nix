@@ -101,7 +101,7 @@
       "Mod+Return".action.spawn = [ "alacritty" ];
       "Mod+D".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "toggle" ];
       "Mod+E".action.spawn = [ "nautilus" ];
-      "Mod+W".action.spawn = [ "zen" ];
+      "Mod+W".action.spawn = [ "floorp" ];
 
       # Window management
       "Mod+Q".action.close-window = [ ];
