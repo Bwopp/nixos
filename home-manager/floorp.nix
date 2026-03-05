@@ -26,7 +26,7 @@ in
 {
   home.packages = [
     (pkgs.wrapFirefox
-      pkgs.floorp-unwrapped
+      pkgs.floorp-bin-unwrapped
       {
         extraPrefs = lib.concatLines (
           lib.mapAttrsToList (
