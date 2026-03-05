@@ -26,7 +26,7 @@ in
 {
   home.packages = [
     (pkgs.wrapFirefox
-      inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.zen-browser-unwrapped
+      pkgs.floorp-unwrapped
       {
         extraPrefs = lib.concatLines (
           lib.mapAttrsToList (
@@ -46,7 +46,6 @@ in
             "browser.newtabpage.activity-stream.showSponsored" = false;
             "extensions.formautofill.creditCards.enabled" = false;
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-            "zen.urlbar.behavior" = "normal";
           }
         );
         extraPolicies = {

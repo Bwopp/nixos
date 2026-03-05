@@ -228,6 +228,7 @@
     gnome-text-editor
     papers
     fd
+    jellyfin-desktop
   ];
 
   # File Sharing
