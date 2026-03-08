@@ -284,6 +284,7 @@
 
   # Keyring
   services.gnome.gnome-keyring.enable = true;
+  security.pam.services.ly.enableGnomeKeyring = true;
 
   # Power management
   services.power-profiles-daemon.enable = true;
@@ -299,6 +300,8 @@
       libva
       libva-utils
       intel-compute-runtime
+      intel-gmmlib
+      intel-npu-driver
     ];
   };
 

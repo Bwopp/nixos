@@ -477,6 +477,7 @@
         bluetoothDetailsViewMode = "grid";
         bluetoothHideUnnamedDevices = false;
         disableDiscoverability = false;
+        bluetoothAutoConnect = false;
       };
 
       sessionMenu = {
