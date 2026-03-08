@@ -229,6 +229,8 @@
     papers
     fd
     jellyfin-desktop
+    zenmap
+    proton-authenticator
   ];
 
   # File Sharing
