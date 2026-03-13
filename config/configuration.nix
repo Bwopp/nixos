@@ -167,6 +167,8 @@
       nixgitpush = "sudo git -C /etc/nixos add . && sudo git -C /etc/nixos commit -m (date '+%Y-%m-%d %H:%M:%S') && sudo git -C /etc/nixos push";
       wup = "warp-cli connect";
       wdown = "warp-cli disconnect";
+      vup = "systemctl start sing-box";
+      vdown = "systemctl stop sing-box";
     };
   };
 
@@ -231,6 +233,8 @@
     jellyfin-desktop
     zenmap
     proton-authenticator
+    element-desktop
+    sing-box
   ];
 
   # File Sharing
@@ -286,6 +290,7 @@
 
   # Keyring
   services.gnome.gnome-keyring.enable = true;
+  security.pam.services.login.enableGnomeKeyring = true;
   security.pam.services.ly.enableGnomeKeyring = true;
 
   # Power management
@@ -315,6 +320,17 @@
     serviceConfig = {
       Type = "oneshot";
       ExecStart = ''/bin/sh -c "echo 0 > /sys/bus/pci/devices/0000:01:00.0/d3cold_allowed"'';
+    };
+  };
+
+  systemd.services.sing-box = {
+    description = "sing-box";
+    after = [ "network.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.sing-box}/bin/sing-box run -c /home/bwop/.config/sing-box/config.json";
+      Restart = "on-failure";
+      RestartSec = "5s";
+      User = "root";
     };
   };
 
