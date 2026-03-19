@@ -55,6 +55,7 @@
     hostName = "nixos"; # Define your hostname.
     nameservers = [ "1.1.1.1" "1.0.0.1" ];
     networkmanager = { 
+      wifi.backend = "wpa_supplicant";
       dns = "none";
       enable = true;
       plugins = with pkgs; [
@@ -232,9 +233,11 @@
     fd
     jellyfin-desktop
     zenmap
+    nmap
     proton-authenticator
     element-desktop
     sing-box
+    gnome-network-displays
   ];
 
   # File Sharing
@@ -273,20 +276,20 @@
   programs.xwayland.enable = true;
 
   # Polkit
-  security.polkit.enable = true;
-  systemd.user.services.polkit-gnome-authentication-agent-1 = {
-    description = "polkit-gnome-authentication-agent-1";
-    wantedBy = [ "graphical-session.target" ];
-    wants = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-      Restart = "on-failure";
-      RestartSec = 1;
-      TimeoutStopSec = 10;
-    };
-  };
+  #security.polkit.enable = true;
+  #systemd.user.services.polkit-gnome-authentication-agent-1 = {
+  #  description = "polkit-gnome-authentication-agent-1";
+  #  wantedBy = [ "graphical-session.target" ];
+  #  wants = [ "graphical-session.target" ];
+  #  after = [ "graphical-session.target" ];
+  #  serviceConfig = {
+  #    Type = "simple";
+  #    ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+  #    Restart = "on-failure";
+  #    RestartSec = 1;
+  #    TimeoutStopSec = 10;
+  #  };
+  #};
 
   # Keyring
   services.gnome.gnome-keyring.enable = true;
@@ -370,6 +373,18 @@
   # networking.firewall.allowedTCPPorts = [ 25565 ];
   # networking.firewall.allowedUDPPorts = [ 25565 ];
   # networking.firewall.enable = false;
+  networking.firewall.trustedInterfaces = [ "p2p-wl+" ];
+  networking.firewall.allowedTCPPorts = [ 7236 7250 ];
+  networking.firewall.allowedUDPPorts = [ 7236 5353 ];
+
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    publish = {
+      enable = true;
+      addresses = true;
+    };
+  };
 
   system.stateVersion = "25.11"; # Did you read the comment? no lol
 }
