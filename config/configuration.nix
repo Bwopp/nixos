@@ -50,6 +50,8 @@
     ];
   };
 
+
+#aadasdasdad
   # Networking & Hostname
   networking = {
     hostName = "nixos"; # Define your hostname.
