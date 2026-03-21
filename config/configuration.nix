@@ -56,7 +56,7 @@
     nameservers = [ "1.1.1.1" "1.0.0.1" ];
     networkmanager = { 
       wifi.backend = "wpa_supplicant";
-      dns = "none";
+      # dns = "none";
       enable = true;
       plugins = with pkgs; [
         networkmanager-openvpn
