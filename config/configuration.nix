@@ -101,7 +101,10 @@
   };
 
   # Niri and ly
-  programs.niri.enable = true;
+  programs.niri = {
+    enable = true;
+    package = inputs.niri.packages.${pkgs.system}.niri-unstable;
+  };
   services.displayManager.ly = {
     enable = true;
     x11Support = false;
@@ -260,7 +263,6 @@
     proton-authenticator
     element-desktop
     sing-box
-    gnome-network-displays
   ];
 
   # File Sharing
@@ -399,15 +401,6 @@
   networking.firewall.trustedInterfaces = [ "p2p-wl+" ];
   networking.firewall.allowedTCPPorts = [ 7236 7250 ];
   networking.firewall.allowedUDPPorts = [ 7236 5353 ];
-
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    publish = {
-      enable = true;
-      addresses = true;
-    };
-  };
 
   system.stateVersion = "25.11"; # Did you read the comment? no lol
 }
