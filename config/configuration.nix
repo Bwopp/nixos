@@ -57,6 +57,7 @@
     networkmanager = { 
       wifi.backend = "wpa_supplicant";
       enable = true;
+      # dns = "none";
       plugins = with pkgs; [
         networkmanager-openvpn
         networkmanager-l2tp
