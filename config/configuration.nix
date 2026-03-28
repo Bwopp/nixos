@@ -135,7 +135,7 @@
               "aac"
               "aptx"
               "aptx_hd"
-              "ldac"
+              # "ldac" ldac broke in latest pipewire
             ];
           };
         }
