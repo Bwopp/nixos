@@ -264,6 +264,7 @@
     proton-authenticator
     element-desktop
     sing-box
+    kicad
   ];
 
   # File Sharing
