@@ -24,6 +24,7 @@ let
     (extension "return-youtube-dislikes" "{762f9885-5a13-4abd-9c77-433dcd38b8fd}")
     (extension "sponsorblock" "sponsorBlocker@ajay.app")
     (extension "don-t-fuck-with-paste" "DontFuckWithPaste@raim.ist")
+    (extension "hide-youtube-shorts" "{88ebde3a-4581-4c6b-8019-2a05a9e3e938}")
   ];
 in
 {

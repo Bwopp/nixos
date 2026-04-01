@@ -143,6 +143,10 @@
     };
   };
 
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
+  };
+
   # User
   users.users.bwop = {
     shell = pkgs.fish;
@@ -152,6 +156,8 @@
       "networkmanager"
       "wheel"
       "video"
+      "input"
+      "render"
     ];
     packages = with pkgs; [
       # Stuff
@@ -209,6 +215,24 @@
     enableRedistributableFirmware = true;
   };
 
+  nixpkgs.config.packageOverrides = pkgs: {
+    handbrake = pkgs.handbrake.overrideAttrs (old: {
+      configureFlags = old.configureFlags ++ [ "--enable-qsv" ];
+      buildInputs = old.buildInputs ++ [
+        pkgs.libvpl
+        pkgs.libva
+        pkgs.intel-media-driver
+      ];
+      nativeBuildInputs = old.nativeBuildInputs ++ [
+        pkgs.libvpl
+      ];
+      NIX_CFLAGS_COMPILE = "-I${pkgs.libvpl}/include/vpl";
+      env = (old.env or {}) // {
+        NIX_LDFLAGS = (old.env.NIX_LDFLAGS or "") + " -lva -lvpl -lva-drm";
+      };
+    });
+  };
+  
   # Packages
   environment.systemPackages = with pkgs; [
     wget
@@ -264,7 +288,8 @@
     proton-authenticator
     element-desktop
     sing-box
-    kicad
+    koodo-reader
+    handbrake
   ];
 
   # File Sharing
