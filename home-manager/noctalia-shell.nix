@@ -520,6 +520,10 @@
             enabled = true;
             keybind = "5";
           }
+          {
+            action = "rebootToUefi";
+            enabled = false;
+          }
         ];
       };
 
