@@ -1,13 +1,7 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}:
+{ config, pkgs, inputs, ... }:
 {
   programs.noctalia-shell = {
     enable = true;
-    # systemd.enable = true;
 
     plugins = {
       sources = [

@@ -1,13 +1,7 @@
+{ config, pkgs, inputs, lib, ... }:
 {
-  config,
-  pkgs,
-  inputs,
-  lib,
-  ...
-}:
-{
-  programs.niri.package = inputs.niri.packages.${pkgs.system}.niri-unstable;
-  # inputs.niri.packages.${pkgs.system}.niri-unstable;
+  programs.niri.package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
+  # inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
   # pkgs.niri;
   programs.niri.settings = {
     xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;

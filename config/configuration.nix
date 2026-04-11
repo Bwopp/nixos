@@ -1,11 +1,6 @@
-{
-  config,
-  pkgs,
-  inputs,
-  lib,
-  ...
-}:
+{config, pkgs, inputs, lib, ...}:
 
+# ldac fix
 let
   pipewireLdacWorkaround = pkgs.pipewire.overrideAttrs (old: {
     mesonFlags = (old.mesonFlags or [ ]) ++ [
@@ -13,13 +8,13 @@ let
     ];
   });
 in
-
 {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
+  # da bootloader
   boot.loader = {
     efi.canTouchEfiVariables = true;
     limine = {
@@ -67,11 +62,6 @@ in
       wifi.backend = "wpa_supplicant";
       enable = true;
       # dns = "none";
-      plugins = with pkgs; [
-        networkmanager-openvpn
-        networkmanager-l2tp
-        networkmanager-ssh
-      ];
     };
   };
 
@@ -113,15 +103,13 @@ in
   # Niri and ly
   programs.niri = {
     enable = true;
-    package = inputs.niri.packages.${pkgs.system}.niri-unstable;
+    package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
   };
+  
   services.displayManager.ly = {
     enable = true;
     x11Support = false;
   };
-
-  # Printers Suck
-  services.printing.enable = true;
 
   # Pipewire, audio and bluetooth codecs 
   security.rtkit.enable = true;
@@ -158,10 +146,6 @@ in
     };
   };
 
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "iHD";
-  };
-
   # User
   users.users.bwop = {
     shell = pkgs.fish;
@@ -173,9 +157,6 @@ in
       "video"
       "input"
       "render"
-    ];
-    packages = with pkgs; [
-      # Stuff
     ];
   };
 
@@ -265,29 +246,20 @@ in
     tailscale
     vlc
     mangohud
-    vulkan-tools
-    mesa
     syncthing
     syncthingtray
     protonplus
     gamemode
-    protontricks
     javaPackages.compiler.temurin-bin.jre-17
-    ungoogled-chromium
     qbittorrent
-    powertop
     cloudflare-warp
-    arduino-ide
-    pciutils
     xwayland-satellite
     wl-clipboard
     wlr-randr
     brightnessctl
-    polkit_gnome
     cliphist
     gamescope
     kdePackages.breeze
-    balatro-mod-manager
     nautilus
     loupe
     file-roller
@@ -298,13 +270,10 @@ in
     papers
     fd
     jellyfin-desktop
-    zenmap
-    nmap
     proton-authenticator
     element-desktop
     sing-box
     handbrake
-    ckan
   ];
 
   # File Sharing
@@ -341,22 +310,6 @@ in
   
   # Xwayland
   programs.xwayland.enable = true;
-
-  # Polkit
-  #security.polkit.enable = true;
-  #systemd.user.services.polkit-gnome-authentication-agent-1 = {
-  #  description = "polkit-gnome-authentication-agent-1";
-  #  wantedBy = [ "graphical-session.target" ];
-  #  wants = [ "graphical-session.target" ];
-  #  after = [ "graphical-session.target" ];
-  #  serviceConfig = {
-  #    Type = "simple";
-  #    ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-  #    Restart = "on-failure";
-  #    RestartSec = 1;
-  #    TimeoutStopSec = 10;
-  #  };
-  #};
 
   # Keyring
   services.gnome.gnome-keyring.enable = true;
@@ -437,8 +390,6 @@ in
 
   # Firewall
   networking.nftables.enable = true;
-  # networking.firewall.allowedTCPPorts = [ 25565 ];
-  # networking.firewall.allowedUDPPorts = [ 25565 ];
   # networking.firewall.enable = false;
   networking.firewall.trustedInterfaces = [ "p2p-wl+" ];
   networking.firewall.allowedTCPPorts = [ 7236 7250 ];
