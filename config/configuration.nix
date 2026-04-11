@@ -5,6 +5,15 @@
   lib,
   ...
 }:
+
+let
+  pipewireLdacWorkaround = pkgs.pipewire.overrideAttrs (old: {
+    mesonFlags = (old.mesonFlags or [ ]) ++ [
+      "-Dbluez5-codec-ldac-dec=disabled"
+    ];
+  });
+in
+
 {
   imports = [
     # Include the results of the hardware scan.
@@ -117,6 +126,7 @@
   # Pipewire, audio and bluetooth codecs 
   security.rtkit.enable = true;
   services.pipewire = {
+    package = pipewireLdacWorkaround;
     enable = true;
     alsa = {
       enable = true;
@@ -124,7 +134,12 @@
     };
     pulse.enable = true;
     jack.enable = true;
-    wireplumber.enable = true;
+    wireplumber = {
+      enable = true;
+      package = pkgs.wireplumber.override {
+        pipewire = pipewireLdacWorkaround;
+      };
+    };
     extraConfig.pipewire = {
       "context.modules" = [
         {
@@ -135,7 +150,7 @@
               "aac"
               "aptx"
               "aptx_hd"
-              # "ldac" ldac broke in latest pipewire
+              "ldac"
             ];
           };
         }
@@ -288,8 +303,8 @@
     proton-authenticator
     element-desktop
     sing-box
-    koodo-reader
     handbrake
+    ckan
   ];
 
   # File Sharing
