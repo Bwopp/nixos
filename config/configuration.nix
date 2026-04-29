@@ -40,7 +40,7 @@ in
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     initrd.kernelModules = [
-      "i915"
+      "xe"
       "btrfs"
       "nvme"
       "sd-mod"
@@ -48,8 +48,6 @@ in
       "thunderbolt"
     ];
     kernelParams = [
-      "i915.enable_dc=2"
-      "i915.enable_psr=1"
       "pcie_aspm=force"
     ];
   };
@@ -274,6 +272,7 @@ in
     element-desktop
     sing-box
     handbrake
+    koodo-reader
   ];
 
   # File Sharing
