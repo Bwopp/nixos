@@ -273,6 +273,7 @@ in
     sing-box
     handbrake
     koodo-reader
+    balatro-mod-manager
   ];
 
   # File Sharing
