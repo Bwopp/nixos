@@ -274,6 +274,7 @@ in
     handbrake
     koodo-reader
     balatro-mod-manager
+    chromium
   ];
 
   # File Sharing
