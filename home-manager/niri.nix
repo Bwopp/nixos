@@ -99,7 +99,7 @@
       "Mod+Return".action.spawn = [ "alacritty" ];
       "Mod+D".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "toggle" ];
       "Mod+E".action.spawn = [ "nautilus" ];
-      "Mod+W".action.spawn = [ "floorp" ];
+      "Mod+W".action.spawn = [ "helium" ];
 
       # Window management
       "Mod+Q".action.close-window = [ ];
@@ -257,10 +257,7 @@
       }
       {
         matches = [
-          { app-id = "^firefox$"; }
-          { app-id = "^floorp$"; }
-          { app-id = "^zen$"; }
-          { app-id = "^chromium-browser$"; }
+          { app-id = "^helium$"; }
         ];
         open-maximized = true;
       }

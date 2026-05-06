@@ -274,7 +274,7 @@ in
     handbrake
     koodo-reader
     balatro-mod-manager
-    chromium
+    inputs.helium.packages.${system}.default
   ];
 
   # File Sharing

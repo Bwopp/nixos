@@ -23,7 +23,7 @@
           ./noctalia-shell.nix
           ./niri.nix
           ./vscode.nix
-          ./floorp.nix
+          # ./floorp.nix
         ];
       };
     };
