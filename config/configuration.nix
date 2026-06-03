@@ -278,6 +278,9 @@ in
     freecad
     kicad
     blender
+    telegram-desktop
+    tor-browser
+    lmstudio
   ];
 
   # File Sharing

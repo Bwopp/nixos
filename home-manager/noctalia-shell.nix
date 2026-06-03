@@ -16,10 +16,10 @@
           enabled = true;
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
         };
-        tailscale = {
-          enabled = false;
-          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-        };
+        # tailscale = {
+        #   enabled = false;
+        #   sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        # };
         file-search = {
           enabled = true;
           sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
