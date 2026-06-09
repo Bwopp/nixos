@@ -280,6 +280,7 @@ in
     telegram-desktop
     tor-browser
     lmstudio
+    makemkv
   ];
 
   # File Sharing
