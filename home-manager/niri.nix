@@ -235,7 +235,7 @@
       # Nice to have binds
       "Mod+V".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "clipboard" ];
       "Mod+L".action.spawn = [ "noctalia-shell" "ipc" "call" "lockScreen" "lock" ];
-      "XF86Favorites".action.spawn = [ "code" "/etc/nixos" ];
+      "XF86Favorites".action.spawn = [ "codium" "/etc/nixos" ];
       "Mod+Shift+Space".action.toggle-window-floating = [ ];
     };
 
