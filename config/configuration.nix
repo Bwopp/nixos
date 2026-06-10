@@ -272,14 +272,10 @@ in
     element-desktop
     sing-box
     handbrake
-    koodo-reader
     balatro-mod-manager
     freecad
     kicad
     blender
-    telegram-desktop
-    tor-browser
-    lmstudio
     makemkv
   ];
 
