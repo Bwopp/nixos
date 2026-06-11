@@ -209,6 +209,7 @@ in
     enableRedistributableFirmware = true;
   };
 
+  # QSV in handbrake
   nixpkgs.config.packageOverrides = pkgs: {
     handbrake = pkgs.handbrake.overrideAttrs (old: {
       configureFlags = old.configureFlags ++ [ "--enable-qsv" ];
@@ -233,7 +234,7 @@ in
     prismlauncher
     obsidian
     spotify
-    git
+    gitFull
     btop
     alacritty
     gparted
@@ -241,9 +242,8 @@ in
     ffmpeg-full
     mangohud
     legcord
-    tailscale
+    # tailscale
     vlc
-    mangohud
     syncthing
     syncthingtray
     protonplus
@@ -368,7 +368,7 @@ in
   services.openssh.enable = false;
 
   # Tailscale
-  services.tailscale.enable = true;
+  # services.tailscale.enable = true;
   networking.firewall.checkReversePath = "loose";
 
   # Warp
