@@ -20,7 +20,7 @@
           inputs.niri.homeModules.niri
           inputs.noctalia.homeModules.default
           ./alacritty.nix
-          ./noctalia-shell.nix
+          ./noctalia.nix
           ./niri.nix
           ./codium.nix
           ./floorp.nix

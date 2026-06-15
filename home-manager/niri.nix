@@ -83,7 +83,7 @@
 
     # Start Stuff
     spawn-at-startup = [
-      { command = [ "noctalia-shell" ]; }
+      { command = [ "noctalia" ]; }
     ];
 
     # Laptop Lid
@@ -97,7 +97,7 @@
 
       # Launch applications
       "Mod+Return".action.spawn = [ "alacritty" ];
-      "Mod+D".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "toggle" ];
+      "Mod+D".action.spawn = [ "noctalia" "msg" "panel-toggle" "launcher" ];
       "Mod+E".action.spawn = [ "nautilus" ];
       "Mod+W".action.spawn = [ "floorp" ];
 
@@ -223,17 +223,16 @@
       "XF86MonBrightnessDown".action.spawn = [ "brightnessctl" "set" "5%-" ];
 
       # Volume controls
-      "XF86AudioRaiseVolume".action.spawn = [ "noctalia-shell" "ipc" "call" "volume" "increase" ];
-      "XF86AudioLowerVolume".action.spawn = [ "noctalia-shell" "ipc" "call" "volume" "decrease" ];
-      "XF86AudioMute".action.spawn = [ "noctalia-shell" "ipc" "call" "volume" "muteOutput" ];
-      "XF86AudioMicMute".action.spawn = [ "noctalia-shell" "ipc" "call" "volume" "muteInput" ];
+      "XF86AudioRaiseVolume".action.spawn = [ "noctalia" "msg" "volume-down" "5" ];
+      "XF86AudioLowerVolume".action.spawn = [ "noctalia" "msg" "volume-down" "5" ];
+      "XF86AudioMute".action.spawn = [ "noctalia" "msg" "volume-mute" ];
+      "XF86AudioMicMute".action.spawn = [ "noctalia" "msg" "mic-mute" ];
 
       # Useless laptop buttons given a use
-      "Super+Shift+XF86TouchpadOff".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "toggle" ];
       "XF86Calculator".action.spawn = [ "gnome-calculator" ];
 
       # Nice to have binds
-      "Mod+V".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "clipboard" ];
+      "Mod+V".action.spawn = [ "noctalia" "msg" "panel-toggle" "clipboard" ];
       "Mod+L".action.spawn = [ "noctalia-shell" "ipc" "call" "lockScreen" "lock" ];
       "XF86Favorites".action.spawn = [ "codium" "/etc/nixos" ];
       "Mod+Shift+Space".action.toggle-window-floating = [ ];
