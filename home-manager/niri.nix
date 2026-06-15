@@ -273,12 +273,6 @@
           relative-to = "bottom-right";
         };
       }
-      {
-        matches = [{ app-id = "dev.noctalia.Noctalia.Settings"; }];
-        open-floating = true;
-        default-column-width = { fixed = 1080; };
-        default-window-height = { fixed = 920; };
-      }
     ];
 
     layer-rules = [

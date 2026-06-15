@@ -292,7 +292,6 @@ in
     freecad
     kicad
     blender
-    makemkv
   ];
 
   # File Sharing

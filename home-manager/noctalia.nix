@@ -39,7 +39,7 @@
           margin_edge = 0;
           margin_ends = 0;
           padding = 10;
-          panel_overlap = 1;
+          panel_overlap = 0;
           position = "top";
           radius = 0;
           radius_bottom_left = 0;
@@ -50,7 +50,7 @@
           scale = 1.0;
           shadow = true;
           start = [ "control-center" "network" "bluetooth" "volume" "media" ];
-          thickness = 34;
+          thickness = 30;
           widget_spacing = 4;
         };
       };
@@ -165,14 +165,14 @@
         behavior.lock = {
           action = "lock";
           command = "";
-          enabled = false;
+          enabled = true;
           resume_command = "";
           timeout = 600;
         };
         behavior."lock-and-suspend" = {
           action = "lock_and_suspend";
           command = "";
-          enabled = false;
+          enabled = true;
           resume_command = "";
           timeout = 900;
         };
@@ -205,16 +205,16 @@
         blur_intensity = 0.0;
         blurred_desktop = false;
         enabled = true;
-        fingerprint = true;
+        fingerprint = false;
         monitors = [];
         tint_intensity = 0.30000001192092896;
         wallpaper = "";
       };
 
       lockscreen_widgets = {
-        enabled = false;
+        enabled = true;
         schema_version = 2;
-        widget_order = [ "lockscreen-login-box@eDP-1" ];
+        widget_order = [ "lockscreen-login-box@eDP-1" "lockscreen-widget-0000000000000001" ];
         grid = {
           cell_size = 16;
           major_interval = 4;
@@ -224,7 +224,7 @@
           box_height = 0.0;
           box_width = 0.0;
           cx = 874.0;
-          cy = 970.0;
+          cy = 562.5;
           enabled = true;
           output = "eDP-1";
           rotation = 0.0;
@@ -237,6 +237,17 @@
             input_radius = 6.0;
             show_login_button = true;
           };
+        };
+        widget."lockscreen-widget-0000000000000001" = {
+          box_height = 0.0;
+          box_width = 0.0;
+          cx = 874.0;
+          cy = 417.5;
+          enabled = true;
+          output = "eDP-1";
+          rotation = 0.0;
+          type = "clock";
+          settings = {};
         };
       };
 
@@ -275,7 +286,7 @@
           caffeine = true;
           dnd = true;
           keyboard_layout = true;
-          lock_keys = true;
+          lock_keys = false;
           power_profile = true;
           volume = true;
           volume_input = true;
@@ -318,7 +329,7 @@
         font_family = "sans-serif";
         launch_apps_as_systemd_services = false;
         middle_click_opens_widget_settings = true;
-        niri_overview_type_to_launch_enabled = false;
+        niri_overview_type_to_launch_enabled = true;
         offline_mode = false;
         password_style = "default";
         polkit_agent = true;
@@ -383,7 +394,7 @@
         ];
 
         shadow = {
-          alpha = 0.55000001192092896;
+          alpha = 0.0;
           direction = "down";
         };
       };
