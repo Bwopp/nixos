@@ -7,9 +7,6 @@ let
       installation_mode = "normal_installed";
     };
   };
-  # To add additional extensions, find it on addons.mozilla.org, find
-  # the short ID in the url (like https://addons.mozilla.org/en-US/firefox/addon/!SHORT_ID!/)
-  # Then go to https://addons.mozilla.org/api/v5/addons/addon/!SHORT_ID!/ to get the guid
   extensions = [
     (extension "ublock-origin" "uBlock0@raymondhill.net")
     (extension "proton-pass" "78272b6fa58f4a1abaac99321d503a20@proton.me")
@@ -23,36 +20,43 @@ let
   ];
 in
 {
-  home.packages = [
-    (pkgs.wrapFirefox
-      pkgs.floorp-bin-unwrapped
-      {
-        extraPrefs = lib.concatLines (
-          lib.mapAttrsToList (
-            name: value: ''lockPref(${lib.strings.toJSON name}, ${lib.strings.toJSON value});''
-          ) {
-            "extensions.autoDisableScopes" = 0;
-            "extensions.pocket.enabled" = false;
-            "widget.use-xdg-desktop-portal.file-picker" = 1;
-            "widget.use-xdg-desktop-portal.location" = 1;
-            "widget.use-xdg-desktop-portal.native-messaging" = 1;
-            "widget.use-xdg-desktop-portal.open-uri" = 1;
-            "widget.use-xdg-desktop-portal.settings" = 1;
-            "signon.rememberSignons" = false;
-            "signon.autofillForms" = false;
-            "signon.generation.enabled" = false;
-            "browser.ping-centre.telemetry" = false;
-            "browser.newtabpage.activity-stream.showSponsored" = false;
-            "extensions.formautofill.creditCards.enabled" = false;
-            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-            "userChrome.compatibility.theme" = false;
-          }
-        );
-        extraPolicies = {
-          DisableTelemetry = true;
-          ExtensionSettings = builtins.listToAttrs extensions;
-        };
-      }
-    )
-  ];
+  programs.floorp = {
+    enable = true;
+
+    profiles.default = {
+      isDefault = true;
+      extensions.force = true;
+
+      settings = {
+        "extensions.autoDisableScopes" = 0;
+        "extensions.pocket.enabled" = false;
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
+        "widget.use-xdg-desktop-portal.location" = 1;
+        "widget.use-xdg-desktop-portal.native-messaging" = 1;
+        "widget.use-xdg-desktop-portal.open-uri" = 1;
+        "widget.use-xdg-desktop-portal.settings" = 1;
+        "signon.rememberSignons" = false;
+        "signon.autofillForms" = false;
+        "signon.generation.enabled" = false;
+        "browser.ping-centre.telemetry" = false;
+        "browser.newtabpage.activity-stream.showSponsored" = false;
+        "extensions.formautofill.creditCards.enabled" = false;
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "userChrome.compatibility.theme" = false;
+        "layout.css.prefers-color-scheme.content-override" = 0;
+      };
+    };
+
+    policies = {
+      DisableTelemetry = true;
+      ExtensionSettings = builtins.listToAttrs extensions;
+    };
+  };
+
+  stylix.targets.floorp = {
+    enable = true;
+    profileNames = [ "default" ];
+    firefoxGnomeTheme.enable = false;
+    colorTheme.enable = true;
+  };
 }

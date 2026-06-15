@@ -7,14 +7,14 @@ in
     enable = true;
     profiles.default = {
       extensions = with pkgs.vscode-extensions; [
-        enkia.tokyo-night
+        # enkia.tokyo-night
         bbenoist.nix
         ms-python.python
         rust-lang.rust-analyzer
         vscodeExts.open-vsx.auricvex.flake-env
       ];
       userSettings = {
-        "workbench.colorTheme" = "Tokyo Night";
+        # "workbench.colorTheme" = "Tokyo Night";
         "git.confirmSync" = false;
         "git.enableSmartCommit" = true;
         "python.defaultInterpreterPath" = "python";

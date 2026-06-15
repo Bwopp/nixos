@@ -19,11 +19,14 @@
         imports = [
           inputs.niri.homeModules.niri
           inputs.noctalia.homeModules.default
+          inputs.stylix.homeModules.stylix
+          ./stylix.nix
           ./alacritty.nix
           ./noctalia.nix
           ./niri.nix
           ./codium.nix
           ./floorp.nix
+          ./obsidian.nix
         ];
       };
     };

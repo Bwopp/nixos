@@ -31,7 +31,7 @@
     };
 
     environment = {
-      NIRI_BACKGROUND_COLOR = "000000";
+      NIRI_BACKGROUND_COLOR = "${config.lib.stylix.colors.base00}";
     };
 
     cursor = {
@@ -47,8 +47,8 @@
           refresh = 120.001;
         };
         scale = 1.7166666666666666;
-        backdrop-color = "#000000";
-        background-color = "#000000";
+        backdrop-color = "#${config.lib.stylix.colors.base00}";
+        background-color = "#${config.lib.stylix.colors.base00}";
       };
     };
 
@@ -63,7 +63,7 @@
       gaps = 5;
       focus-ring = {
         width = 1;
-        active.color = "#7aa2f7";
+        active.color = "#${config.lib.stylix.colors.base0D}";
       };
       center-focused-column = "never";
       preset-column-widths = [

@@ -28,6 +28,11 @@
       url = "github:noctalia-dev/noctalia-greeter";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -37,7 +42,6 @@
         specialArgs = { inherit inputs; };
         modules = [
           inputs.home-manager.nixosModules.default
-          inputs.noctalia-greeter.nixosModules.default
           ./config/configuration.nix
           ./home-manager/home.nix
         ];
