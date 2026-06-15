@@ -23,6 +23,11 @@
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -32,6 +37,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           inputs.home-manager.nixosModules.default
+          inputs.noctalia-greeter.nixosModules.default
           ./config/configuration.nix
           ./home-manager/home.nix
         ];

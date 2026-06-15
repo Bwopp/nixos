@@ -12,6 +12,7 @@ in
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    inputs.noctalia-greeter.nixosModules.default
   ];
 
   # da bootloader
@@ -104,9 +105,24 @@ in
     package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
   };
   
-  services.displayManager.ly = {
+  #services.displayManager.ly = {
+  #  enable = true;
+  #  x11Support = false;
+  #};
+
+  programs.noctalia-greeter = {
     enable = true;
-    x11Support = false;
+    package = inputs.noctalia-greeter.packages.${pkgs.stdenv.hostPlatform.system}.default;
+
+    # Optional configuration
+    greeter-args = "--user bwop";
+    settings = {
+      cursor = {
+        theme = "breeze_cursors";
+        size = 20;
+        package = pkgs.kdePackages.breeze;
+      };
+    };
   };
 
   # Pipewire, audio and bluetooth codecs 

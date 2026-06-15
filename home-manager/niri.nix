@@ -223,7 +223,7 @@
       "XF86MonBrightnessDown".action.spawn = [ "brightnessctl" "set" "5%-" ];
 
       # Volume controls
-      "XF86AudioRaiseVolume".action.spawn = [ "noctalia" "msg" "volume-down" "5" ];
+      "XF86AudioRaiseVolume".action.spawn = [ "noctalia" "msg" "volume-up" "5" ];
       "XF86AudioLowerVolume".action.spawn = [ "noctalia" "msg" "volume-down" "5" ];
       "XF86AudioMute".action.spawn = [ "noctalia" "msg" "volume-mute" ];
       "XF86AudioMicMute".action.spawn = [ "noctalia" "msg" "mic-mute" ];
@@ -233,7 +233,7 @@
 
       # Nice to have binds
       "Mod+V".action.spawn = [ "noctalia" "msg" "panel-toggle" "clipboard" ];
-      "Mod+L".action.spawn = [ "noctalia-shell" "ipc" "call" "lockScreen" "lock" ];
+      "Mod+L".action.spawn = [ "noctalia" "msg" "session" "lock" ];
       "XF86Favorites".action.spawn = [ "codium" "/etc/nixos" ];
       "Mod+Shift+Space".action.toggle-window-floating = [ ];
     };
@@ -272,6 +272,12 @@
           y = 10;
           relative-to = "bottom-right";
         };
+      }
+      {
+        matches = [{ app-id = "dev.noctalia.Noctalia.Settings"; }];
+        open-floating = true;
+        default-column-width = { fixed = 1080; };
+        default-window-height = { fixed = 920; };
       }
     ];
 
