@@ -11,7 +11,7 @@
 
       cssSnippets = [
         {
-          name = "math-scaling";
+          name = "maths-scaling";
           text = ''
             mjx-frac {
               font-size: 1.3em !important;

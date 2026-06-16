@@ -42,19 +42,6 @@
     .checked__87bf1 {
         background-color: var(--base0A) !important;
     }
-    path[fill^="rgba(35, 165, 90, 1)"] {
-        fill: var(--base0A) !important;
-    }
-    path[fill^="#23a55a"],
-    svg[fill^="#23a55a"],
-    rect[fill^="#23a55a"] {
-        fill: var(--base0A) !important;
-    }
-    .visual-refresh path[fill^="#43a25a"],
-    .visual-refresh svg[fill^="#43a25a"],
-    .visual-refresh rect[fill^="#43a25a"] {
-        fill: var(--base0A) !important;
-    }
     .barText__7aaec {
         color: var(--base0A) !important;
     }
