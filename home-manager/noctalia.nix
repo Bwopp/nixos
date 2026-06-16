@@ -517,9 +517,10 @@ in
         };
         media = {
           art_size = 16.0;
-          max_length = 220.0;
+          max_length = 600.0;
+          hide_when_no_media = true;
           min_length = 80.0;
-          title_scroll = "none";
+          title_scroll = "on_hover";
           type = "media";
         };
         network = {
