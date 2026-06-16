@@ -105,11 +105,6 @@ in
     package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
   };
   
-  #services.displayManager.ly = {
-  #  enable = true;
-  #  x11Support = false;
-  #};
-
   programs.noctalia-greeter = {
     enable = true;
     package = inputs.noctalia-greeter.packages.${pkgs.stdenv.hostPlatform.system}.default;
@@ -177,30 +172,6 @@ in
   # Shell
   programs.fish = {
     enable = true;
-      #interactiveShellInit = ''
-      #  # TokyoNight Storm
-      #  set -g fish_color_normal c0caf5
-      #  set -g fish_color_command 7dcfff
-      #  set -g fish_color_keyword bb9af7
-      #  set -g fish_color_quote e0af68
-      #  set -g fish_color_redirection c0caf5
-      #  set -g fish_color_end ff9e64
-      #  set -g fish_color_option bb9af7
-      #  set -g fish_color_error f7768e
-      #  set -g fish_color_param 9d7cd8
-      #  set -g fish_color_comment 565f89
-      #  set -g fish_color_selection --background=2e3c64
-      #  set -g fish_color_search_match --background=2e3c64
-      #  set -g fish_color_operator 9ece6a
-      #  set -g fish_color_escape bb9af7
-      #  set -g fish_color_autosuggestion 565f89
-      #  set -g fish_pager_color_progress 565f89
-      #  set -g fish_pager_color_prefix 7dcfff
-      #  set -g fish_pager_color_completion c0caf5
-      #  set -g fish_pager_color_description 565f89
-      #  set -g fish_pager_color_selected_background --background=2e3c64
-      #'';
-
     shellAliases = {
       ll = "ls -l";
       tup = "tailscale up";
@@ -217,32 +188,6 @@ in
   };
 
   users.defaultUserShell = pkgs.fish;
-
-  # Allow unfree packages and firmware
-  nixpkgs.config.allowUnfree = true;
-  hardware = {
-    enableAllFirmware = true;
-    enableRedistributableFirmware = true;
-  };
-
-  # QSV in handbrake
-  nixpkgs.config.packageOverrides = pkgs: {
-    handbrake = pkgs.handbrake.overrideAttrs (old: {
-      configureFlags = old.configureFlags ++ [ "--enable-qsv" ];
-      buildInputs = old.buildInputs ++ [
-        pkgs.libvpl
-        pkgs.libva
-        pkgs.intel-media-driver
-      ];
-      nativeBuildInputs = old.nativeBuildInputs ++ [
-        pkgs.libvpl
-      ];
-      NIX_CFLAGS_COMPILE = "-I${pkgs.libvpl}/include/vpl";
-      env = (old.env or {}) // {
-        NIX_LDFLAGS = (old.env.NIX_LDFLAGS or "") + " -lva -lvpl -lva-drm";
-      };
-    });
-  };
   
   # Packages
   environment.systemPackages = with pkgs; [
@@ -257,7 +202,6 @@ in
     fastfetch
     ffmpeg-full
     mangohud
-    # legcord
     # tailscale
     vlc
     syncthing
@@ -283,11 +227,9 @@ in
     gnome-text-editor
     papers
     fd
-    jellyfin-desktop
     proton-authenticator
     element-desktop
     sing-box
-    handbrake
     balatro-mod-manager
     freecad
     kicad

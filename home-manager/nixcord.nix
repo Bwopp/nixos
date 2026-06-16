@@ -2,6 +2,7 @@
 {
   programs.nixcord = {
     enable = true;
+    discord.enable = false;
     legcord = {
       enable = true;
       equicord.enable = true;

@@ -51,6 +51,13 @@
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
+          {
+            nixpkgs.config.allowUnfree = true;
+            hardware = {
+              enableAllFirmware = true;
+              enableRedistributableFirmware = true;
+            };
+          }
           inputs.home-manager.nixosModules.default
           ./config/configuration.nix
           ./home-manager/home.nix
