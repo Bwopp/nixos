@@ -21,6 +21,7 @@
           inputs.noctalia.homeModules.default
           inputs.stylix.homeModules.stylix
           inputs.spicetify-nix.homeManagerModules.default
+          inputs.nixcord.homeModules.nixcord
           ./stylix.nix
           ./alacritty.nix
           ./noctalia.nix

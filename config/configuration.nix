@@ -257,7 +257,7 @@ in
     fastfetch
     ffmpeg-full
     mangohud
-    legcord
+    # legcord
     # tailscale
     vlc
     syncthing
