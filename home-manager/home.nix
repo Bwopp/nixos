@@ -20,6 +20,7 @@
           inputs.niri.homeModules.niri
           inputs.noctalia.homeModules.default
           inputs.stylix.homeModules.stylix
+          inputs.spicetify-nix.homeManagerModules.default
           ./stylix.nix
           ./alacritty.nix
           ./noctalia.nix
@@ -27,6 +28,7 @@
           ./codium.nix
           ./floorp.nix
           ./obsidian.nix
+          ./spicetify.nix
         ];
       };
     };

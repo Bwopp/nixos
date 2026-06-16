@@ -88,7 +88,7 @@
 
     # Laptop Lid
     switch-events = {
-      lid-close.action.spawn = [ "noctalia-shell" "ipc" "call" "sessionMenu" "lockAndSuspend" ];
+      lid-close.action.spawn = [ "noctalia" "msg" "session" "lock-and-suspend" ];
     };
 
     # Keybinds
