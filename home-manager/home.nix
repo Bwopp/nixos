@@ -30,6 +30,7 @@
           ./floorp.nix
           ./obsidian.nix
           ./spicetify.nix
+          ./nixcord.nix
         ];
       };
     };
