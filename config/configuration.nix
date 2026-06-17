@@ -276,6 +276,9 @@ in
   security.pam.services.login.enableGnomeKeyring = true;
   security.pam.services.ly.enableGnomeKeyring = true;
 
+  # Make noctalia polkit work again
+  security.polkit.enablePkexecWrapper = true;
+
   # Power management
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;

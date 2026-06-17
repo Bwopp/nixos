@@ -51,7 +51,7 @@ in
           radius_top_right = 0;
           reserve_space = true;
           scale = 1.0;
-          shadow = true;
+          shadow = false;
           start = [ "control-center" "network" "bluetooth" "volume" "media" ];
           thickness = 30;
           widget_spacing = 4;
@@ -135,7 +135,7 @@ in
         radius_top_left = 16;
         radius_top_right = 16;
         reserve_space = true;
-        shadow = true;
+        shadow = false;
         show_dots = false;
         show_instance_count = true;
         show_running = true;
@@ -356,10 +356,10 @@ in
           borders = true;
           clipboard_placement = "centered";
           control_center_placement = "attached";
-          launcher_categories = true;
-          launcher_compact = false;
+          launcher_categories = false;
+          launcher_compact = true;
           launcher_placement = "centered";
-          launcher_session_search = false;
+          launcher_session_search = true;
           launcher_show_icons = true;
           launcher_sort_by_usage = true;
           open_near_click_clipboard = false;
@@ -368,7 +368,7 @@ in
           open_near_click_session = false;
           open_near_click_wallpaper = false;
           session_placement = "attached";
-          shadow = true;
+          shadow = false;
           transparency_mode = "solid";
           wallpaper_placement = "attached";
         };
