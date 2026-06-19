@@ -64,12 +64,9 @@
     enable32Bit = true;
   };
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
-  # services.openssh.enable = true;
+  hardware.amdgpu.opencl.enable = true;
+  systemd.packages = with pkgs; [ lact ];
+  systemd.services.lactd.wantedBy = ["multi-user.target"];
 
   system.stateVersion = "25.11"; # Did you read the comment? no :|
 
