@@ -1,4 +1,10 @@
-{ config, pkgs, lib, inputs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 let
   c = config.lib.stylix.colors;
 in
@@ -29,14 +35,20 @@ in
           border_width = 0.0;
           capsule = false;
           capsule_fill = "surface_variant";
-          capsule_group = [];
+          capsule_group = [ ];
           capsule_opacity = 1.0;
           capsule_padding = 6.0;
           capsule_thickness = 0.75999999046325684;
           center = [ "workspaces" ];
           contact_shadow = false;
           enabled = true;
-          end = [ "tray" "brightness" "battery" "power_profile" "clock" ];
+          end = [
+            "tray"
+            "brightness"
+            "battery"
+            "power_profile"
+            "clock"
+          ];
           font_weight = 500;
           layer = "top";
           margin_edge = 0;
@@ -52,7 +64,13 @@ in
           reserve_space = true;
           scale = 1.0;
           shadow = false;
-          start = [ "control-center" "network" "bluetooth" "volume" "media" ];
+          start = [
+            "control-center"
+            "network"
+            "bluetooth"
+            "volume"
+            "media"
+          ];
           thickness = 30;
           widget_spacing = 4;
         };
@@ -64,7 +82,7 @@ in
 
       brightness = {
         enable_ddcutil = false;
-        ignore_mmids = [];
+        ignore_mmids = [ ];
       };
 
       calendar = {
@@ -103,7 +121,7 @@ in
           output = "eDP-1";
           rotation = 0.0;
           type = "media_player";
-          settings = {};
+          settings = { };
         };
       };
 
@@ -126,8 +144,8 @@ in
         main_axis_padding = 16;
         margin_edge = 8;
         margin_ends = 0;
-        monitors = [];
-        pinned = [];
+        monitors = [ ];
+        pinned = [ ];
         position = "bottom";
         radius = 16;
         radius_bottom_left = 16;
@@ -142,28 +160,32 @@ in
       };
 
       hooks = {
-        battery_charging = [];
-        battery_discharging = [];
-        battery_percentage_changed = [];
-        battery_plugged = [];
-        bluetooth_disabled = [];
-        bluetooth_enabled = [];
-        colors_changed = [];
-        logging_out = [];
-        power_profile_changed = [];
-        rebooting = [];
-        session_locked = [];
-        session_unlocked = [];
-        shutting_down = [];
-        started = [];
-        theme_mode_changed = [];
-        wallpaper_changed = [];
-        wifi_disabled = [];
-        wifi_enabled = [];
+        battery_charging = [ ];
+        battery_discharging = [ ];
+        battery_percentage_changed = [ ];
+        battery_plugged = [ ];
+        bluetooth_disabled = [ ];
+        bluetooth_enabled = [ ];
+        colors_changed = [ ];
+        logging_out = [ ];
+        power_profile_changed = [ ];
+        rebooting = [ ];
+        session_locked = [ ];
+        session_unlocked = [ ];
+        shutting_down = [ ];
+        started = [ ];
+        theme_mode_changed = [ ];
+        wallpaper_changed = [ ];
+        wifi_disabled = [ ];
+        wifi_enabled = [ ];
       };
 
       idle = {
-        behavior_order = [ "lock" "screen-off" "lock-and-suspend" ];
+        behavior_order = [
+          "lock"
+          "screen-off"
+          "lock-and-suspend"
+        ];
         pre_action_fade_seconds = 2.0;
         behavior.lock = {
           action = "lock";
@@ -194,7 +216,10 @@ in
         left = [ "Left" ];
         right = [ "Right" ];
         up = [ "Up" ];
-        validate = [ "Return" "KP_Enter" ];
+        validate = [
+          "Return"
+          "KP_Enter"
+        ];
       };
 
       location = {
@@ -209,7 +234,7 @@ in
         blurred_desktop = false;
         enabled = true;
         fingerprint = false;
-        monitors = [];
+        monitors = [ ];
         tint_intensity = 0.30000001192092896;
         wallpaper = "";
       };
@@ -217,7 +242,10 @@ in
       lockscreen_widgets = {
         enabled = true;
         schema_version = 2;
-        widget_order = [ "lockscreen-login-box@eDP-1" "lockscreen-widget-0000000000000001" ];
+        widget_order = [
+          "lockscreen-login-box@eDP-1"
+          "lockscreen-widget-0000000000000001"
+        ];
         grid = {
           cell_size = 16;
           major_interval = 4;
@@ -250,7 +278,7 @@ in
           output = "eDP-1";
           rotation = 0.0;
           type = "clock";
-          settings = {};
+          settings = { };
         };
       };
 
@@ -266,7 +294,7 @@ in
         collapse_on_dismiss = true;
         enable_daemon = true;
         layer = "top";
-        monitors = [];
+        monitors = [ ];
         offset_x = 20;
         offset_y = 8;
         position = "top_right";
@@ -277,7 +305,7 @@ in
 
       osd = {
         background_opacity = 0.97000002861022949;
-        monitors = [];
+        monitors = [ ];
         offset_x = 20;
         offset_y = 8;
         orientation = "horizontal";
@@ -299,7 +327,7 @@ in
       };
 
       plugins = {
-        enabled = [];
+        enabled = [ ];
         source = [
           {
             auto_update = false;
@@ -350,7 +378,7 @@ in
           speed = 1.0;
         };
 
-        mpris.blacklist = [];
+        mpris.blacklist = [ ];
 
         panel = {
           borders = true;
@@ -389,11 +417,51 @@ in
         };
 
         session.actions = [
-          { action = "lock"; command = ""; enabled = true; glyph = ""; label = ""; shortcut = "1"; variant = "default"; }
-          { action = "logout"; command = ""; enabled = true; glyph = ""; label = ""; shortcut = "2"; variant = "default"; }
-          { action = "lock_and_suspend"; command = ""; enabled = true; glyph = ""; label = ""; shortcut = "3"; variant = "default"; }
-          { action = "reboot"; command = ""; enabled = true; glyph = ""; label = ""; shortcut = "4"; variant = "default"; }
-          { action = "shutdown"; command = ""; enabled = true; glyph = ""; label = ""; shortcut = "5"; variant = "destructive"; }
+          {
+            action = "lock";
+            command = "";
+            enabled = true;
+            glyph = "";
+            label = "";
+            shortcut = "1";
+            variant = "default";
+          }
+          {
+            action = "logout";
+            command = "";
+            enabled = true;
+            glyph = "";
+            label = "";
+            shortcut = "2";
+            variant = "default";
+          }
+          {
+            action = "lock_and_suspend";
+            command = "";
+            enabled = true;
+            glyph = "";
+            label = "";
+            shortcut = "3";
+            variant = "default";
+          }
+          {
+            action = "reboot";
+            command = "";
+            enabled = true;
+            glyph = "";
+            label = "";
+            shortcut = "4";
+            variant = "default";
+          }
+          {
+            action = "shutdown";
+            command = "";
+            enabled = true;
+            glyph = "";
+            label = "";
+            shortcut = "5";
+            variant = "destructive";
+          }
         ];
 
         shadow = {
@@ -446,7 +514,14 @@ in
         fill_color = "";
         fill_mode = "crop";
         per_monitor_directories = false;
-        transition = [ "fade" "wipe" "disc" "stripes" "zoom" "honeycomb" ];
+        transition = [
+          "fade"
+          "wipe"
+          "disc"
+          "stripes"
+          "zoom"
+          "honeycomb"
+        ];
         transition_duration = 1500.0;
         transition_on_startup = false;
         automation = {
@@ -562,8 +637,7 @@ in
     };
   };
 
-home.file.".config/noctalia/palettes/stylix.json".text =
-  builtins.toJSON {
+  home.file.".config/noctalia/palettes/stylix.json".text = builtins.toJSON {
     dark = {
       mPrimary = "#${c.base0D}";
       mOnPrimary = "#${c.base00}";

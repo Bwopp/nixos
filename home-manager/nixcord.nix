@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 {
   programs.nixcord = {
     enable = true;
@@ -70,6 +75,5 @@
   };
 
   xdg.configFile."legcord/themes/Stylix-BD/src.css".text =
-    config.stylix.targets.nixcord.themeBody
-    + config.stylix.targets.nixcord.extraCss;
+    config.stylix.targets.nixcord.themeBody + config.stylix.targets.nixcord.extraCss;
 }

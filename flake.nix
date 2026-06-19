@@ -47,21 +47,31 @@
 
   outputs =
     { self, nixpkgs, ... }@inputs:
+    let
+      globalModules = [
+        {
+          nixpkgs.config.allowUnfree = true;
+          hardware = {
+            enableAllFirmware = true;
+            enableRedistributableFirmware = true;
+          };
+        }
+        inputs.home-manager.nixosModules.default
+        ./home-manager/home.nix
+        ./modules/default.nix
+        ./modules/fish.nix
+        ./modules/pipewire.nix
+        ./modules/greeter.nix
+        ./modules/network.nix
+        ./modules/bluetooth.nix
+        ./modules/packages.nix
+        ./modules/niri.nix
+      ];
+    in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
-        modules = [
-          {
-            nixpkgs.config.allowUnfree = true;
-            hardware = {
-              enableAllFirmware = true;
-              enableRedistributableFirmware = true;
-            };
-          }
-          inputs.home-manager.nixosModules.default
-          ./config/configuration.nix
-          ./home-manager/home.nix
-        ];
+        modules = globalModules ++ [ ./hosts/laptop/configuration.nix ];
       };
     };
 }

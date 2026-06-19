@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 let
   vscodeExts = inputs.nix-vscode-extensions.extensions.${pkgs.system};
 in

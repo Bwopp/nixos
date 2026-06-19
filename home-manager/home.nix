@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 {
   # Home manager
   home-manager = {
@@ -12,7 +17,7 @@
         home.stateVersion = "25.05";
 
         programs.home-manager.enable = true;
-        
+
         # Music
         services.mpris-proxy.enable = true;
 

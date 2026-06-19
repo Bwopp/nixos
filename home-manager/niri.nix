@@ -1,4 +1,10 @@
-{ config, pkgs, inputs, lib, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 {
   programs.niri.package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
   # inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
@@ -90,7 +96,12 @@
 
     # Laptop Lid
     switch-events = {
-      lid-close.action.spawn = [ "noctalia" "msg" "session" "lock-and-suspend" ];
+      lid-close.action.spawn = [
+        "noctalia"
+        "msg"
+        "session"
+        "lock-and-suspend"
+      ];
     };
 
     # Keybinds
@@ -99,7 +110,12 @@
 
       # Launch applications
       "Mod+Return".action.spawn = [ "alacritty" ];
-      "Mod+D".action.spawn = [ "noctalia" "msg" "panel-toggle" "launcher" ];
+      "Mod+D".action.spawn = [
+        "noctalia"
+        "msg"
+        "panel-toggle"
+        "launcher"
+      ];
       "Mod+E".action.spawn = [ "nautilus" ];
       "Mod+W".action.spawn = [ "floorp" ];
 
@@ -221,22 +237,61 @@
       "Mod+Shift+Slash".action.show-hotkey-overlay = [ ];
 
       # Brightness controls
-      "XF86MonBrightnessUp".action.spawn = [ "brightnessctl" "set" "+5%" ];
-      "XF86MonBrightnessDown".action.spawn = [ "brightnessctl" "set" "5%-" ];
+      "XF86MonBrightnessUp".action.spawn = [
+        "brightnessctl"
+        "set"
+        "+5%"
+      ];
+      "XF86MonBrightnessDown".action.spawn = [
+        "brightnessctl"
+        "set"
+        "5%-"
+      ];
 
       # Volume controls
-      "XF86AudioRaiseVolume".action.spawn = [ "noctalia" "msg" "volume-up" "5" ];
-      "XF86AudioLowerVolume".action.spawn = [ "noctalia" "msg" "volume-down" "5" ];
-      "XF86AudioMute".action.spawn = [ "noctalia" "msg" "volume-mute" ];
-      "XF86AudioMicMute".action.spawn = [ "noctalia" "msg" "mic-mute" ];
+      "XF86AudioRaiseVolume".action.spawn = [
+        "noctalia"
+        "msg"
+        "volume-up"
+        "5"
+      ];
+      "XF86AudioLowerVolume".action.spawn = [
+        "noctalia"
+        "msg"
+        "volume-down"
+        "5"
+      ];
+      "XF86AudioMute".action.spawn = [
+        "noctalia"
+        "msg"
+        "volume-mute"
+      ];
+      "XF86AudioMicMute".action.spawn = [
+        "noctalia"
+        "msg"
+        "mic-mute"
+      ];
 
       # Useless laptop buttons given a use
       "XF86Calculator".action.spawn = [ "gnome-calculator" ];
 
       # Nice to have binds
-      "Mod+V".action.spawn = [ "noctalia" "msg" "panel-toggle" "clipboard" ];
-      "Mod+L".action.spawn = [ "noctalia" "msg" "session" "lock" ];
-      "XF86Favorites".action.spawn = [ "codium" "/etc/nixos" ];
+      "Mod+V".action.spawn = [
+        "noctalia"
+        "msg"
+        "panel-toggle"
+        "clipboard"
+      ];
+      "Mod+L".action.spawn = [
+        "noctalia"
+        "msg"
+        "session"
+        "lock"
+      ];
+      "XF86Favorites".action.spawn = [
+        "codium"
+        "/etc/nixos"
+      ];
       "Mod+Shift+Space".action.toggle-window-floating = [ ];
     };
 

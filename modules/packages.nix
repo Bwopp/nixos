@@ -1,0 +1,54 @@
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
+{
+  environment.systemPackages = with pkgs; [
+    wget
+    prismlauncher
+    obsidian
+    spotify
+    gitFull
+    btop
+    alacritty
+    gparted
+    fastfetch
+    ffmpeg-full
+    mangohud
+    # tailscale
+    vlc
+    syncthing
+    syncthingtray
+    protonplus
+    gamemode
+    javaPackages.compiler.temurin-bin.jre-17
+    qbittorrent
+    cloudflare-warp
+    xwayland-satellite
+    wl-clipboard
+    wlr-randr
+    brightnessctl
+    cliphist
+    gamescope
+    kdePackages.breeze
+    nautilus
+    loupe
+    file-roller
+    gnome.gvfs
+    adwaita-icon-theme
+    gnome-calculator
+    gnome-text-editor
+    papers
+    fd
+    proton-authenticator
+    element-desktop
+    sing-box
+    balatro-mod-manager
+    freecad
+    kicad
+    blender
+  ];
+}
