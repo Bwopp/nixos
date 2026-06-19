@@ -73,5 +73,9 @@
         specialArgs = { inherit inputs; };
         modules = globalModules ++ [ ./hosts/laptop/configuration.nix ];
       };
+      nixosConfigurations."12600k-nix" = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = globalModules ++ [ ./hosts/desktop/configuration.nix ];
+      };
     };
 }
