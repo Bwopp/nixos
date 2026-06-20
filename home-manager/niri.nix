@@ -123,7 +123,7 @@ in
 
     # Laptop Lid
     switch-events = {
-      lid-close.action.spawn = [ "noctalia" "msg""session""lock-and-suspend" ];
+      lid-close.action.spawn = [ "noctalia" "msg" "session" "lock-and-suspend" ];
     };
 
     # Keybinds
