@@ -1,6 +1,143 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, osConfig, ... }:
 let
   c = config.lib.stylix.colors;
+
+  # hostBool.${osConfig.networking.hostName}.true;
+  # true for laptop false for desktop
+  # hostBool.${osConfig.networking.hostName}.false
+  # false for laptop true for desktop
+  hostBool = {
+    "nixos" = {
+      true = true;
+      false = false;
+    };
+    "12600k-nix" = {
+      true = false;
+      false = true;
+    };
+  };
+
+  hostLockWidgets = {
+    "nixos" = {
+      enabled = true;
+      schema_version = 2;
+      widget_order = [
+        "lockscreen-login-box@eDP-1"
+        "lockscreen-widget-0000000000000001"
+      ];
+      grid = {
+        cell_size = 16;
+        major_interval = 4;
+        visible = true;
+      };
+      widget."lockscreen-login-box@eDP-1" = {
+        box_height = 0.0;
+        box_width = 0.0;
+        cx = 874.0;
+        cy = 562.5;
+        enabled = true;
+        output = "eDP-1";
+        rotation = 0.0;
+        type = "login_box";
+        settings = {
+          background_color = "surface_variant";
+          background_opacity = 0.88;
+          background_radius = 12.0;
+          input_opacity = 1.0;
+          input_radius = 6.0;
+          show_login_button = true;
+        };
+      };
+      widget."lockscreen-widget-0000000000000001" = {
+        box_height = 0.0;
+        box_width = 0.0;
+        cx = 874.0;
+        cy = 417.5;
+        enabled = true;
+        output = "eDP-1";
+        rotation = 0.0;
+        type = "clock";
+        settings = { };
+      };
+    };
+    "12600k-nix" = {
+      enabled = true;
+      schema_version = 2;
+      widget_order = [
+        "lockscreen-login-box@DP-4"
+        "lockscreen-login-box@DP-3"
+        "lockscreen-widget-0000000000000002"
+        "lockscreen-widget-0000000000000003"
+      ];
+      grid = {
+        cell_size = 16;
+        major_interval = 4;
+        visible = true;
+      };
+      widget."lockscreen-login-box@DP-3" = {
+        box_height = 0.0;
+        box_width = 0.0;
+        cx = 1280.0;
+        cy = 720.0;
+        enabled = true;
+        output = "DP-3";
+        rotation = 0.0;
+        type = "login_box";
+        settings = {
+          background_color = "surface_variant";
+          background_opacity = 0.88;
+          background_radius = 12.0;
+          input_opacity = 1.0;
+          input_radius = 6.0;
+          show_login_button = true;
+        };
+      };
+      widget."lockscreen-login-box@DP-4" = {
+        box_height = 0.0;
+        box_width = 0.0;
+        cx = 960.0;
+        cy = 540.0;
+        enabled = true;
+        output = "DP-4";
+        rotation = 0.0;
+        type = "login_box";
+        settings = {
+          background_color = "surface_variant";
+          background_opacity = 0.88;
+          background_radius = 12.0;
+          input_opacity = 1.0;
+          input_radius = 6.0;
+          show_login_button = true;
+        };
+      };
+      widget."lockscreen-widget-0000000000000002" = {
+        box_height = 0.0;
+        box_width = 0.0;
+        cx = 1280.0;
+        cy = 587.0;
+        enabled = true;
+        output = "DP-3";
+        rotation = 0.0;
+        type = "clock";
+        settings = {
+          background = false;
+        };
+      };
+      widget."lockscreen-widget-0000000000000003" = {
+        box_height = 0.0;
+        box_width = 0.0;
+        cx = 960.0;
+        cy = 407.0;
+        enabled = true;
+        output = "DP-4";
+        rotation = 0.0;
+        type = "clock";
+        settings = {
+          background = false;
+        };
+      };
+    };
+  };
 in
 {
   programs.noctalia = {
@@ -75,7 +212,7 @@ in
       };
 
       brightness = {
-        enable_ddcutil = true;
+        enable_ddcutil = false;
         ignore_mmids = [ ];
       };
 
@@ -100,22 +237,11 @@ in
       desktop_widgets = {
         enabled = false;
         schema_version = 2;
-        widget_order = [ "desktop-widget-0000000000000001" ];
+        widget_order = [ "" ];
         grid = {
           cell_size = 16;
           major_interval = 4;
           visible = true;
-        };
-        widget."desktop-widget-0000000000000001" = {
-          box_height = 0.0;
-          box_width = 0.0;
-          cx = 1549.0;
-          cy = 988.5;
-          enabled = true;
-          output = "eDP-1";
-          rotation = 0.0;
-          type = "media_player";
-          settings = { };
         };
       };
 
@@ -191,14 +317,14 @@ in
         behavior."lock-and-suspend" = {
           action = "lock_and_suspend";
           command = "";
-          enabled = true;
+          enabled = hostBool.${osConfig.networking.hostName}.true;
           resume_command = "";
           timeout = 900;
         };
         behavior."screen-off" = {
           action = "screen_off";
           command = "";
-          enabled = false;
+          enabled = hostBool.${osConfig.networking.hostName}.false;
           resume_command = "";
           timeout = 660;
         };
@@ -233,48 +359,7 @@ in
         wallpaper = "";
       };
 
-      lockscreen_widgets = {
-        enabled = true;
-        schema_version = 2;
-        widget_order = [
-          "lockscreen-login-box@eDP-1"
-          "lockscreen-widget-0000000000000001"
-        ];
-        grid = {
-          cell_size = 16;
-          major_interval = 4;
-          visible = true;
-        };
-        widget."lockscreen-login-box@eDP-1" = {
-          box_height = 0.0;
-          box_width = 0.0;
-          cx = 874.0;
-          cy = 562.5;
-          enabled = true;
-          output = "eDP-1";
-          rotation = 0.0;
-          type = "login_box";
-          settings = {
-            background_color = "surface_variant";
-            background_opacity = 0.88;
-            background_radius = 12.0;
-            input_opacity = 1.0;
-            input_radius = 6.0;
-            show_login_button = true;
-          };
-        };
-        widget."lockscreen-widget-0000000000000001" = {
-          box_height = 0.0;
-          box_width = 0.0;
-          cx = 874.0;
-          cy = 417.5;
-          enabled = true;
-          output = "eDP-1";
-          rotation = 0.0;
-          type = "clock";
-          settings = { };
-        };
-      };
+      lockscreen_widgets = hostLockWidgets.${osConfig.networking.hostName};
 
       nightlight = {
         enabled = false;

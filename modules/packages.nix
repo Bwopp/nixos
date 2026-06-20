@@ -45,6 +45,5 @@
     kicad
     blender
     playerctl
-    ddcutil
   ];
 }
