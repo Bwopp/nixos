@@ -324,7 +324,7 @@ in
         behavior."screen-off" = {
           action = "screen_off";
           command = "";
-          enabled = hostBool.${osConfig.networking.hostName}.false;
+          enabled = true;
           resume_command = "";
           timeout = 660;
         };
