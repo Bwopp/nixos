@@ -1,10 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  inputs,
-  ...
-}:
+{ config, pkgs, lib, inputs, ... }:
 let
   c = config.lib.stylix.colors;
 in
@@ -81,7 +75,7 @@ in
       };
 
       brightness = {
-        enable_ddcutil = false;
+        enable_ddcutil = true;
         ignore_mmids = [ ];
       };
 

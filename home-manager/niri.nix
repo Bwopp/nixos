@@ -1,11 +1,4 @@
-{
-  config,
-  pkgs,
-  inputs,
-  lib,
-  osConfig,
-  ...
-}:
+{ config, pkgs, inputs, lib, osConfig, ... }:
 let
   hostOutputs = {
     "nixos" = {
@@ -45,6 +38,11 @@ let
         background-color = "#${config.lib.stylix.colors.base00}";
       };
     };
+  };
+
+  hostCornerRadius = {
+    "nixos" = 12.0;
+    "12600k-nix" = 0.0;
   };
 in
 {
@@ -125,12 +123,7 @@ in
 
     # Laptop Lid
     switch-events = {
-      lid-close.action.spawn = [
-        "noctalia"
-        "msg"
-        "session"
-        "lock-and-suspend"
-      ];
+      lid-close.action.spawn = [ "noctalia" "msg""session""lock-and-suspend" ];
     };
 
     # Keybinds
@@ -139,12 +132,7 @@ in
 
       # Launch applications
       "Mod+Return".action.spawn = [ "alacritty" ];
-      "Mod+D".action.spawn = [
-        "noctalia"
-        "msg"
-        "panel-toggle"
-        "launcher"
-      ];
+      "Mod+D".action.spawn = [ "noctalia" "msg" "panel-toggle" "launcher" ];
       "Mod+E".action.spawn = [ "nautilus" ];
       "Mod+W".action.spawn = [ "floorp" ];
 
@@ -266,61 +254,25 @@ in
       "Mod+Shift+Slash".action.show-hotkey-overlay = [ ];
 
       # Brightness controls
-      "XF86MonBrightnessUp".action.spawn = [
-        "brightnessctl"
-        "set"
-        "+5%"
-      ];
-      "XF86MonBrightnessDown".action.spawn = [
-        "brightnessctl"
-        "set"
-        "5%-"
-      ];
+      "XF86MonBrightnessUp".action.spawn = [ "brightnessctl" "set" "+5%" ];
+      "XF86MonBrightnessDown".action.spawn = [ "brightnessctl" "set" "5%-" ];
 
-      # Volume controls
-      "XF86AudioRaiseVolume".action.spawn = [
-        "noctalia"
-        "msg"
-        "volume-up"
-        "5"
-      ];
-      "XF86AudioLowerVolume".action.spawn = [
-        "noctalia"
-        "msg"
-        "volume-down"
-        "5"
-      ];
-      "XF86AudioMute".action.spawn = [
-        "noctalia"
-        "msg"
-        "volume-mute"
-      ];
-      "XF86AudioMicMute".action.spawn = [
-        "noctalia"
-        "msg"
-        "mic-mute"
-      ];
+      # Volume and audio controls
+      "XF86AudioRaiseVolume".action.spawn = [ "noctalia" "msg" "volume-up" "5" ];
+      "XF86AudioLowerVolume".action.spawn = [ "noctalia" "msg" "volume-down" "5" ];
+      "XF86AudioMute".action.spawn = [ "noctalia" "msg" "volume-mute" ];
+      "XF86AudioMicMute".action.spawn = [ "noctalia" "msg" "mic-mute" ];
+      "XF86AudioPlay".action.spawn = [ "playerctl" "play-pause" ];
+      "XF86AudioNext".action.spawn = [ "playerctl" "next" ];
+      "XF86AudioPrev".action.spawn = [ "playerctl" "previous" ];
 
       # Useless laptop buttons given a use
       "XF86Calculator".action.spawn = [ "gnome-calculator" ];
 
       # Nice to have binds
-      "Mod+V".action.spawn = [
-        "noctalia"
-        "msg"
-        "panel-toggle"
-        "clipboard"
-      ];
-      "Mod+L".action.spawn = [
-        "noctalia"
-        "msg"
-        "session"
-        "lock"
-      ];
-      "XF86Favorites".action.spawn = [
-        "codium"
-        "/etc/nixos"
-      ];
+      "Mod+V".action.spawn = [ "noctalia" "msg" "panel-toggle" "clipboard" ];
+      "Mod+L".action.spawn = [ "noctalia" "msg" "session" "lock" ];
+      "XF86Favorites".action.spawn = [ "codium" "/etc/nixos" ];
       "Mod+Shift+Space".action.toggle-window-floating = [ ];
     };
 
@@ -331,7 +283,7 @@ in
         clip-to-geometry = true;
         geometry-corner-radius =
           let
-            radius = 12.0;
+            radius = hostCornerRadius.${osConfig.networking.hostName};
           in
           {
             top-left = radius;

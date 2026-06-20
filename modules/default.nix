@@ -1,10 +1,4 @@
-{
-  config,
-  pkgs,
-  inputs,
-  lib,
-  ...
-}:
+{ config, pkgs, inputs, lib, ... }:
 {
   # File Sharing
   programs.localsend.enable = true;

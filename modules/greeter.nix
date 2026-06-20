@@ -1,10 +1,4 @@
-{
-  config,
-  pkgs,
-  inputs,
-  lib,
-  ...
-}:
+{ config, pkgs, inputs, lib, ... }:
 {
   imports = [ inputs.noctalia-greeter.nixosModules.default ];
   programs.noctalia-greeter = {

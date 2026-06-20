@@ -1,9 +1,4 @@
-{
-  inputs,
-  pkgs,
-  lib,
-  ...
-}:
+{ inputs, pkgs, lib, ... }:
 let
   extension = shortId: guid: {
     name = guid;
