@@ -242,6 +242,9 @@ in
       "XF86SelectiveScreenshot".action.screenshot = [ ];
       "Ctrl+XF86SelectiveScreenshot".action.screenshot-screen = [ ];
       "Alt+XF86SelectiveScreenshot".action.screenshot-window = [ ];
+      "Mod+Shift+S".action.screenshot = [ ];
+      "Mod+Shift+Ctrl+S".action.screenshot-screen = [ ];
+      "Mod+Shift+Alt+S".action.screenshot-window = [ ];
 
       # System/Session
       "Mod+Shift+E".action.quit = [ ];
