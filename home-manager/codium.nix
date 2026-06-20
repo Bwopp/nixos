@@ -1,6 +1,6 @@
 { config, pkgs, inputs, ... }:
 let
-  vscodeExts = inputs.nix-vscode-extensions.extensions.${pkgs.system};
+  vscodeExts = inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.hostPlatform.system};
 in
 {
   programs.vscodium = {

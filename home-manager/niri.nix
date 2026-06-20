@@ -44,6 +44,11 @@ let
     "nixos" = 12.0;
     "12600k-nix" = 0.0;
   };
+
+  hostCursorSize = {
+    "nixos" = 20;
+    "12600k-nix" = 24;
+  };
 in
 {
   programs.niri.package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
@@ -81,7 +86,7 @@ in
     };
 
     cursor = {
-      size = 20;
+      size = hostCursorSize.${osConfig.networking.hostName};
       theme = "breeze_cursors";
     };
     # Laptop Display
