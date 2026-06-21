@@ -59,7 +59,7 @@
   outputs =
     { self, nixpkgs, ... }@inputs:
     let
-      globalModules = [
+      modules = [
         {
           nixpkgs.config.allowUnfree = true;
           hardware = {
@@ -70,26 +70,23 @@
         inputs.home-manager.nixosModules.default
         inputs.lix-module.nixosModules.default
         ./home-manager/home.nix
-        ./modules/default.nix
-        ./modules/fish.nix
-        ./modules/pipewire.nix
-        ./modules/greeter.nix
-        ./modules/network.nix
-        ./modules/bluetooth.nix
-        ./modules/packages.nix
-        ./modules/niri.nix
-        ./modules/portals.nix
-        ./modules/steam.nix
+        ./modules/modules.nix
       ];
+
+
+      mkHost = { hostName, hostConfig }: nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs hostName; };
+        modules = modules ++ [ hostConfig ];
+      };
     in
     {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = globalModules ++ [ ./hosts/laptop/configuration.nix ];
+      nixosConfigurations.nixos = mkHost {
+        hostName = "nixos";
+        hostConfig = ./hosts/laptop/configuration.nix;
       };
-      nixosConfigurations."12600k-nix" = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = globalModules ++ [ ./hosts/desktop/configuration.nix ];
+      nixosConfigurations."12600k-nix" = mkHost {
+        hostName = "12600k-nix";
+        hostConfig = ./hosts/desktop/configuration.nix;
       };
     };
 }

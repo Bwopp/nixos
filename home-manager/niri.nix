@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, osConfig, ... }:
+{ config, pkgs, inputs, lib, hostName, ... }:
 let
   hostOutputs = {
     "nixos" = {
@@ -86,11 +86,11 @@ in
     };
 
     cursor = {
-      size = hostCursorSize.${osConfig.networking.hostName};
+      size = hostCursorSize.${hostName};
       theme = "breeze_cursors";
     };
     # Laptop Display
-    outputs = hostOutputs.${osConfig.networking.hostName};
+    outputs = hostOutputs.${hostName};
 
     # Layout settings
     layout = {
@@ -291,7 +291,7 @@ in
         clip-to-geometry = true;
         geometry-corner-radius =
           let
-            radius = hostCornerRadius.${osConfig.networking.hostName};
+            radius = hostCornerRadius.${hostName};
           in
           {
             top-left = radius;

@@ -1,10 +1,10 @@
-{ config, osConfig, ... }:
+{ config, hostName, ... }:
 let
   c = config.lib.stylix.colors;
 
-  # hostBool.${osConfig.networking.hostName}.true;
+  # hostBool.${hostName}.true;
   # true for laptop false for desktop
-  # hostBool.${osConfig.networking.hostName}.false
+  # hostBool.${hostName}.false
   # false for laptop true for desktop
   hostBool = {
     "nixos" = {
@@ -317,7 +317,7 @@ in
         behavior."lock-and-suspend" = {
           action = "lock_and_suspend";
           command = "";
-          enabled = hostBool.${osConfig.networking.hostName}.true;
+          enabled = hostBool.${hostName}.true;
           resume_command = "";
           timeout = 900;
         };
@@ -359,7 +359,7 @@ in
         wallpaper = "";
       };
 
-      lockscreen_widgets = hostLockWidgets.${osConfig.networking.hostName};
+      lockscreen_widgets = hostLockWidgets.${hostName};
 
       nightlight = {
         enabled = false;
