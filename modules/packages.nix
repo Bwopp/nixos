@@ -12,7 +12,6 @@
     fastfetch
     ffmpeg-full
     mangohud
-    # tailscale
     vlc
     syncthing
     syncthingtray

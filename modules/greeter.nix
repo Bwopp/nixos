@@ -5,7 +5,6 @@
     enable = true;
     package = inputs.noctalia-greeter.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
-    # Optional configuration
     greeter-args = "--user bwop";
     settings = {
       cursor = {

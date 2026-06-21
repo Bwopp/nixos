@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 let
   vscodeExts = inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.hostPlatform.system};
 in
