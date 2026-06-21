@@ -78,6 +78,8 @@
         ./modules/bluetooth.nix
         ./modules/packages.nix
         ./modules/niri.nix
+        ./modules/portals.nix
+        ./modules/steam.nix
       ];
     in
     {
