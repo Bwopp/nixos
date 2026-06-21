@@ -8,40 +8,6 @@
   services.samba-wsdd.enable = true;
   services.udisks2.enable = true;
 
-  # Steam
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-    gamescopeSession.enable = true;
-    package = pkgs.steam.override {
-      extraArgs = "-system-composer";
-    };
-  };
-
-  programs.gamemode.enable = true;
-
-  programs.steam.protontricks.enable = true;
-
-  # Stuff for screensharing (desktop portals)
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gnome
-    ];
-    config.niri.default = lib.mkForce [
-      "gnome"
-    ];
-  };
-  environment.pathsToLink = [
-    "/share/application"
-    "/share/xdg-desktop-portal"
-  ];
-
-  # Xwayland
-  programs.xwayland.enable = true;
-
   # Keyring
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.login.enableGnomeKeyring = true;
@@ -57,7 +23,7 @@
   systemd.services.NetworkManager-wait-until-online.enable = false;
   boot.initrd.systemd.network.wait-online.enable = false;
 
-    # ssh
+  # ssh
   services.openssh.enable = false;
 
   # Tailscale
@@ -81,7 +47,6 @@
   networking.nftables.enable = true;
   # networking.firewall.enable = false;
   networking.firewall.trustedInterfaces = [ "p2p-wl+" ];
-
 
   # Syncthing
   services.syncthing = {
