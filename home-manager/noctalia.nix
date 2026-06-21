@@ -151,6 +151,22 @@ in
         volume_change_sound = "";
       };
 
+      calendar = {
+        enabled = true;
+        refresh_minutes = 15;
+        account = {
+          personal_google = {
+            calendars = [ ];
+            color = "";
+            name = "";
+            provider = "";
+            server_url = "";
+            type = "google";
+            username = "";
+          };
+        };
+      };
+
       backdrop = {
         blur_intensity = 0.0;
         enabled = false;
@@ -214,11 +230,6 @@ in
       brightness = {
         enable_ddcutil = false;
         ignore_mmids = [ ];
-      };
-
-      calendar = {
-        enabled = false;
-        refresh_minutes = 15;
       };
 
       control_center = {
