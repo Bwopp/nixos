@@ -22,6 +22,8 @@
 
   programs.gamemode.enable = true;
 
+  programs.steam.protontricks.enable = true;
+
   # Stuff for screensharing (desktop portals)
   xdg.portal = {
     enable = true;
