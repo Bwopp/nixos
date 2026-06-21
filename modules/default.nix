@@ -20,6 +20,8 @@
     };
   };
 
+  programs.gamemode.enable = true;
+
   # Stuff for screensharing (desktop portals)
   xdg.portal = {
     enable = true;

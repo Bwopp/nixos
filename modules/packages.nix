@@ -17,7 +17,6 @@
     syncthing
     syncthingtray
     protonplus
-    gamemode
     javaPackages.compiler.temurin-bin.jre-17
     qbittorrent
     cloudflare-warp
