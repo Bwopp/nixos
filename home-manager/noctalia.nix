@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, osConfig, ... }:
+{ config, osConfig, ... }:
 let
   c = config.lib.stylix.colors;
 

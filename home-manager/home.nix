@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ inputs, ... }:
 {
   # Home manager
   home-manager = {

@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, ... }:
+{ pkgs, ... }:
 let
   pipewireLdacWorkaround = pkgs.pipewire.overrideAttrs (old: {
     mesonFlags = (old.mesonFlags or [ ]) ++ [

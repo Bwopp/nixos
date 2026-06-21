@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, ... }:
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     wget
@@ -44,5 +44,6 @@
     kicad
     blender
     playerctl
+    lixPackageSets.git.nil
   ];
 }

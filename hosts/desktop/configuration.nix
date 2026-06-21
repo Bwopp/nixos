@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, ... }:
+{ pkgs, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -26,6 +26,7 @@
     '';
     };
   };
+  
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_zen;
 

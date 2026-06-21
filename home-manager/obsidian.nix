@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ lib, ... }:
 {
   programs.obsidian = {
     enable = true;

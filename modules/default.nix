@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, ... }:
+{ pkgs, ... }:
 {
   # File Sharing
   programs.localsend.enable = true;

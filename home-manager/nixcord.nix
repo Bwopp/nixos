@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, ... }:
 {
   programs.nixcord = {
     enable = true;

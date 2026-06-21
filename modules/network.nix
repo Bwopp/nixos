@@ -1,4 +1,4 @@
-{ config, pkgs, inputs,lib, ... }:
+{ ... }:
 {
   networking = {
     nameservers = [

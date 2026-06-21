@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, osConfig, ... }:
+{ pkgs, osConfig, ... }:
 let
   hostCursorSize = {
     "nixos" = 20;
