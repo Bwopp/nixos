@@ -28,7 +28,6 @@ let
   };
 in
 {
-  # Home manager
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = false;
@@ -42,7 +41,6 @@ in
         };
         programs.home-manager.enable = true;
 
-        # Music
         services.mpris-proxy.enable = true;
 
         imports = globalModules ++ perHostModules.${hostName};
