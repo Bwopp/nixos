@@ -7,7 +7,6 @@ let
   });
 in
 {
-  # Pipewire, audio and bluetooth codecs
   security.rtkit.enable = true;
   services.pipewire = {
     package = pipewireLdacWorkaround;
