@@ -5,7 +5,6 @@
     prismlauncher
     obsidian
     spotify
-    gitFull
     btop
     alacritty
     gparted
@@ -43,6 +42,8 @@
     kicad
     blender
     playerctl
-    lixPackageSets.git.nil
+    nixd
+    devenv
+    libsecret
   ];
 }

@@ -15,6 +15,7 @@ let
     ./obsidian.nix
     ./spicetify.nix
     ./nixcord.nix
+    ./git.nix
   ];
 
   perHostModules = {

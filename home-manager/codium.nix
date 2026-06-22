@@ -9,7 +9,8 @@ in
       extensions = with pkgs.vscode-extensions; [
         ms-python.python
         rust-lang.rust-analyzer
-        vscodeExts.open-vsx.auricvex.flake-env
+        # vscodeExts.open-vsx.auricvex.flake-env
+        vscodeExts.open-vsx.datakurre.devenv
         jnoortheen.nix-ide
       ];
       userSettings = {
@@ -18,7 +19,7 @@ in
         "python.defaultInterpreterPath" = "python";
         "python.locator" = "native";
         "nix.enableLanguageServer" = true;
-        "nix.serverPath" = "nil";
+        "nix.serverPath" = "nixd";
       };
     };
   };
