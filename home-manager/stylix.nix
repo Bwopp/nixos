@@ -1,4 +1,4 @@
-{ pkgs, osConfig, ... }:
+{ pkgs, hostName, ... }:
 let
   hostCursorSize = {
     "nixos" = 20;
@@ -13,7 +13,7 @@ in
     cursor = {
       name = "breeze_cursors";
       package = pkgs.kdePackages.breeze;
-      size = hostCursorSize.${osConfig.networking.hostName};
+      size = hostCursorSize.${hostName};
     };
   };
 }
