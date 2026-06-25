@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, config, inputs, ... }:
 {
   imports = [ inputs.noctalia-greeter.nixosModules.default ];
   programs.noctalia-greeter = {
@@ -10,7 +10,6 @@
       cursor = {
         theme = "breeze_cursors";
         size = 20;
-        package = pkgs.kdePackages.breeze;
       };
     };
   };
