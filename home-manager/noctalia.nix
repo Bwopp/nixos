@@ -470,16 +470,19 @@ in
 
         mpris.blacklist = [ ];
 
+        launcher = {
+          categories = false;
+          compact = true;
+          session_search = true;
+          show_icons = true;
+          sort_by_usage = true;
+        };
+
         panel = {
           borders = true;
           clipboard_placement = "centered";
           control_center_placement = "attached";
-          launcher_categories = false;
-          launcher_compact = true;
           launcher_placement = "centered";
-          launcher_session_search = true;
-          launcher_show_icons = true;
-          launcher_sort_by_usage = true;
           open_near_click_clipboard = false;
           open_near_click_control_center = false;
           open_near_click_launcher = false;

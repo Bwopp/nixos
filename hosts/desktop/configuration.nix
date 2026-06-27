@@ -1,8 +1,17 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
       ./hardware-configuration.nix
     ];
+
+  nixpkgs.overlays = [
+    inputs.nix-cachyos-kernel.overlays.pinned
+  ];
+
+  nix.settings = { 
+    substituters = [ "https://attic.xuyh0120.win/lantian" ];
+    trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
+  };
 
   # da bootloader
   boot.loader = {
@@ -26,16 +35,12 @@
     };
   };
   
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
 
-  # Networking & Hostname
   networking.hostName = "12600k-nix";
 
-  # Set your time zone.
   time.timeZone = "Pacific/Auckland";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_NZ.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -50,13 +55,11 @@
     LC_TIME = "en_NZ.UTF-8";
   };
 
-  # Configure keymap in X11
   services.xserver.xkb = {
     layout = "nz";
     variant = "";
   };
 
-  # Enable CUPS to print documents.
   services.printing.enable = true;
 
   hardware.graphics = {
@@ -65,9 +68,6 @@
   };
 
   hardware.amdgpu.opencl.enable = true;
-  systemd.packages = with pkgs; [ lact ];
-  systemd.services.lactd.wantedBy = ["multi-user.target"];
 
   system.stateVersion = "25.11"; # Did you read the comment? no :|
-
 }
