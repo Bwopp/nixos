@@ -12,6 +12,7 @@
       cursor = {
         theme = "breeze_cursors";
         size = 20;
+        package = pkgs.kdePackages.breeze;
       };
     };
   };
