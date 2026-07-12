@@ -7,12 +7,10 @@
 
     greeter-args = "--user bwop";
     settings = {
-
-      # currently broken for some reason
       cursor = {
         theme = "breeze_cursors";
         size = 20;
-        package = pkgs.kdePackages.breeze;
+        path = "${pkgs.kdePackages.breeze}/share/icons";
       };
     };
   };

@@ -38,8 +38,6 @@
     element-desktop
     sing-box
     balatro-mod-manager
-    freecad
-    kicad
     blender
     playerctl
     nixd

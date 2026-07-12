@@ -730,6 +730,7 @@ in
     };
   };
 
+  stylix.targets.noctalia.enable = false;
   home.file.".config/noctalia/palettes/stylix.json".text = builtins.toJSON {
     dark = {
       mPrimary = "#${c.base0D}";
