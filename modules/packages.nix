@@ -36,7 +36,6 @@
     fd
     proton-authenticator
     element-desktop
-    sing-box
     balatro-mod-manager
     blender
     playerctl
