@@ -42,5 +42,6 @@
     nixd
     devenv
     libsecret
+    xray
   ];
 }
