@@ -3,16 +3,8 @@
   programs.nixcord = {
     enable = true;
     discord.enable = false;
-    legcord = {
+    equibop = {
       enable = true;
-      equicord.enable = true;
-      settings = {
-        channel = "stable";
-        tray = "dynamic";
-        minimizeToTray = true;
-        mods = [ "equicord" ];
-        doneSetup = true;
-      };
     };
   };
 
@@ -59,7 +51,7 @@
     }
   '';
 
-  xdg.configFile."legcord/themes/Stylix-BD/manifest.json".text = builtins.toJSON {
+  xdg.configFile."equibop/themes/Stylix-BD/manifest.json".text = builtins.toJSON {
     theme = "src.css";
     name = "Stylix";
     enabled = true;
@@ -69,6 +61,6 @@
     supportsLegcordTitlebar = false;
   };
 
-  xdg.configFile."legcord/themes/Stylix-BD/src.css".text =
+  xdg.configFile."equibop/themes/Stylix-BD/src.css".text =
     config.stylix.targets.nixcord.themeBody + config.stylix.targets.nixcord.extraCss;
 }
