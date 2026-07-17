@@ -418,16 +418,15 @@ in
 
       plugins = {
         enabled = [ ];
+        auto_update = true;
         source = [
           {
-            auto_update = false;
             enabled = true;
             kind = "git";
             location = "https://github.com/noctalia-dev/official-plugins";
             name = "official";
           }
           {
-            auto_update = false;
             enabled = true;
             kind = "git";
             location = "https://github.com/noctalia-dev/community-plugins";
@@ -461,7 +460,6 @@ in
         show_location = true;
         telemetry_enabled = false;
         time_format = "{:%H:%M}";
-        ui_scale = 1.0;
 
         animation = {
           enabled = true;
@@ -473,21 +471,28 @@ in
         launcher = {
           categories = false;
           compact = true;
-          session_search = true;
           show_icons = true;
           sort_by_usage = true;
+          providers = {
+            session = {
+              global = true;
+              prefix = "";
+            };
+          };
         };
 
         panel = {
           borders = true;
-          clipboard_placement = "centered";
           control_center_placement = "attached";
-          launcher_placement = "centered";
           open_near_click_clipboard = false;
           open_near_click_control_center = false;
           open_near_click_launcher = false;
           open_near_click_session = false;
           open_near_click_wallpaper = false;
+          launcher_placement = "floating";
+          launcher_position = "center";
+          clipboard_placement = "floating";
+          clipboard_position = "center";
           session_placement = "attached";
           shadow = false;
           transparency_mode = "solid";
