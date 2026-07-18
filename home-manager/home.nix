@@ -38,6 +38,7 @@ in
           username = "bwop";
           homeDirectory = "/home/bwop";
           stateVersion = "25.05";
+          pointerCursor.enable = true;
         };
         programs.home-manager.enable = true;
 

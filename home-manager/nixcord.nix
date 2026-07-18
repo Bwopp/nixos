@@ -6,6 +6,28 @@
     equibop = {
       enable = true;
     };
+    config = {
+      plugins = {
+        blurNsfw.enable = true;
+        callTimer.enable = true;
+        clearUrls.enable = true;
+        equibopStreamFixes.enable = true;
+        equicordToolbox.enable = true;
+        fakeNitro.enable = true;
+        fixImagesQuality.enable = true;
+        fixSpotifyEmbeds.enable = true;
+        fixYoutubeEmbeds.enable = true;
+        gameActivityToggle.enable = true;
+        memberCount.enable = true;
+        messageLogger.enable = true;
+        mutualGroupDms.enable = true;
+        noNitroUpsell.enable = true;
+        noProfileThemes.enable = true;
+        petpet.enable = true;
+        showHiddenChannels.enable = true;
+        youtubeAdblock.enable = true;
+      };
+    };
   };
 
   stylix.targets.nixcord.extraCss = ''
