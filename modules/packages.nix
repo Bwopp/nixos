@@ -43,5 +43,6 @@
     devenv
     libsecret
     xray
+    satisfactorymodmanager
   ];
 }
