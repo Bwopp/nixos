@@ -1,29 +1,27 @@
 { pkgs, ... }:
 {
   systemd.services.xray-client = {
-    description = "Xray client (VLESS/XHTTP stealth tunnel)";
+    description = "Xray client (VLESS/XHTTP stealth tunnel, tun mode)";
     after = [ "network-online.target" ];
     wants = [ "network-online.target" ];
 
-    # Not started automatically — toggle manually via systemctl
-    # wantedBy = [ "multi-user.target" ];  # uncomment for auto-start on boot
+    path = [ pkgs.iproute2 ];
 
     serviceConfig = {
       Type = "simple";
       ExecStart = "${pkgs.xray}/bin/xray run -c /home/bwop/.config/xray/config.json";
+      ExecStartPost = pkgs.writeShellScript "xray-tun-routes-up" ''
+        sleep 1
+        ip route add 0.0.0.0/1 dev xray-tun0
+        ip route add 128.0.0.0/1 dev xray-tun0
+      '';
+      ExecStopPost = pkgs.writeShellScript "xray-tun-routes-down" ''
+        ip route del 0.0.0.0/1 dev xray-tun0 2>/dev/null || true
+        ip route del 128.0.0.0/1 dev xray-tun0 2>/dev/null || true
+      '';
       Restart = "on-failure";
       RestartSec = 3;
-
-      User = "bwop";
-      Group = "users";
-
-      # Hardening — safe defaults for a proxy client with no special network needs yet.
-      # If you later add a tun inbound for full-system routing, you'll need to relax
-      # PrivateNetwork/NoNewPrivileges and add AmbientCapabilities = [ "CAP_NET_ADMIN" ] instead.
-      NoNewPrivileges = true;
       PrivateTmp = true;
-      ProtectSystem = "strict";
-      ProtectHome = "read-only";
       ReadOnlyPaths = [ "/home/bwop/.config/xray" ];
     };
   };
