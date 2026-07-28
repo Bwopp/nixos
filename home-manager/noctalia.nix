@@ -68,6 +68,8 @@ let
         "lockscreen-login-box@DP-3"
         "lockscreen-widget-0000000000000002"
         "lockscreen-widget-0000000000000003"
+        "lockscreen-widget-0000000000000005"
+        "lockscreen-widget-0000000000000006"
       ];
       grid = {
         cell_size = 16;
@@ -75,8 +77,8 @@ let
         visible = true;
       };
       widget."lockscreen-login-box@DP-3" = {
-        box_height = 0.0;
-        box_width = 0.0;
+        box_height = 229.0;
+        box_width = 810.0;
         cx = 1280.0;
         cy = 720.0;
         enabled = true;
@@ -87,14 +89,21 @@ let
           background_color = "surface_variant";
           background_opacity = 0.88;
           background_radius = 12.0;
+          center_password_text = false;
           input_opacity = 1.0;
           input_radius = 6.0;
+          layout = "regular";
+          show_caps_lock = true;
+          show_keyboard_layout = true;
           show_login_button = true;
+          show_media = true;
+          show_session_buttons = true;
+          show_weather = true;
         };
       };
       widget."lockscreen-login-box@DP-4" = {
-        box_height = 0.0;
-        box_width = 0.0;
+        box_height = 229.0;
+        box_width = 810.0;
         cx = 960.0;
         cy = 540.0;
         enabled = true;
@@ -105,16 +114,23 @@ let
           background_color = "surface_variant";
           background_opacity = 0.88;
           background_radius = 12.0;
+          center_password_text = false;
           input_opacity = 1.0;
           input_radius = 6.0;
+          layout = "regular";
+          show_caps_lock = true;
+          show_keyboard_layout = true;
           show_login_button = true;
+          show_media = true;
+          show_session_buttons = true;
+          show_weather = true;
         };
       };
       widget."lockscreen-widget-0000000000000002" = {
         box_height = 0.0;
         box_width = 0.0;
         cx = 1280.0;
-        cy = 587.0;
+        cy = 465.0;
         enabled = true;
         output = "DP-3";
         rotation = 0.0;
@@ -127,7 +143,7 @@ let
         box_height = 0.0;
         box_width = 0.0;
         cx = 960.0;
-        cy = 407.0;
+        cy = 347.0;
         enabled = true;
         output = "DP-4";
         rotation = 0.0;
@@ -136,6 +152,28 @@ let
           background = false;
         };
       };
+      widget."lockscreen-widget-0000000000000005" = {
+        box_height = 0.0;
+        box_width = 0.0;
+        cx = 1280.0;
+        cy = 982.0;
+        enabled = true;
+        output = "DP-3";
+        rotation = 0.0;
+        type = "media_player";
+        settings = { };
+      };
+      widget."lockscreen-widget-0000000000000006" = {
+        box_height = 0.0;
+        box_width = 0.0;
+        cx = 960.0;
+        cy = 802.0;
+        enabled = true;
+        output = "DP-4";
+        rotation = 0.0;
+        type = "media_player";
+        settings = { };
+      };
     };
   };
 in
@@ -143,6 +181,11 @@ in
   programs.noctalia = {
     enable = true;
     settings = {
+      accessibility = {
+        high_contrast = false;
+        ui_scale = 1.0;
+      };
+
       audio = {
         enable_overdrive = false;
         enable_sounds = false;
@@ -158,7 +201,9 @@ in
           personal_google = {
             calendars = [ ];
             color = "";
+            credential_source = "secret-service";
             name = "";
+            password_file = "";
             provider = "";
             server_url = "";
             type = "google";
@@ -187,6 +232,7 @@ in
           capsule_padding = 6.0;
           capsule_thickness = 0.75999999046325684;
           center = [ "workspaces" ];
+          concave_edge_corners = true;
           contact_shadow = false;
           enabled = true;
           end = [
@@ -197,9 +243,11 @@ in
             "clock"
           ];
           font_weight = 500;
+          hover_highlight = true;
           layer = "top";
           margin_edge = 0;
           margin_ends = 0;
+          margin_opposite_edge = 0;
           padding = 10;
           panel_overlap = 0;
           position = "top";
@@ -211,6 +259,8 @@ in
           reserve_space = true;
           scale = 1.0;
           shadow = false;
+          show_on_workspace_switch = true;
+          smart_auto_hide = false;
           start = [
             "control-center"
             "network"
@@ -220,6 +270,7 @@ in
           ];
           thickness = 30;
           widget_spacing = 4;
+          dead_zone = { };
         };
       };
 
@@ -230,11 +281,22 @@ in
       brightness = {
         enable_ddcutil = false;
         ignore_mmids = [ ];
+        minimum_brightness = 0.0;
+        sync_all_monitors = false;
       };
 
       control_center = {
+        hidden_tabs = [ "screen-time" ];
+        show_shortcut_labels = true;
         sidebar = "compact";
         sidebar_section = "compact";
+        width = 700;
+        calendar = {
+          event_date_format = "%A %e %B";
+          event_time_format = "%H:%M";
+          show_events_card = true;
+          show_week_numbers = false;
+        };
         shortcuts = [
           { type = "wifi"; }
           { type = "bluetooth"; }
@@ -248,7 +310,6 @@ in
       desktop_widgets = {
         enabled = false;
         schema_version = 2;
-        widget_order = [ "" ];
         grid = {
           cell_size = 16;
           major_interval = 4;
@@ -262,14 +323,20 @@ in
         active_scale = 1.0;
         auto_hide = false;
         background_opacity = 0.87999999523162842;
+        border = "outline";
+        border_width = 0.0;
+        concave_edge_corners = true;
         cross_axis_padding = 8;
         enabled = false;
         icon_size = 48;
         inactive_opacity = 0.85000002384185791;
         inactive_scale = 0.85000002384185791;
         item_spacing = 6;
+        launcher_custom_image = "";
+        launcher_custom_image_colorize = false;
         launcher_icon = "grid-dots";
         launcher_position = "none";
+        layer = "top";
         magnification = true;
         magnification_scale = 1.4500000476837158;
         main_axis_padding = 16;
@@ -288,6 +355,7 @@ in
         show_dots = false;
         show_instance_count = true;
         show_running = true;
+        smart_auto_hide = false;
       };
 
       hooks = {
@@ -311,6 +379,27 @@ in
         wifi_enabled = [ ];
       };
 
+      hot_corners = {
+        delay_ms = 0;
+        enabled = false;
+        bottom_left = {
+          action = "none";
+          command = "";
+        };
+        bottom_right = {
+          action = "none";
+          command = "";
+        };
+        top_left = {
+          action = "none";
+          command = "";
+        };
+        top_right = {
+          action = "none";
+          command = "";
+        };
+      };
+
       idle = {
         behavior_order = [
           "lock"
@@ -323,21 +412,21 @@ in
           command = "";
           enabled = true;
           resume_command = "";
-          timeout = 600;
+          timeout = 600.0;
         };
         behavior."lock-and-suspend" = {
           action = "lock_and_suspend";
           command = "";
           enabled = hostBool.${hostName}.true;
           resume_command = "";
-          timeout = 900;
+          timeout = 900.0;
         };
         behavior."screen-off" = {
           action = "screen_off";
           command = "";
           enabled = true;
           resume_command = "";
-          timeout = 660;
+          timeout = 660.0;
         };
       };
 
@@ -346,6 +435,8 @@ in
         down = [ "Down" ];
         left = [ "Left" ];
         right = [ "Right" ];
+        tab_next = [ "Tab" ];
+        tab_previous = [ "Shift+ISO_Left_Tab" ];
         up = [ "Up" ];
         validate = [
           "Return"
@@ -356,11 +447,13 @@ in
       location = {
         address = "Auckland, New Zealand";
         auto_locate = false;
+        custom_schedule = false;
         sunrise = "";
         sunset = "";
       };
 
       lockscreen = {
+        allow_empty_password = false;
         blur_intensity = 0.0;
         blurred_desktop = false;
         enabled = true;
@@ -381,8 +474,10 @@ in
 
       notification = {
         background_opacity = 0.97000002861022949;
+        border = true;
         collapse_on_dismiss = true;
         enable_daemon = true;
+        history_retention_hours = 0;
         layer = "top";
         monitors = [ ];
         offset_x = 20;
@@ -395,20 +490,27 @@ in
 
       osd = {
         background_opacity = 0.97000002861022949;
+        border = true;
+        enabled = true;
         monitors = [ ];
         offset_x = 20;
         offset_y = 8;
         orientation = "horizontal";
         position = "top_center";
+        position_vertical = "top_center";
         scale = 1.0;
         kinds = {
           bluetooth = true;
           brightness = true;
           caffeine = true;
           dnd = true;
+          keyboard_backlight = true;
           keyboard_layout = true;
           lock_keys = false;
+          media = true;
+          nightlight = true;
           power_profile = true;
+          privacy = true;
           volume = true;
           volume_input = true;
           volume_output = true;
@@ -438,21 +540,29 @@ in
       shell = {
         app_icon_colorize = false;
         avatar_path = "/home/bwop/Pictures/cat.png";
+        button_borders = true;
+        card_borders = true;
         clipboard_auto_paste = "auto";
         clipboard_confirm_clear_history = true;
         clipboard_enabled = true;
         clipboard_history_max_entries = 100;
         clipboard_image_action_command = "";
+        clipboard_keep_from_closed_apps = true;
         corner_radius_scale = 1.0;
         date_format = "%A, %x";
         disable_mipmaps = false;
+        external_ip_enabled = false;
         font_family = "sans-serif";
+        input_borders = true;
         launch_apps_as_systemd_services = false;
-        middle_click_opens_widget_settings = true;
+        launch_apps_custom_command = "";
         niri_overview_type_to_launch_enabled = true;
         offline_mode = false;
+        panel_anchor_bar = "widgets";
         password_style = "default";
         polkit_agent = true;
+        popup_borders = true;
+        popup_shadows = true;
         screen_time_enabled = false;
         settings_show_advanced = true;
         setup_wizard_enabled = true;
@@ -466,13 +576,22 @@ in
           speed = 1.0;
         };
 
+        greeter_sync = {
+          auto_sync = true;
+        };
+
         mpris.blacklist = [ ];
 
         launcher = {
+          app_grid = false;
+          auto_paste = "auto";
           categories = false;
           compact = true;
+          fetch_exchange_rates = true;
+          provider_prefix = "/";
           show_icons = true;
           sort_by_usage = true;
+          dmenu = { };
           providers = {
             session = {
               global = true;
@@ -483,20 +602,33 @@ in
 
         panel = {
           borders = true;
+          clipboard_placement = "floating";
+          clipboard_position = "center";
           control_center_placement = "attached";
+          control_center_position = "auto";
+          floating_offset = 8;
+          launcher_placement = "floating";
+          launcher_position = "center";
+          list_item_background = false;
           open_near_click_clipboard = false;
           open_near_click_control_center = false;
           open_near_click_launcher = false;
           open_near_click_session = false;
           open_near_click_wallpaper = false;
-          launcher_placement = "floating";
-          launcher_position = "center";
-          clipboard_placement = "floating";
-          clipboard_position = "center";
+          polkit_placement = "floating";
+          polkit_position = "center";
           session_placement = "attached";
+          session_position = "auto";
           shadow = false;
           transparency_mode = "solid";
-          wallpaper_placement = "attached";
+          wallpaper_placement = "floating";
+          wallpaper_position = "center";
+        };
+
+        privacy = {
+          cam_filter_regex = "";
+          mic_filter_regex = "";
+          screen_filter_regex = "";
         };
 
         screen_corners = {
@@ -505,6 +637,7 @@ in
         };
 
         screenshot = {
+          confirm_region = false;
           copy_to_clipboard = true;
           directory = "";
           filename_pattern = "";
@@ -512,60 +645,77 @@ in
           pipe_command = "";
           pipe_to_command = false;
           save_to_file = true;
+          show_cursor = false;
         };
 
-        session.actions = [
-          {
-            action = "lock";
-            command = "";
-            enabled = true;
-            glyph = "";
-            label = "";
-            shortcut = "1";
-            variant = "default";
-          }
-          {
-            action = "logout";
-            command = "";
-            enabled = true;
-            glyph = "";
-            label = "";
-            shortcut = "2";
-            variant = "default";
-          }
-          {
-            action = "lock_and_suspend";
-            command = "";
-            enabled = true;
-            glyph = "";
-            label = "";
-            shortcut = "3";
-            variant = "default";
-          }
-          {
-            action = "reboot";
-            command = "";
-            enabled = true;
-            glyph = "";
-            label = "";
-            shortcut = "4";
-            variant = "default";
-          }
-          {
-            action = "shutdown";
-            command = "";
-            enabled = true;
-            glyph = "";
-            label = "";
-            shortcut = "5";
-            variant = "destructive";
-          }
-        ];
+        session = {
+          grid = false;
+          grid_columns = 3;
+          show_shortcuts = true;
+          power = { };
+          actions = [
+            {
+              action = "lock";
+              command = "";
+              countdown_seconds = 0.0;
+              enabled = true;
+              glyph = "";
+              label = "";
+              shortcut = "1";
+              variant = "default";
+            }
+            {
+              action = "logout";
+              command = "";
+              countdown_seconds = 0.0;
+              enabled = true;
+              glyph = "";
+              label = "";
+              shortcut = "2";
+              variant = "default";
+            }
+            {
+              action = "lock_and_suspend";
+              command = "";
+              countdown_seconds = 0.0;
+              enabled = true;
+              glyph = "";
+              label = "";
+              shortcut = "3";
+              variant = "default";
+            }
+            {
+              action = "reboot";
+              command = "";
+              countdown_seconds = 0.0;
+              enabled = true;
+              glyph = "";
+              label = "";
+              shortcut = "4";
+              variant = "default";
+            }
+            {
+              action = "shutdown";
+              command = "";
+              countdown_seconds = 0.0;
+              enabled = true;
+              glyph = "";
+              label = "";
+              shortcut = "5";
+              variant = "destructive";
+            }
+          ];
+        };
 
         shadow = {
           alpha = 0.0;
           direction = "down";
         };
+      };
+
+      storage = {
+        key_file = "";
+        key_source = "secret-service";
       };
 
       system.monitor = {
@@ -575,9 +725,15 @@ in
         cpu_temp_sensor_path = "";
         cpu_usage_activity_threshold = 50.0;
         cpu_usage_critical_threshold = 90.0;
-        disk_pct_activity_threshold = 80.0;
-        disk_pct_critical_threshold = 95.0;
+        disk_free_activity_threshold = 80.0;
+        disk_free_critical_threshold = 95.0;
+        disk_free_pct_activity_threshold = 80.0;
+        disk_free_pct_critical_threshold = 95.0;
         disk_poll_seconds = 10.0;
+        disk_used_activity_threshold = 80.0;
+        disk_used_critical_threshold = 95.0;
+        disk_used_pct_activity_threshold = 80.0;
+        disk_used_pct_critical_threshold = 95.0;
         enabled = true;
         gpu_poll_seconds = 0.0;
         gpu_temp_activity_threshold = 60.0;
@@ -599,8 +755,19 @@ in
       };
 
       theme = {
-        source = "custom";
+        builtin = "Noctalia";
+        community_palette = "Oxocarbon";
         custom_palette = "stylix";
+        mode = "dark";
+        pure_black_dark = false;
+        source = "custom";
+        wallpaper_scheme = "m3-content";
+        templates = {
+          builtin_ids = [ ];
+          community_ids = [ ];
+          enable_builtin_templates = false;
+          enable_community_templates = false;
+        };
       };
 
       wallpaper = {
@@ -676,7 +843,6 @@ in
           type = "volume";
         };
         keyboard_layout = {
-          cycle_command = "";
           hide_when_single_layout = false;
           type = "keyboard_layout";
         };
@@ -717,6 +883,7 @@ in
           type = "sysmon";
         };
         spacer = {
+          interactive = false;
           type = "spacer";
         };
         temp = {
