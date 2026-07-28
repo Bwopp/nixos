@@ -542,7 +542,6 @@ in
       plugins = {
         enabled = [ 
           "radimous/prismlauncher-instances"
-          "lucasoe/proton-pass"
         ];
         auto_update = true;
         source = [

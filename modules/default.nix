@@ -10,10 +10,7 @@
 
   # Keyring
   services.gnome.gnome-keyring.enable = true;
-  security.pam.services = {
-    login.enableGnomeKeyring = true;
-    noctalia-greeter.enableGnomeKeyring = true;
-  };
+  security.pam.services.login.enableGnomeKeyring = true;
   
   # Make noctalia polkit work again
   security.polkit.enablePkexecWrapper = true;
