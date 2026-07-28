@@ -24,6 +24,7 @@ let
       widget_order = [
         "lockscreen-login-box@eDP-1"
         "lockscreen-widget-0000000000000001"
+        "lockscreen-widget-0000000000000002"
       ];
       grid = {
         cell_size = 16;
@@ -31,10 +32,10 @@ let
         visible = true;
       };
       widget."lockscreen-login-box@eDP-1" = {
-        box_height = 0.0;
-        box_width = 0.0;
+        box_height = 229.0;
+        box_width = 810.0;
         cx = 874.0;
-        cy = 562.5;
+        cy = 546.5;
         enabled = true;
         output = "eDP-1";
         rotation = 0.0;
@@ -43,20 +44,40 @@ let
           background_color = "surface_variant";
           background_opacity = 0.88;
           background_radius = 12.0;
+          center_password_text = false;
           input_opacity = 1.0;
           input_radius = 6.0;
+          layout = "regular";
+          show_caps_lock = true;
+          show_keyboard_layout = true;
           show_login_button = true;
+          show_media = true;
+          show_session_buttons = true;
+          show_weather = true;
         };
       };
       widget."lockscreen-widget-0000000000000001" = {
         box_height = 0.0;
         box_width = 0.0;
         cx = 874.0;
-        cy = 417.5;
+        cy = 291.5;
         enabled = true;
         output = "eDP-1";
         rotation = 0.0;
         type = "clock";
+        settings = {
+          background = false;
+        };
+      };
+      widget."lockscreen-widget-0000000000000002" = {
+        box_height = 0.0;
+        box_width = 0.0;
+        cx = 874.0;
+        cy = 808.5;
+        enabled = true;
+        output = "eDP-1";
+        rotation = 0.0;
+        type = "media_player";
         settings = { };
       };
     };
