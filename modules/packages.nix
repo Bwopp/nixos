@@ -44,5 +44,6 @@
     libsecret
     xray
     satisfactorymodmanager
+    proton-pass-cli
   ];
 }
