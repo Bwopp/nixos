@@ -7,11 +7,21 @@
 
     greeter-args = "--user bwop";
     settings = {
+      session = {
+        default = "niri";
+        last = "niri";
+      };
+      user.default = "bwop";
+      appearance = {
+        scheme = "Synced";
+        hide_logo = true;
+      };
       cursor = {
         theme = "breeze_cursors";
         size = 20;
         path = "${pkgs.kdePackages.breeze}/share/icons";
       };
+      idle.timeout = 300;
     };
   };
 }

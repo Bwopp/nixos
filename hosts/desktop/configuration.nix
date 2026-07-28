@@ -39,6 +39,11 @@
   
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
 
+  boot.kernelParams = [
+    "video=DP-3:2560x1440@144"
+    "video=DP-4:1920x1080@60"
+  ];
+
   networking.hostName = "12600k-nix";
 
   time.timeZone = "Pacific/Auckland";
