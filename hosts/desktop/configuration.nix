@@ -8,6 +8,8 @@
     inputs.nix-cachyos-kernel.overlays.pinned
   ];
 
+  nixpkgs.config.rocmSupport = true;
+
   nix.settings = { 
     substituters = [ "https://attic.xuyh0120.win/lantian" ];
     trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
@@ -66,6 +68,21 @@
     enable = true;
     enable32Bit = true;
   };
+
+  systemd.tmpfiles.rules =
+  let
+    rocmEnv = pkgs.symlinkJoin {
+      name = "rocm-combined";
+      paths = with pkgs.rocmPackages; [
+        rocblas
+        hipblas
+        clr
+      ];
+    };
+  in
+  [
+    "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
+  ];
 
   hardware.amdgpu.opencl.enable = true;
 
