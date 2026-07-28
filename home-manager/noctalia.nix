@@ -49,11 +49,11 @@ let
           input_radius = 6.0;
           layout = "regular";
           show_caps_lock = true;
-          show_keyboard_layout = true;
+          show_keyboard_layout = false;
           show_login_button = true;
-          show_media = true;
+          show_media = false;
           show_session_buttons = true;
-          show_weather = true;
+          show_weather = false;
         };
       };
       widget."lockscreen-widget-0000000000000001" = {
@@ -115,11 +115,11 @@ let
           input_radius = 6.0;
           layout = "regular";
           show_caps_lock = true;
-          show_keyboard_layout = true;
+          show_keyboard_layout = false;
           show_login_button = true;
-          show_media = true;
+          show_media = false;
           show_session_buttons = true;
-          show_weather = true;
+          show_weather = false;
         };
       };
       widget."lockscreen-login-box@DP-4" = {
@@ -140,11 +140,11 @@ let
           input_radius = 6.0;
           layout = "regular";
           show_caps_lock = true;
-          show_keyboard_layout = true;
+          show_keyboard_layout = false;
           show_login_button = true;
-          show_media = true;
+          show_media = false;
           show_session_buttons = true;
-          show_weather = true;
+          show_weather = false;
         };
       };
       widget."lockscreen-widget-0000000000000002" = {
