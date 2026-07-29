@@ -42,7 +42,6 @@
     nixd
     devenv
     libsecret
-    xray
     satisfactorymodmanager
     gcr
   ];

@@ -15,7 +15,7 @@ let
 
   perHostModules = {
     "nixos" = [
-      ./xray.nix
+      ./sing-box.nix
     ];
     "12600k-nix" = [
 

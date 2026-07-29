@@ -1,4 +1,4 @@
-{ inputs, hostName, ... }:
+{ inputs, pkgs, hostName, ... }:
 let
   globalModules = [
     inputs.niri.homeModules.niri

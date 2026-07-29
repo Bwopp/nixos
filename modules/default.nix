@@ -37,6 +37,13 @@
   services.cloudflare-warp.enable = true;
   services.cloudflare-warp.openFirewall = true;
 
+  security.wrappers.xray = {
+    source = "${pkgs.xray}/bin/xray";
+    capabilities = "cap_net_admin,cap_net_bind_service+ep";
+    owner = "root";
+    group = "root";
+  };
+
   # Good stuff
   nix.settings.experimental-features = [
     "nix-command"
