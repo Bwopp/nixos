@@ -12,8 +12,8 @@
       nixgitpush = "git -C /etc/nixos add . && git -C /etc/nixos commit -m (date '+%Y-%m-%d %H:%M:%S') && git -C /etc/nixos push";
       wup = "warp-cli connect";
       wdown = "warp-cli disconnect";
-      xup = "sudo systemctl start xray-client";
-      xdown = "sudo systemctl stop xray-client";
+      vup = "sudo systemctl start sing-box";
+      vdown = "sudo systemctl stop sing-box";
     };
   };
 
