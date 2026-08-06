@@ -918,7 +918,8 @@ in
           type = "tray";
         };
         workspaces = {
-          display = "none";
+          show_labels = false;
+          label_source = "id";
           type = "workspaces";
         };
       };
