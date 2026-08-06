@@ -7,6 +7,11 @@ let
       installation_mode = "normal_installed";
     };
   };
+
+  # To add additional extensions, find it on addons.mozilla.org, find
+  # the short ID in the url (like https://addons.mozilla.org/en-US/firefox/addon/!SHORT_ID!/)
+  # Then go to https://addons.mozilla.org/api/v5/addons/addon/!SHORT_ID!/ to get the guid
+
   extensions = [
     (extension "ublock-origin" "uBlock0@raymondhill.net")
     (extension "proton-pass" "78272b6fa58f4a1abaac99321d503a20@proton.me")
@@ -17,6 +22,7 @@ let
     (extension "sponsorblock" "sponsorBlocker@ajay.app")
     (extension "don-t-fuck-with-paste" "DontFuckWithPaste@raim.ist")
     (extension "hide-youtube-shorts" "{88ebde3a-4581-4c6b-8019-2a05a9e3e938}")
+    (extension "hide-members-only-videos" "{77022f90-23b3-4ecc-95a6-95f7dce242c5}")
   ];
 in
 {
