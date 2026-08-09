@@ -264,7 +264,7 @@ in
             "clock"
           ];
           font_weight = 500;
-          hover_highlight = true;
+          hover_highlight = false;
           layer = "top";
           margin_edge = 0;
           margin_ends = 0;
