@@ -22,7 +22,6 @@ let
     (extension "sponsorblock" "sponsorBlocker@ajay.app")
     (extension "don-t-fuck-with-paste" "DontFuckWithPaste@raim.ist")
     (extension "hide-youtube-shorts" "{88ebde3a-4581-4c6b-8019-2a05a9e3e938}")
-    (extension "hide-members-only-videos" "{77022f90-23b3-4ecc-95a6-95f7dce242c5}")
   ];
 in
 {
