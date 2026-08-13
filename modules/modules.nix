@@ -18,7 +18,7 @@ let
       ./sing-box.nix
     ];
     "12600k-nix" = [
-
+      ./warp.nix
     ];
   };
 in
