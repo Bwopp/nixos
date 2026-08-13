@@ -16,6 +16,7 @@ let
     ./spicetify.nix
     ./nixcord.nix
     ./git.nix
+    ./xdg.nix
   ];
 
   perHostModules = {

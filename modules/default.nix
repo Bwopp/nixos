@@ -32,11 +32,7 @@
   # Tailscale
   # services.tailscale.enable = true;
   networking.firewall.checkReversePath = "loose";
-
-  # Warp
-  services.cloudflare-warp.enable = true;
-  services.cloudflare-warp.openFirewall = true;
-
+  
   # Good stuff
   nix.settings.experimental-features = [
     "nix-command"
