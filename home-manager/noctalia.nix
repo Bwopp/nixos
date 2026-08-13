@@ -54,6 +54,7 @@ let
           show_media = false;
           show_session_buttons = true;
           show_weather = false;
+          show_unlock_hint = false;
         };
       };
       widget."lockscreen-widget-0000000000000001" = {
@@ -120,6 +121,7 @@ let
           show_media = false;
           show_session_buttons = true;
           show_weather = false;
+          show_unlock_hint = false;
         };
       };
       widget."lockscreen-login-box@DP-4" = {
@@ -145,6 +147,7 @@ let
           show_media = false;
           show_session_buttons = true;
           show_weather = false;
+          show_unlock_hint = false;
         };
       };
       widget."lockscreen-widget-0000000000000002" = {
