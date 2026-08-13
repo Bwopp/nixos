@@ -58,10 +58,10 @@ let
         };
       };
       widget."lockscreen-widget-0000000000000001" = {
-        box_height = 0.0;
-        box_width = 0.0;
+        box_height = 128.0;
+        box_width = 208.0;
         cx = 874.0;
-        cy = 291.5;
+        cy = 290.5;
         enabled = true;
         output = "eDP-1";
         rotation = 0.0;

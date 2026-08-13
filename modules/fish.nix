@@ -2,6 +2,9 @@
 {
   programs.fish = {
     enable = true;
+    interactiveShellInit = ''
+      set -g fish_greeting ""
+    '';
     shellAliases = {
       ll = "ls -l";
       tup = "tailscale up";
