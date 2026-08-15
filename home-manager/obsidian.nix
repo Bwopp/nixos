@@ -29,6 +29,6 @@
 
   stylix.targets.obsidian = {
     enable = true;
-    vaultNames = [ "Notes" ];
+    vaultNames = [ "Documents/Obsidian/Notes" ];
   };
 }
