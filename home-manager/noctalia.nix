@@ -434,7 +434,7 @@ in
         behavior.lock = {
           action = "lock";
           command = "";
-          enabled = true;
+          enabled = hostBool.${hostName}.true;
           resume_command = "";
           timeout = 600.0;
         };
