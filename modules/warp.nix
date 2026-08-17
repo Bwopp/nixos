@@ -1,5 +1,7 @@
 { ... }:
 {
-  services.cloudflare-warp.enable = true;
-  services.cloudflare-warp.openFirewall = true;
+  services.cloudflare-warp = {
+    enable = true;
+    openFirewall = true;
+  };
 }

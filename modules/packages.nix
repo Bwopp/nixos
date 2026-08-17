@@ -44,5 +44,6 @@
     libsecret
     satisfactorymodmanager
     gcr
+    seahorse
   ];
 }
