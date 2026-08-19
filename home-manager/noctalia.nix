@@ -546,7 +546,7 @@ in
         enabled = [ 
           "radimous/prismlauncher-instances"
         ];
-        auto_update = true;
+        auto_update = "all";
         source = [
           {
             enabled = true;
