@@ -1,10 +1,9 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 let
   colors = config.lib.stylix.colors.withHashtag;
-  polarity = if config.stylix.polarity == "dark" then "dark" else "light";
 
   themeCss = ''
-    .theme-${polarity} {
+    .theme-dark {
       /* Backgrounds */
       --background-primary: ${colors.base00};
       --background-secondary: ${colors.base01};
