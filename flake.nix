@@ -56,6 +56,8 @@
     };
 
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+
+    hytale-launcher.url = "github:JPyke3/hytale-launcher-nix";
   };
 
   outputs =

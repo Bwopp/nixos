@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   environment.systemPackages = with pkgs; [
     wget
@@ -45,5 +45,6 @@
     satisfactorymodmanager
     gcr
     seahorse
+    inputs.hytale-launcher.packages.x86_64-linux.default
   ];
 }
