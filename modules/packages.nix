@@ -17,7 +17,6 @@
     protonplus
     javaPackages.compiler.temurin-bin.jre-17
     qbittorrent
-    cloudflare-warp
     xwayland-satellite
     wl-clipboard
     wlr-randr
