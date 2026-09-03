@@ -16,6 +16,7 @@ let
   perHostModules = {
     "nixos" = [
       ./sing-box.nix
+      ./miracast.nix
     ];
     "12600k-nix" = [
       ./warp.nix
