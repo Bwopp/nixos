@@ -39,7 +39,10 @@
     ];
     kernelParams = [
       "pcie_aspm=force"
+      "xe.force_probe=7d51"
+      "i915.force_probe=!7d51"
     ];
+    blacklistedKernelModules = [ "i915" ];
   };
 
   networking.hostName = "nixos";
