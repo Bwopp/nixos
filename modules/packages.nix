@@ -42,7 +42,7 @@
     devenv
     libsecret
     satisfactorymodmanager
-    gcr
+    gcr_4
     seahorse
     inputs.hytale-launcher.packages.x86_64-linux.default
   ];

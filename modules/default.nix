@@ -15,10 +15,6 @@
   # Make noctalia polkit work again
   security.polkit.enablePkexecWrapper = true;
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "pnpm-10.29.2"
-  ];
-
   # Power management
   services.power-profiles-daemon.enable = true;
 
