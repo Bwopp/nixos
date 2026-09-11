@@ -19,6 +19,7 @@ let
     ];
     "12600k-nix" = [
       ./warp.nix
+      ./handbreak.nix
     ];
   };
 in

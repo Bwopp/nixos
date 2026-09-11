@@ -8,8 +8,6 @@
     inputs.nix-cachyos-kernel.overlays.pinned
   ];
 
-  nixpkgs.config.rocmSupport = true;
-
   nix.settings = { 
     substituters = [ "https://attic.xuyh0120.win/lantian" ];
     trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
@@ -44,6 +42,8 @@
     "video=DP-4:1920x1080@60"
   ];
 
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  
   networking.hostName = "12600k-nix";
 
   time.timeZone = "Pacific/Auckland";
@@ -72,7 +72,21 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    extraPackages = with pkgs; [
+      mesa
+      libva
+      libva-vdpau-driver
+      libvdpau-va-gl
+    ];
   };
+
+  environment.variables = {
+    LIBVA_DRIVER_NAME = "radeonsi";
+  };
+
+  hardware.amdgpu.opencl.enable = true;
+
+  nixpkgs.config.rocmSupport = true;
 
   systemd.tmpfiles.rules =
   let
@@ -88,8 +102,6 @@
   [
     "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
   ];
-
-  hardware.amdgpu.opencl.enable = true;
 
   system.stateVersion = "25.11"; # Did you read the comment? no :|
 }
