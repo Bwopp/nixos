@@ -47,5 +47,6 @@
     inputs.hytale-launcher.packages.x86_64-linux.default
     lutris
     mitmproxy
+    proton-pass
   ];
 }
