@@ -1,14 +1,16 @@
 { config, lib, pkgs, ... }:
 {
-  xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
+  programs.niri.settings = {
+    xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
 
-  environment = {
-    NIRI_BACKGROUND_COLOR = "${config.lib.stylix.colors.base00}";
+    environment = {
+      NIRI_BACKGROUND_COLOR = "${config.lib.stylix.colors.base00}";
+    };
+
+    prefer-no-csd = true;
+
+    gestures.hot-corners.enable = false;
+
+    hotkey-overlay.skip-at-startup = true;
   };
-
-  prefer-no-csd = true;
-
-  gestures.hot-corners.enable = false;
-
-  hotkey-overlay.skip-at-startup = true;
 }

@@ -9,7 +9,7 @@ let
     ./stylix.nix
     ./alacritty.nix
     ./noctalia/noctalia.nix
-    ./niri.nix
+    ./niri/niri.nix
     ./codium.nix
     ./floorp.nix
     ./obsidian.nix

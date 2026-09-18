@@ -1,6 +1,6 @@
 { ... }:
 {
-  window-rules = [
+  programs.niri.settings.window-rules = [
     {
       matches = [
         { app-id = "^floorp$"; }

@@ -29,7 +29,6 @@
     file-roller
     gnome.gvfs
     adwaita-icon-theme
-    gnome-calculator
     gnome-text-editor
     papers
     fd
@@ -47,5 +46,8 @@
     lutris
     mitmproxy
     proton-pass
+    proton-pass-cli
+    python3
+    libqalculate
   ];
 }

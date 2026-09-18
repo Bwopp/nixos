@@ -1,11 +1,11 @@
 { ... }:
 {
-  window-rules = [
+  programs.niri.settings.window-rules = [
     {
     clip-to-geometry = true;
     geometry-corner-radius =
       let
-        radius = 0;
+        radius = 12;
       in
       {
         top-left = radius;

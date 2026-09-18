@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  layout = {
+  programs.niri.settings.layout = {
     struts = {
       left = 0;
       right = 0;

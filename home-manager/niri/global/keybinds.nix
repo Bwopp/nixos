@@ -1,6 +1,6 @@
 { ... }:
 {
-  binds = {
+  programs.niri.settings.binds = {
     # Mod = super
 
     # Launch applications
@@ -143,7 +143,7 @@
     "XF86AudioPrev".action.spawn = [ "playerctl" "previous" ];
 
     # Useless laptop buttons given a use
-    "XF86Calculator".action.spawn = [ "gnome-calculator" ];
+    "XF86Calculator".action.spawn = [ "noctalia" "msg" "panel-toggle" "samuelskovbakke/calculator-plus:panel" ];
 
     # Nice to have binds
     "Mod+V".action.spawn = [ "noctalia" "msg" "panel-toggle" "clipboard" ];

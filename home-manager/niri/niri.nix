@@ -5,6 +5,7 @@ let
     ./global/input.nix
     ./global/keybinds.nix
     ./global/layer-rules.nix
+    ./global/layout.nix
     ./global/startup.nix
     ./global/window-rules.nix
   ];
@@ -25,7 +26,5 @@ in
   # inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri-unstable;
   # pkgs.niri;
   
-  programs.niri.settings = {
-    imports = globalModules ++ perHostModules.${hostName};
-  };
+  imports = globalModules ++ perHostModules.${hostName};
 }

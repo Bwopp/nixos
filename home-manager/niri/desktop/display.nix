@@ -1,6 +1,6 @@
 { config, lib, ... }:
 {
-  outputs = {
+  programs.niri.settings.outputs = {
     "DP-3" = {
       mode = {
         width = 2560;
