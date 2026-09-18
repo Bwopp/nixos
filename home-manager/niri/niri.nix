@@ -14,10 +14,12 @@ let
     "nixos" = [
       ./laptop/default.nix
       ./laptop/display.nix
+      ./laptop/window-rules.nix
     ];
     "12600k-nix" = [
       ./desktop/default.nix
       ./desktop/display.nix
+      ./desktop/window-rules.nix
     ];
   };
 in
