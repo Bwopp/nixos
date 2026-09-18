@@ -33,7 +33,6 @@
     gnome-text-editor
     papers
     fd
-    proton-authenticator
     element-desktop
     balatro-mod-manager
     blender
