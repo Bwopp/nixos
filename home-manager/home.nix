@@ -6,6 +6,7 @@ let
     inputs.stylix.homeModules.stylix
     inputs.spicetify-nix.homeManagerModules.default
     inputs.nixcord.homeModules.nixcord
+    inputs.umbriel.homeModules.default
     ./stylix.nix
     ./alacritty.nix
     ./noctalia/noctalia.nix
@@ -16,6 +17,7 @@ let
     ./spicetify.nix
     ./nixcord.nix
     ./git.nix
+    ./umbriel.nix
   ];
 
   perHostModules = {

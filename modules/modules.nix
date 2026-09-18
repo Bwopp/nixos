@@ -11,6 +11,7 @@ let
     ./niri.nix
     ./portals.nix
     ./steam.nix
+    ./umbriel.nix
   ];
 
   perHostModules = {
