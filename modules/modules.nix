@@ -9,7 +9,6 @@ let
     ./bluetooth.nix
     ./packages.nix
     ./niri.nix
-    ./portals.nix
     ./steam.nix
     ./umbriel.nix
   ];
