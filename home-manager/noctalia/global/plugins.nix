@@ -20,4 +20,8 @@
       }
     ];
   };
+  plugin_settings."samuelskovbakke/calculator-plus" = {
+    panel_placement = "floating";
+    panel_position = "center";
+  };
 }
