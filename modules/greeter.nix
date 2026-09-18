@@ -7,10 +7,6 @@
 
     greeter-args = "--user bwop";
     settings = {
-      session = {
-        default = "niri";
-        last = "niri";
-      };
       user.default = "bwop";
       appearance = {
         scheme = "Synced";
