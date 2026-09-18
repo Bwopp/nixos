@@ -6,6 +6,8 @@ let
         mode = "3000x1876@120.001";
         scale = 1.7166666666666666;
         position = [ 0 0 ];
+        tearing = true;
+        hdr = "auto";
       };
     };
     "12600k-nix" = {
@@ -13,11 +15,13 @@ let
         mode = "2560x1440@144.0";
         scale = 1.0;
         position = [ 0 0 ];
+        tearing = true;
       };
       "DP-4" = {
         mode = "1920x1080@60.0";
         scale = 1.0;
         position = [ 2560 0 ];
+        tearing = false;
       };
     };
   };
