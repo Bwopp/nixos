@@ -1,6 +1,6 @@
 { ... }:
 {
-window-rules = [
+  window-rules = [
     {
     clip-to-geometry = true;
     geometry-corner-radius =
@@ -13,6 +13,6 @@ window-rules = [
         bottom-left = radius;
         bottom-right = radius;
       };
-  }
-];
+    }
+  ];
 }

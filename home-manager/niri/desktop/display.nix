@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   outputs = {
     "DP-3" = {
