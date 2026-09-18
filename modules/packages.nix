@@ -45,9 +45,6 @@
     inputs.hytale-launcher.packages.x86_64-linux.default
     lutris
     mitmproxy
-    proton-pass
-    proton-pass-cli
-    python3
     libqalculate
   ];
 }

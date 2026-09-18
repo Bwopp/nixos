@@ -147,6 +147,7 @@
 
     # Nice to have binds
     "Mod+V".action.spawn = [ "noctalia" "msg" "panel-toggle" "clipboard" ];
+    "Mod+Shift+C".action.spawn = [ "noctalia" "msg" "panel-toggle" "samuelskovbakke/calculator-plus:panel" ];
     "Mod+L".action.spawn = [ "noctalia" "msg" "session" "lock" ];
     "XF86Favorites".action.spawn = [ "codium" "/etc/nixos" ];
     "Mod+Shift+Space".action.toggle-window-floating = [ ];

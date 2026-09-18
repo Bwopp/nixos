@@ -2,9 +2,6 @@
   plugins = {
     enabled = [ 
       "radimous/prismlauncher-instances"
-      "icefish/phone-connect"
-      "lucasoe/proton-pass"
-      "estvoid/sony_headphones"
       "samuelskovbakke/calculator-plus"
     ];
     auto_update = "all";
