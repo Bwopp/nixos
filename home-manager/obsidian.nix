@@ -65,8 +65,12 @@ in
     vaults."Documents/Obsidian/Notes" = {
       enable = true;
       settings = {
-        appearance.baseFontSize = lib.mkForce 16;
-        appearance.cssTheme = "stylix";
+        appearance = {
+          baseFontSize = lib.mkForce 16;
+          cssTheme = "stylix";
+          baseTheme = "theme-dark";
+        };
+
 
         cssSnippets = [
           {
