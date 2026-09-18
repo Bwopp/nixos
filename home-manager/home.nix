@@ -17,7 +17,7 @@ let
     ./spicetify.nix
     ./nixcord.nix
     ./git.nix
-    ./umbriel.nix
+    ./umbriel/umbriel.nix
   ];
 
   perHostModules = {
