@@ -44,10 +44,6 @@ in
         ];
       };
 
-      environment = {
-        NIRI_BACKGROUND_COLOR = "${config.lib.stylix.colors.base00}";
-      };
-
       events = {
         lid_close = "noctalia msg session lock-and-suspend";
       };
