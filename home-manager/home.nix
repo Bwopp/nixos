@@ -8,7 +8,7 @@ let
     inputs.nixcord.homeModules.nixcord
     ./stylix.nix
     ./alacritty.nix
-    ./noctalia.nix
+    ./noctalia/noctalia.nix
     ./niri.nix
     ./codium.nix
     ./floorp.nix
