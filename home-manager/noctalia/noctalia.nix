@@ -4,9 +4,7 @@ let
     ./global/bar.nix
     ./global/control-center.nix
     ./global/default.nix
-    ./global/launcher.nix
     ./global/osd.nix
-    ./global/panel.nix
     ./global/plugins.nix
     ./global/shell.nix
     ./global/system-monitor.nix

@@ -1,4 +1,3 @@
-{ ... }:
 {
   control_center = {
     hidden_tabs = [ "screen-time" ];

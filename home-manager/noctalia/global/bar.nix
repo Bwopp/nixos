@@ -1,4 +1,3 @@
-{ ... }:
 {
   bar = {
     order = [ "widgets" ];

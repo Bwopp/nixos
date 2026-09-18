@@ -1,4 +1,3 @@
-{ ... }:
 {
   accessibility = {
     high_contrast = false;
@@ -60,7 +59,9 @@
     };
   };
 
-  dock.enable = false;
+  dock = {
+    enabled = false;
+  };
 
   hooks = {
     battery_charging = [ ];
@@ -83,7 +84,9 @@
     wifi_enabled = [ ];
   };
 
-  hot_corners.enable = false;
+  hot_corners = {
+    enabled = false;
+  };
 
   keybinds = {
     cancel = [ "Escape" ];

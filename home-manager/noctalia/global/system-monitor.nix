@@ -1,4 +1,3 @@
-{ ... }:
 {
   system.monitor = {
     enabled = true;

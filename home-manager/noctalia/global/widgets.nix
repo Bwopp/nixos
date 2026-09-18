@@ -1,4 +1,3 @@
-{ ... }:
 {
   widget = {
     active_window = {

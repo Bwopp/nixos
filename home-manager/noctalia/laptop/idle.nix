@@ -1,6 +1,5 @@
-{ ... }:
 {
-    idle = {
+  idle = {
     behavior_order = [
       "lock"
       "screen-off"

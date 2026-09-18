@@ -1,4 +1,3 @@
-{ ... }:
 {
   lockscreen_widgets = {
     enabled = true;

@@ -1,4 +1,3 @@
-{ ... }:
 {
   osd = {
     background_opacity = 0.97000002861022949;
