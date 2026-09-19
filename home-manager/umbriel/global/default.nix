@@ -1,4 +1,3 @@
-{ config, ... }:
 {
   general = {
     xwayland = true;
@@ -10,8 +9,4 @@
   };
 
   appearance.prefer_no_csd = true;
-  
-  colors.border = {
-    focused = "#${config.lib.stylix.colors.base0D}";
-  };
 }

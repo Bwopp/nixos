@@ -6,6 +6,7 @@ let
     ./global/keybinds.nix
     ./global/layer-rules.nix
     ./global/layout.nix
+    ./global/theme.nix
     ./global/window-rules.nix
   ];
 

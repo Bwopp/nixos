@@ -19,6 +19,7 @@
     launch_apps_as_systemd_services = false;
     launch_apps_custom_command = "";
     niri_overview_type_to_launch_enabled = true;
+    umbriel_overview_type_to_launch_enabled = true;
     offline_mode = false;
     panel_anchor_bar = "widgets";
     password_style = "default";
@@ -32,7 +33,7 @@
     show_location = true;
     telemetry_enabled = false;
     time_format = "{:%H:%M}";
-
+    
     animation = {
       enabled = true;
       speed = 1.0;
@@ -101,7 +102,7 @@
     screenshot = {
       confirm_region = false;
       copy_to_clipboard = true;
-      directory = "";
+      directory = "~/Pictures/Screenshots";
       filename_pattern = "";
       freeze_screen = true;
       pipe_command = "";

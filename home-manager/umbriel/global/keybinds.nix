@@ -8,7 +8,7 @@
 
     # Window & overview management
     "Mod+Q" = "window-close";
-    "Mod+O" = "overview-toggle";
+    "Mod+Tab" = "overview-toggle";
     "Mod+Shift+Space" = "window-toggle-floating";
 
     # Focus movement
@@ -104,7 +104,6 @@
     # System & Session
     "Mod+Shift+E" = "session-quit";
     "Mod+Shift+P" = "dpms-off";
-    "Mod+Tab" = "workspace-focus-last";
     "Mod+Shift+Slash" = "cheatsheet-toggle";
 
     # Hardware Controls
