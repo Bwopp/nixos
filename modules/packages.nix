@@ -46,5 +46,6 @@
     lutris
     mitmproxy
     libqalculate
+    mpv
   ];
 }
