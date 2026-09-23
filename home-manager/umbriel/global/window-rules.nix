@@ -13,5 +13,9 @@
         anchor = "bottom_right";
       };
     }
+    {
+      match.title = "^Maths Quiz";
+      default_floating = true;
+    }
   ];
 }
