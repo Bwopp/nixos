@@ -47,5 +47,6 @@
     mitmproxy
     libqalculate
     mpv
+    brave-origin
   ];
 }
