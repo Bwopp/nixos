@@ -20,8 +20,6 @@ in
     border = {
       focused = "#${colours.base0D}FF";
       unfocused = "#${colours.base01}FF";
-      scratchpad_focused = "#${colours.base0A}FF";
-      scratchpad_unfocused = "#${colours.base02}FF";
       outer = "#${colours.base00}FF";
     };
 

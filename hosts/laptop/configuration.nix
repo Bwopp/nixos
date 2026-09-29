@@ -30,7 +30,7 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     initrd.kernelModules = [
-      "xe"
+      "i915"
       "btrfs"
       "nvme"
       "sd-mod"
@@ -39,10 +39,10 @@
     ];
     kernelParams = [
       "pcie_aspm=force"
-      "xe.force_probe=7d51"
-      "i915.force_probe=!7d51"
+      "i915.force_probe=7d51"
+      "xe.force_probe=!7d51"
     ];
-    blacklistedKernelModules = [ "i915" ];
+    blacklistedKernelModules = [ "xe" ];
   };
 
   networking.hostName = "nixos";
@@ -103,10 +103,14 @@
   networking.firewall.allowedTCPPorts = [
     7236
     7250
+    7777
+    25565
   ];
   networking.firewall.allowedUDPPorts = [
     7236
     5353
+    7777
+    25565
   ];
 
   system.stateVersion = "25.11"; # Did you read the comment? no lol
