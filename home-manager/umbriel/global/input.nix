@@ -7,7 +7,7 @@
     touchpad = {
       tap = true;
       natural_scroll = true;
-      disable_while_typing = true;
+      disable_while_typing = false;
       sensitivity = 0.5;
       accel_profile = "flat";
       click_method = "clickfinger";
