@@ -33,6 +33,9 @@ in
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = false;
+    sharedModules = [
+      { disabledModules = [ "programs/noctalia" ]; }
+    ];
     extraSpecialArgs = { inherit inputs hostName; };
     users = {
       "bwop" = {
