@@ -3,7 +3,6 @@
   environment.systemPackages = with pkgs; [
     wget
     alacritty
-    gparted
     wl-clipboard
     brightnessctl
     cliphist
@@ -14,6 +13,7 @@
     seahorse
     mpv
     libqalculate
+    gnome-calculator
     playerctl
   ];
 }

@@ -118,8 +118,8 @@
     "XF86AudioPrev" = "spawn:playerctl previous";
 
     # Extra Binds
-    "XF86Calculator" = "spawn:noctalia msg panel-toggle samuelskovbakke/calculator-plus:panel";
-    "Mod+Shift+C" = "spawn:noctalia msg panel-toggle samuelskovbakke/calculator-plus:panel";
+    "XF86Calculator" = "spawn:gnome-calculator";
+    "Mod+Shift+C" = "spawn:gnome-calculator";
     "Mod+V" = "spawn:noctalia msg panel-toggle clipboard";
     "Mod+L" = "spawn:noctalia msg session lock";
     "XF86Favorites" = "spawn:codium /etc/nixos";

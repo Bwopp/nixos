@@ -2,7 +2,6 @@
   plugins = {
     enabled = [ 
       "radimous/prismlauncher-instances"
-      "samuelskovbakke/calculator-plus"
     ];
     auto_update = "all";
     source = [

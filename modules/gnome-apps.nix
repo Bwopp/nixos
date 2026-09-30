@@ -6,6 +6,7 @@
     file-roller
     gnome-text-editor
     papers
+    gnome-disk-utility
   ];
   services = {
     gnome.sushi.enable = true;
