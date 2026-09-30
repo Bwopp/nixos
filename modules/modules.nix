@@ -8,6 +8,9 @@ let
     ./network.nix
     ./bluetooth.nix
     ./packages.nix
+    ./default-packages.nix
+    ./gaming-packages.nix
+    ./gnome-apps.nix
     ./niri.nix
     ./steam.nix
     ./umbriel.nix

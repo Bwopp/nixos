@@ -14,7 +14,7 @@
       };
     }
     {
-      match.title = "^Maths Quiz";
+      match.app_id = "^org\\.gnome\\.NautilusPreviewer$";
       default_floating = true;
     }
   ];
