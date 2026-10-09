@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     prismlauncher
@@ -6,17 +6,12 @@
     spotify
     btop
     fastfetch
-    mangohud
-    protonplus
     qbittorrent
     element-desktop
-    balatro-mod-manager
     blender
     nixd
     devenv
-    satisfactorymodmanager
-    inputs.hytale-launcher.packages.x86_64-linux.default
-    lutris
     brave-origin
+    libreoffice
   ];
 }
