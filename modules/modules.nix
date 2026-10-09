@@ -11,7 +11,6 @@ let
     ./default-packages.nix
     ./gaming-packages.nix
     ./gnome-apps.nix
-    ./niri.nix
     ./steam.nix
     ./umbriel.nix
   ];
