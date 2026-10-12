@@ -5,7 +5,7 @@
       scale = 1.0;
       position = [ 0 0 ];
       tearing = false;
-      vrr = "fullscreen";
+      vrr = "disabled";
     };
     "Lenovo Group Limited T24i-10 VT685808" = {
       mode = "1920x1080@60.0";
