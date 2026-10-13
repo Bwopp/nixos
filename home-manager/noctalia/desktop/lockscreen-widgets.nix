@@ -3,8 +3,8 @@
     enabled = true;
     schema_version = 2;
     widget_order = [
-      "lockscreen-login-box@DP-4"
-      "lockscreen-login-box@DP-3"
+      "lockscreen-login-box@DP-1"
+      "lockscreen-login-box@DP-2"
       "lockscreen-widget-0000000000000002"
       "lockscreen-widget-0000000000000003"
       "lockscreen-widget-0000000000000005"
@@ -15,13 +15,14 @@
       major_interval = 4;
       visible = true;
     };
-    widget."lockscreen-login-box@DP-3" = {
+
+    widget."lockscreen-login-box@DP-1" = {
       box_height = 229.0;
       box_width = 810.0;
       cx = 1280.0;
       cy = 720.0;
       enabled = true;
-      output = "DP-3";
+      output = "DP-1";
       rotation = 0.0;
       type = "login_box";
       settings = {
@@ -41,13 +42,14 @@
         show_unlock_hint = false;
       };
     };
-    widget."lockscreen-login-box@DP-4" = {
+
+    widget."lockscreen-login-box@DP-2" = {
       box_height = 229.0;
       box_width = 810.0;
       cx = 960.0;
       cy = 540.0;
       enabled = true;
-      output = "DP-4";
+      output = "DP-2";
       rotation = 0.0;
       type = "login_box";
       settings = {
@@ -67,50 +69,54 @@
         show_unlock_hint = false;
       };
     };
+
     widget."lockscreen-widget-0000000000000002" = {
       box_height = 0.0;
       box_width = 0.0;
       cx = 1280.0;
       cy = 465.0;
       enabled = true;
-      output = "DP-3";
+      output = "DP-1";
       rotation = 0.0;
       type = "clock";
       settings = {
         background = false;
       };
     };
+
     widget."lockscreen-widget-0000000000000003" = {
       box_height = 0.0;
       box_width = 0.0;
       cx = 960.0;
       cy = 347.0;
       enabled = true;
-      output = "DP-4";
+      output = "DP-2";
       rotation = 0.0;
       type = "clock";
       settings = {
         background = false;
       };
     };
+
     widget."lockscreen-widget-0000000000000005" = {
       box_height = 0.0;
       box_width = 0.0;
       cx = 1280.0;
       cy = 982.0;
       enabled = true;
-      output = "DP-3";
+      output = "DP-1";
       rotation = 0.0;
       type = "media_player";
       settings = { };
     };
+
     widget."lockscreen-widget-0000000000000006" = {
       box_height = 0.0;
       box_width = 0.0;
       cx = 960.0;
       cy = 802.0;
       enabled = true;
-      output = "DP-4";
+      output = "DP-2";
       rotation = 0.0;
       type = "media_player";
       settings = { };

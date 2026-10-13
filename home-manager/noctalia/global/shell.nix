@@ -4,7 +4,7 @@
     avatar_path = "/home/bwop/Pictures/cat.png";
     button_borders = true;
     card_borders = true;
-    clipboard_auto_paste = "auto";
+    clipboard_auto_paste = "off";
     clipboard_confirm_clear_history = true;
     clipboard_enabled = true;
     clipboard_history_max_entries = 100;
@@ -47,9 +47,10 @@
 
     launcher = {
       app_grid = false;
-      auto_paste = "auto";
+      auto_paste = "off";
       categories = false;
       compact = true;
+      layout = "simple";
       fetch_exchange_rates = true;
       provider_prefix = "/";
       show_icons = true;
