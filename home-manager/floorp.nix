@@ -10,7 +10,7 @@ let
 
   # To add additional extensions, find it on addons.mozilla.org, find
   # the short ID in the url (like https://addons.mozilla.org/en-US/firefox/addon/!SHORT_ID!/)
-  # Then go to https://addons.mozilla.org/api/v5/addons/addon/!SHORT_ID!/ to get the guid
+  # Then go to https://addons.mozhttps://addons.moziilla.org/api/v5/addons/addon/!SHORT_ID!/ to get the guid
 
   extensions = [
     (extension "ublock-origin" "uBlock0@raymondhill.net")
@@ -22,6 +22,7 @@ let
     (extension "sponsorblock" "sponsorBlocker@ajay.app")
     (extension "don-t-fuck-with-paste" "DontFuckWithPaste@raim.ist")
     (extension "hide-youtube-shorts" "{88ebde3a-4581-4c6b-8019-2a05a9e3e938}")
+    (extension "always-visible" "{4b7825da-0dd1-44f9-9717-bee5b2408af6}")
   ];
 in
 {
