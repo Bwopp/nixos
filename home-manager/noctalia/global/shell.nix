@@ -51,6 +51,7 @@
       categories = false;
       compact = true;
       layout = "simple";
+      pinned = [ "librewolf" "librewolf-school" ];
       fetch_exchange_rates = true;
       provider_prefix = "/";
       show_icons = true;

@@ -4,15 +4,6 @@
       ./hardware-configuration.nix
     ];
 
-  nixpkgs.overlays = [
-    inputs.nix-cachyos-kernel.overlays.pinned
-  ];
-
-  nix.settings = { 
-    substituters = [ "https://attic.xuyh0120.win/lantian" ];
-    trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
-  };
-
   # da bootloader
   boot.loader = {
     efi.canTouchEfiVariables = true;
@@ -35,7 +26,7 @@
     };
   };
   
-  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   boot.kernelParams = [
     "video=DP-3:2560x1440@144"
