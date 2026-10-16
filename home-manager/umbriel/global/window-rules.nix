@@ -1,7 +1,7 @@
 {
   window_rule = [
     {
-      match.app_id = "^floorp$";
+      match.app_id = "^librewolf$";
       default_maximize = true;
     }
     {
