@@ -11,7 +11,6 @@ let
     ./alacritty.nix
     ./noctalia/noctalia.nix
     ./codium.nix
-    ./floorp.nix
     ./obsidian.nix
     ./spicetify.nix
     ./nixcord.nix

@@ -4,7 +4,8 @@
     "Mod+Return" = "spawn:alacritty";
     "Mod+D" = "spawn:noctalia msg panel-toggle launcher";
     "Mod+E" = "spawn:nautilus";
-    "Mod+W" = "spawn:floorp";
+    "Mod+W" = "spawn:librewolf -P Personal";
+    "Mod+S" = "spawn:librewolf -P School";
 
     # Window & overview management
     "Mod+Q" = "window-close";
