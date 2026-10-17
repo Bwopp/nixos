@@ -5,6 +5,7 @@ let
     value = {
       install_url = "https://addons.mozilla.org/en-US/firefox/downloads/latest/${shortId}/latest.xpi";
       installation_mode = "normal_installed";
+      private_browsing = true;
     };
   };
 
@@ -68,6 +69,7 @@ let
       "privacy.sanitize.sanitizeOnShutdown" = false;
       "browser.download.useDownloadDir" = true;
       "services.sync.engine.addons" = false;
+      "network.http.referer.XOriginPolicy" = 2;
     };
   } // extra;
 in
