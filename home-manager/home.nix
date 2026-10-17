@@ -16,7 +16,7 @@ let
     ./nixcord.nix
     ./git.nix
     ./umbriel/umbriel.nix
-    ./librewolf.nix
+    ./librewolf/librewolf.nix
   ];
 
   perHostModules = {
