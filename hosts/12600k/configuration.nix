@@ -20,10 +20,10 @@
     nixcord.enable = true;
     obsidian.enable = true;
     pipewire.enable = true;
-    sing-box.enable = true;
+    sing-box.enable = false;
     spicetify.enable = true;
     steam.enable = true;
-    warp.enable = false;
+    warp.enable = true;
     nz-locale.enable = true;
 
     stylix = {
