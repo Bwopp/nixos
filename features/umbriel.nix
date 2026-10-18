@@ -14,11 +14,12 @@ in
     };
   };
 
+  imports = [ inputs.umbriel.nixosModules.default ];
+
   config = lib.mkIf cfg.enable {
 
-    imports = [ inputs.umbriel.nixosModules.default ];
     programs.umbriel.enable = true;
-    
+
     home-manager.sharedModules = [
       inputs.umbriel.homeModules.default
       (

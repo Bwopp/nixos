@@ -1,10 +1,10 @@
-# features/<name>.nix
-{ config, lib, ... }:
+{ config, lib, inputs, ... }:
 {
   options.features.nixcord.enable = lib.mkEnableOption "nixcord";
 
   config = lib.mkIf config.features.nixcord.enable {
     home-manager.sharedModules = [
+      inputs.nixcord.homeModules.nixcord
       (
         { config, ... }:
         {

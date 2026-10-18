@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 {
   options.features.gaming-packages.enable = lib.mkEnableOption "gaming-packages";
 

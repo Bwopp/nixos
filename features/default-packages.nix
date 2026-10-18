@@ -1,8 +1,8 @@
 { config, lib, pkgs, ... }:
 {
-  options.features.base-packages.enable = lib.mkEnableOption "base-packages";
+  options.features.default-packages.enable = lib.mkEnableOption "default-packages";
 
-  config = lib.mkIf config.features.base-packages.enable {
+  config = lib.mkIf config.features.default-packages.enable {
     environment.systemPackages = with pkgs; [
       wget
       wl-clipboard
@@ -30,7 +30,7 @@
       brave-origin
       libreoffice
     ];
-    
+
     programs.localsend.enable = true;
   };
 }

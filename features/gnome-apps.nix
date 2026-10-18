@@ -23,9 +23,4 @@
       terminal = "alacritty";
     };
   };
-  services = {
-    gvfs.enable = true;
-    samba-wsdd.enable = true;
-    udisks2.enable = true;
-  };
 }
