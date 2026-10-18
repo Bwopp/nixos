@@ -1,8 +1,11 @@
+# flake.nix
 {
   description = "NixOS config flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    import-tree.url = "github:vic/import-tree";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -32,7 +35,7 @@
     umbriel = {
       url = "git+https://github.com/noctalia-dev/umbriel";
       inputs.nixpkgs.follows = "nixpkgs";
-    };    
+    };
 
     stylix = {
       url = "github:nix-community/stylix";
@@ -64,36 +67,25 @@
   };
 
   outputs =
-    { self, nixpkgs, ... }@inputs:
+    { nixpkgs, import-tree, ... }@inputs:
     let
-      modules = [
-        {
-          nixpkgs.config.allowUnfree = true;
-          hardware = {
-            enableAllFirmware = true;
-            enableRedistributableFirmware = true;
-          };
-        }
-        inputs.home-manager.nixosModules.default
-        inputs.lix-module.nixosModules.default
-        ./home-manager/home.nix
-        ./modules/modules.nix
-      ];
+      lib = nixpkgs.lib;
 
+      hostNames = builtins.attrNames (
+        lib.filterAttrs (_: type: type == "directory") (builtins.readDir ./hosts)
+      );
 
-      mkHost = { hostName, hostConfig }: nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs hostName; };
-        modules = modules ++ [ hostConfig ];
-      };
+      mkHost =
+        hostName:
+        lib.nixosSystem {
+          specialArgs = { inherit inputs hostName; };
+          modules = [
+            (import-tree ./features)
+            (import-tree ./hosts/${hostName})
+          ];
+        };
     in
     {
-      nixosConfigurations.nixos = mkHost {
-        hostName = "nixos";
-        hostConfig = ./hosts/laptop/configuration.nix;
-      };
-      nixosConfigurations."12600k-nix" = mkHost {
-        hostName = "12600k-nix";
-        hostConfig = ./hosts/desktop/configuration.nix;
-      };
+      nixosConfigurations = lib.genAttrs hostNames mkHost;
     };
 }
