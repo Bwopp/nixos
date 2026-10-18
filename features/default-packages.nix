@@ -24,7 +24,6 @@
       fastfetch
       qbittorrent
       element-desktop
-      blender
       nixd
       devenv
       brave-origin

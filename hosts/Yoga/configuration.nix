@@ -24,6 +24,7 @@
     spicetify.enable = true;
     steam.enable = true;
     warp.enable = false;
+    nz-locale.enable = true;
 
     stylix = {
       enable = true;
