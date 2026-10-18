@@ -13,9 +13,6 @@
       resolution = "3000x1876";
       style = {
         interface.resolution = "3000x1876";
-        wallpapers = [
-          ./bootloader/nix.png
-        ];
       };
 
       extraEntries = ''
