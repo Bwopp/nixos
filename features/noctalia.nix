@@ -1,4 +1,3 @@
-# features/noctalia.nix
 { config, lib, inputs, ... }:
 let
   cfg = config.features.noctalia;

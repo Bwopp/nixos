@@ -1,4 +1,3 @@
-# features/<name>.nix
 { config, lib, ... }:
 {
   options.features.obsidian.enable = lib.mkEnableOption "obsidian";

@@ -1,4 +1,3 @@
-# features/<name>.nix
 { config, lib, ... }:
 {
   options.features.floorp.enable = lib.mkEnableOption "floorp";

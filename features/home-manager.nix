@@ -1,4 +1,3 @@
-# features/home-manager.nix
 { inputs, hostName, ... }:
 {
   imports = [ inputs.home-manager.nixosModules.default ];

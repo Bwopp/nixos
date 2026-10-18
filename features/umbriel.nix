@@ -1,4 +1,3 @@
-# features/umbriel.nix
 { config, lib, inputs, ... }:
 let
   cfg = config.features.umbriel;
