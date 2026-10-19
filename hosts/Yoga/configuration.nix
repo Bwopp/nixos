@@ -156,6 +156,8 @@
       resolution = "3000x1876";
       style = {
         interface.resolution = "3000x1876";
+        wallpapers = [ ];
+        backdrop = "000000";
       };
 
       extraEntries = ''
@@ -189,28 +191,6 @@
 
   # Time stuff
   time.timeZone = "Pacific/Auckland";
-
-  # Select internationalisation properties.
-  i18n = {
-    defaultLocale = "en_NZ.UTF-8";
-    extraLocaleSettings = {
-      LC_ADDRESS = "en_NZ.UTF-8";
-      LC_IDENTIFICATION = "en_NZ.UTF-8";
-      LC_MEASUREMENT = "en_NZ.UTF-8";
-      LC_MONETARY = "en_NZ.UTF-8";
-      LC_NAME = "en_NZ.UTF-8";
-      LC_NUMERIC = "en_NZ.UTF-8";
-      LC_PAPER = "en_NZ.UTF-8";
-      LC_TELEPHONE = "en_NZ.UTF-8";
-      LC_TIME = "en_NZ.UTF-8";
-    };
-  };
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "nz";
-    variant = "";
-  };
 
   services.power-profiles-daemon.enable = true;
 

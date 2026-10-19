@@ -228,6 +228,8 @@
       resolution = "2560x1440";
       style = {
         interface.resolution = "2560x1440";
+        wallpapers =  [ ];
+        backdrop = "000000";
       };
 
     extraEntries = ''

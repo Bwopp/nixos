@@ -137,8 +137,8 @@
               #tabbrowser-tabs .tabbrowser-tab > .tab-stack > .tab-background:is([selected], [multiselected]) {
                 background: ${c.base02} !important;
                 background-image: none !important;
-                outline: 1px solid ${accent} !important;
-                outline-offset: -1px !important;
+                outline: 2px solid ${accent} !important;
+                outline-offset: -2px !important;
                 box-shadow: none !important;
               }
 
@@ -385,7 +385,7 @@
               "network.http.referer.XOriginPolicy" = 2;
               "browser.theme.native-theme" = false;
               "widget.gtk.native-context-menus" = true;
-              browser.tabs.inTitlebar = 0;
+              "browser.tabs.inTitlebar" = 0;
             };
           } // extra;
         in

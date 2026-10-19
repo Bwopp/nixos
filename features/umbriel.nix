@@ -38,7 +38,7 @@ in
                 ];
                 show_cheatsheet = false;
               };
-
+              appearance.shadow.enabled = false;
               appearance.prefer_no_csd = true;
               input = {
                 focus.follows_mouse = false;
