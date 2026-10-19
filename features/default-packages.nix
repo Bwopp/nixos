@@ -23,7 +23,6 @@
       btop
       fastfetch
       qbittorrent
-      element-desktop
       nixd
       devenv
       brave-origin
