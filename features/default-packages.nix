@@ -28,6 +28,7 @@
       devenv
       brave-origin
       libreoffice
+      libheif
     ];
 
     programs.localsend.enable = true;
