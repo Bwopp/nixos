@@ -378,13 +378,15 @@
               "browser.toolbars.bookmarks.visibility" = "never";
               "browser.download.autohideButton" = true;
               "privacy.resistFingerprinting" = false;
+              "privacy.fingerprintingProtection" = true;
+              "privacy.fingerprintingProtection.overrides" = "+AllTargets,-CSSPrefersColorScheme";
               "browser.profiles.enabled" = false;
               "privacy.sanitize.sanitizeOnShutdown" = false;
               "browser.download.useDownloadDir" = true;
               "services.sync.engine.addons" = false;
               "network.http.referer.XOriginPolicy" = 2;
               "browser.theme.native-theme" = false;
-              "widget.gtk.native-context-menus" = true;
+              "widget.gtk.native-context-menus" = false;
               "browser.tabs.inTitlebar" = 0;
             };
           } // extra;
