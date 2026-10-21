@@ -75,7 +75,7 @@
                 appearance = {
                   baseFontSize = lib.mkForce 16;
                   cssTheme = "stylix";
-                  baseTheme = "theme-dark";
+                  theme = "obsidian";
                 };
 
 
