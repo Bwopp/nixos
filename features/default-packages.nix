@@ -28,6 +28,7 @@
       brave-origin
       libreoffice
       libheif
+      mitmproxy
     ];
 
     programs.localsend.enable = true;
