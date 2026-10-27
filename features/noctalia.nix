@@ -129,10 +129,10 @@ in
                 widgets = {
                   auto_hide = false;
                   background_opacity = 1.0;
-                  border = "outline";
+                  border = "outline_variant";
                   border_width = 0.0;
                   capsule = false;
-                  capsule_fill = "surface_variant";
+                  capsule_fill = "surface_container";
                   capsule_group = [ ];
                   capsule_opacity = 1.0;
                   capsule_padding = 6.0;
