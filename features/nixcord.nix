@@ -34,6 +34,7 @@
                 petpet.enable = true;
                 showHiddenChannels.enable = true;
                 youtubeAdblock.enable = true;
+                translate.enable = true;
               };
             };
           };
