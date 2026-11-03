@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 {
   options.features.default-packages.enable = lib.mkEnableOption "default-packages";
 

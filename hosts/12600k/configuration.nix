@@ -25,6 +25,7 @@
     steam.enable = true;
     warp.enable = true;
     nz-locale.enable = true;
+    sonora.enable = true;
 
     stylix = {
       enable = true;
@@ -46,7 +47,7 @@
             mode = "2560x1440@144.0";
             scale = 1.0;
             position = [ 0 0 ];
-            tearing = false;
+            tearing = true;
             vrr = "disabled";
           };
           "Lenovo Group Limited T24i-10 VT685808" = {

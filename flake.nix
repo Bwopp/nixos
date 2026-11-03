@@ -58,6 +58,7 @@
     };
 
     hytale-launcher.url = "github:JPyke3/hytale-launcher-nix";
+    sonora.url = "github:sonorahq/sonora";
   };
 
   outputs =
