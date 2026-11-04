@@ -402,7 +402,6 @@ in
                 ];
               };
               shell = {
-                app_icon_colorize = false;
                 avatar_path = "/home/bwop/Pictures/cat.png";
                 button_borders = true;
                 card_borders = true;

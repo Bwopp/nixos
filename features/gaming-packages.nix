@@ -6,7 +6,7 @@
     environment.systemPackages = with pkgs; [
       mangohud
       protonplus
-      balatro-mod-manager
+      r2modman
       satisfactorymodmanager
       inputs.hytale-launcher.packages.x86_64-linux.default
       lutris

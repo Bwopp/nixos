@@ -119,7 +119,7 @@
             rotation = 0.0;
             type = "login_box";
             settings = {
-              background_color = "surface_variant";
+              background_color = "surface_container";
               background_opacity = 0.88;
               background_radius = 12.0;
               center_password_text = false;
@@ -146,7 +146,7 @@
             rotation = 0.0;
             type = "login_box";
             settings = {
-              background_color = "surface_variant";
+              background_color = "surface_container";
               background_opacity = 0.88;
               background_radius = 12.0;
               center_password_text = false;
@@ -218,6 +218,11 @@
       };
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    nicotine-plus
+    picard
+  ];
 
 
   # da bootloader
