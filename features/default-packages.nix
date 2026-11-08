@@ -25,7 +25,7 @@
       qbittorrent
       nixd
       devenv
-      brave-origin
+      ungoogled-chromium
       libreoffice
       libheif
       mitmproxy
