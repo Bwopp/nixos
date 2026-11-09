@@ -11,6 +11,7 @@
       papers
       gnome-disk-utility
     ];
+
     services = {
       gnome.sushi.enable = true;
       gvfs.enable = true;
@@ -22,5 +23,22 @@
       enable = true;
       terminal = "alacritty";
     };
+
+    home-manager.sharedModules = [
+      (
+        { ... }:
+        {
+          xdg.desktopEntries."org.gnome.Nautilus" = {
+            name = "Files";
+            exec = "nautilus --new-window";
+            icon = "org.gnome.Nautilus";
+            terminal = false;
+            categories = [ "GNOME" "GTK" "Utility" "Core" ];
+            mimeType = [ "inode/directory" ];
+            settings.DBusActivatable = "false";
+          };
+        }
+      )
+    ];
   };
 }

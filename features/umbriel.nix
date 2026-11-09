@@ -69,7 +69,7 @@ in
                 # Launch applications
                 "Mod+Return" = "spawn alacritty";
                 "Mod+D" = "spawn noctalia msg panel-toggle launcher";
-                "Mod+E" = "spawn nautilus";
+                "Mod+E" = "spawn nautilus --new-window";
                 "Mod+W" = "spawn librewolf -P Personal";
                 "Mod+S" = "spawn librewolf -P School";
 

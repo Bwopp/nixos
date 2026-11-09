@@ -28,7 +28,6 @@
       ungoogled-chromium
       libreoffice
       libheif
-      mitmproxy
     ];
 
     programs.localsend.enable = true;
