@@ -33,6 +33,7 @@
             (extension "don-t-fuck-with-paste" "DontFuckWithPaste@raim.ist")
             (extension "hide-youtube-shorts" "{88ebde3a-4581-4c6b-8019-2a05a9e3e938}")
             (extension "always-visible" "{4b7825da-0dd1-44f9-9717-bee5b2408af6}")
+            (extension "fastforwardteam" "addon@fastforward.team")
           ];
 
           mkProfile = { id, accent, extra ? { } }: {
