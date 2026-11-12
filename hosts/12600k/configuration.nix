@@ -47,7 +47,7 @@
             mode = "2560x1440@144.0";
             scale = 1.0;
             position = [ 0 0 ];
-            tearing = true;
+            tearing = false;
             vrr = "disabled";
           };
           "Lenovo Group Limited T24i-10 VT685808" = {
