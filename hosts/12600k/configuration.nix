@@ -248,7 +248,12 @@
   
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  hardware.amdgpu.initrd.enable = true;
+
+  boot.kernelParams = [
+    "video=DP-1:2560x1440@144"
+    "video=DP-2:1920x1080@60"
+  ];
   
   networking.hostName = "12600k";
 

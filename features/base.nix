@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
     inputs.lix-module.nixosModules.default
@@ -15,4 +15,6 @@
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
   };
+
+  hardware.firmware = [ pkgs.linux-firmware ];
 }
