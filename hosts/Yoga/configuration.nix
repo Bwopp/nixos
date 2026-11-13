@@ -184,9 +184,11 @@
       "pcie_aspm=force"
       "i915.force_probe=7d51"
       "xe.force_probe=!7d51"
+      "video=eDP-1:3000x1876@120"
     ];
     blacklistedKernelModules = [ "xe" ];
   };
+
 
   networking.hostName = "Yoga";
 
