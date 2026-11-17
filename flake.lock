@@ -285,6 +285,26 @@
         "url": "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz"
       }
     },
+    "luciole": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794889510,
+        "narHash": "sha256-k7qcGqJnMBDmd4Ww8iPmRscD04tF76ZauU1z3s3xfsg=",
+        "owner": "noctalia-dev",
+        "repo": "luciole",
+        "rev": "b40c96336d97a15a3874bc93cb7b61627aeb3563",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "luciole",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -498,6 +518,7 @@
         "import-tree": "import-tree",
         "lix": "lix",
         "lix-module": "lix-module",
+        "luciole": "luciole",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixcord": "nixcord",
         "nixpkgs": "nixpkgs_2",
@@ -742,17 +763,17 @@
         "xdg-desktop-portal-umbriel": "xdg-desktop-portal-umbriel"
       },
       "locked": {
-        "lastModified": 1794328794,
-        "narHash": "sha256-nP73DOkupzZ1WksKOSZGDx2ypD0tzZOKD9UoX+vp7LQ=",
-        "ref": "refs/heads/main",
-        "rev": "d13b34108f68cd8f72a5a5df40b281bdf60c0758",
-        "revCount": 1561,
-        "type": "git",
-        "url": "https://github.com/noctalia-dev/umbriel"
+        "lastModified": 1794879520,
+        "narHash": "sha256-M9mSX6we8uBybY/Wwzt+KxphU/wMDcNcCcCaZOJ/A+8=",
+        "owner": "noctalia-dev",
+        "repo": "umbriel",
+        "rev": "d1329334efd85adbb8990ee8af0fd805f34951a4",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://github.com/noctalia-dev/umbriel"
+        "owner": "noctalia-dev",
+        "repo": "umbriel",
+        "type": "github"
       }
     },
     "xdg-desktop-portal-umbriel": {

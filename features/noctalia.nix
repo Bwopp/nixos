@@ -9,7 +9,7 @@ in
     overrides = lib.mkOption {
       type = lib.types.attrsOf lib.types.anything;
       default = { };
-      description = "Per-host settings, deep-merged over the base Noctalia settings.";
+      description = "Noctalia";
     };
   };
 

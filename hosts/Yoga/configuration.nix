@@ -26,6 +26,7 @@
     warp.enable = false;
     nz-locale.enable = true;
     sonora.enable = true;
+    luciole.enable = true;
 
     stylix = {
       enable = true;
