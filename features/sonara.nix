@@ -1,11 +1,8 @@
 { config, lib, inputs, ... }:
-let
-  cfg = config.features.sonora;
-in
 {
   options.features.sonora.enable = lib.mkEnableOption "Sonora music streaming client";
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf config.features.sonora.enable {
     home-manager.sharedModules = [
       (
         { config, ... }:
