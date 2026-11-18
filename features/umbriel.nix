@@ -44,7 +44,7 @@ in
                 blur.enabled = false;
               };
               input = {
-                focus.follows_mouse = false;
+                focus.follows_mouse = "off";
                 keyboard = {
                   layout = "nz";
                 };
