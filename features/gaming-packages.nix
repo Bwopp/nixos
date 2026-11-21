@@ -10,6 +10,7 @@
       satisfactorymodmanager
       inputs.hytale-launcher.packages.x86_64-linux.default
       lutris
+      r2modman
     ]; 
   };
 }
