@@ -28,6 +28,7 @@ in
         {
           stylix = {
             enable = true;
+            targets.wayprompt.enable = false;
             overlays.enable = false;
             base16Scheme = "${pkgs.base16-schemes}/share/themes/${cfg.scheme}.yaml";
             cursor = {
