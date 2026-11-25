@@ -25,8 +25,8 @@
     steam.enable = true;
     warp.enable = false;
     nz-locale.enable = true;
-    sonora.enable = true;
-    luciole.enable = true;
+    sonora.enable = false;
+    luciole.enable = false;
 
     stylix = {
       enable = true;
