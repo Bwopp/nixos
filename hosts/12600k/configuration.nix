@@ -227,8 +227,10 @@
 
   # da bootloader
   boot.loader = {
-    efi.canTouchEfiVariables = true;
+    efi.canTouchEfiVariables = false;
     limine = {
+      efiSupport = true;
+      efiInstallAsRemovable = true;
       enable = true;
       maxGenerations = 30;
       resolution = "2560x1440";
@@ -237,12 +239,6 @@
         wallpapers =  [ ];
         backdrop = "000000";
       };
-
-    extraEntries = ''
-      /Windows
-        protocol: efi
-        path: uuid(fdfecdc9-7a11-4268-8bbf-7c9b3b919399):/EFI/Microsoft/Boot/bootmgfw.efi
-    '';
     };
   };
   
